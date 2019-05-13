@@ -11,6 +11,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/google-map/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -40,6 +42,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/</loc>
     <lastmod>2019-05-03T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -51,6 +55,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/cookielocalstoragesessionstorage/</loc>
     <lastmod>2019-04-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -74,6 +80,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/ajax-error/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -85,6 +93,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -102,6 +112,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/webpack/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -113,6 +125,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</loc>
     <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
@@ -124,6 +138,8 @@
   <url>
     <loc>https://coolgood88142.github.io/posts/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/</loc>
     <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   
   <url>
