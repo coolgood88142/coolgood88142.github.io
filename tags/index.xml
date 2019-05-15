@@ -12,7 +12,16 @@
     
     
     <item>
-      <title>google map</title>
+      <title>Google Developers</title>
+      <link>https://coolgood88142.github.io/tags/google-developers/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/google-developers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Map</title>
       <link>https://coolgood88142.github.io/tags/google-map/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
@@ -21,16 +30,25 @@
     </item>
     
     <item>
-      <title>流程圖形狀符號</title>
-      <link>https://coolgood88142.github.io/tags/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/</link>
+      <title>Flow Chart</title>
+      <link>https://coolgood88142.github.io/tags/flow-chart/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/</guid>
+      <guid>https://coolgood88142.github.io/tags/flow-chart/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>cookie</title>
+      <title>Process Flow Diagram</title>
+      <link>https://coolgood88142.github.io/tags/process-flow-diagram/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/process-flow-diagram/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cookie</title>
       <link>https://coolgood88142.github.io/tags/cookie/</link>
       <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -39,7 +57,7 @@
     </item>
     
     <item>
-      <title>localStorage</title>
+      <title>LocalStorage</title>
       <link>https://coolgood88142.github.io/tags/localstorage/</link>
       <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -48,7 +66,7 @@
     </item>
     
     <item>
-      <title>sessionStorage</title>
+      <title>SessionStorage</title>
       <link>https://coolgood88142.github.io/tags/sessionstorage/</link>
       <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
       
@@ -57,11 +75,20 @@
     </item>
     
     <item>
-      <title>ajax error</title>
-      <link>https://coolgood88142.github.io/tags/ajax-error/</link>
+      <title>ajax error response text</title>
+      <link>https://coolgood88142.github.io/tags/ajax-error-response-text/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/ajax-error/</guid>
+      <guid>https://coolgood88142.github.io/tags/ajax-error-response-text/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery Ajax Error</title>
+      <link>https://coolgood88142.github.io/tags/jquery-ajax-error/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/jquery-ajax-error/</guid>
       <description></description>
     </item>
     
@@ -84,7 +111,16 @@
     </item>
     
     <item>
-      <title>webpack</title>
+      <title>Package Manager</title>
+      <link>https://coolgood88142.github.io/tags/package-manager/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/package-manager/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
       <link>https://coolgood88142.github.io/tags/webpack/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
@@ -93,7 +129,7 @@
     </item>
     
     <item>
-      <title>development,production</title>
+      <title>Development,Production</title>
       <link>https://coolgood88142.github.io/tags/developmentproduction/</link>
       <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
       
@@ -102,11 +138,20 @@
     </item>
     
     <item>
-      <title>正規化表示法</title>
-      <link>https://coolgood88142.github.io/tags/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/</link>
+      <title>Regex</title>
+      <link>https://coolgood88142.github.io/tags/regex/</link>
       <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/</guid>
+      <guid>https://coolgood88142.github.io/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regular Expression</title>
+      <link>https://coolgood88142.github.io/tags/regular-expression/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/regular-expression/</guid>
       <description></description>
     </item>
     
