@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -8,7 +9,7 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/tags/google-developers/</loc>
+    <loc>https://coolgood88142.github.io/tags/geocoding-api/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -24,6 +25,12 @@
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/tags/map-javascript-api/</loc>
+    <lastmod>2019-05-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -45,7 +52,7 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/tags/process-flow-diagram/</loc>
+    <loc>https://coolgood88142.github.io/tags/flow-chart-symbol/</loc>
     <lastmod>2019-05-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -83,16 +90,16 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/tags/xmlhttprequest/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/posts/ajax-error/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/tags/ajax-error-response-text/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
