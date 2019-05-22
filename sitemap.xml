@@ -4,7 +4,51 @@
   
   <url>
     <loc>https://coolgood88142.github.io/</loc>
-    <lastmod>2019-05-06T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/tags/git/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/tags/heroku/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/posts/heroku/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/tags/hugo/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/posts/hugo/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/posts/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/tags/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -29,18 +73,6 @@
   
   <url>
     <loc>https://coolgood88142.github.io/tags/map-javascript-api/</loc>
-    <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/posts/</loc>
-    <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/tags/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -90,12 +122,6 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/tags/xmlhttprequest/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://coolgood88142.github.io/posts/ajax-error/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -103,7 +129,13 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/tags/jquery-ajax-error/</loc>
+    <loc>https://coolgood88142.github.io/tags/xmlhttprequest/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/tags/jquery-ajax/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

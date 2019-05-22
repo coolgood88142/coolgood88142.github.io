@@ -6,10 +6,37 @@
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; Lorem ipsum ... and so on ...</copyright>
-    <lastBuildDate>Mon, 06 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coolgood88142.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git</title>
+      <link>https://coolgood88142.github.io/tags/git/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HeroKu</title>
+      <link>https://coolgood88142.github.io/tags/heroku/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://coolgood88142.github.io/tags/hugo/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Geocoding API</title>
@@ -93,11 +120,11 @@
     </item>
     
     <item>
-      <title>jQuery Ajax Error</title>
-      <link>https://coolgood88142.github.io/tags/jquery-ajax-error/</link>
+      <title>jQuery Ajax</title>
+      <link>https://coolgood88142.github.io/tags/jquery-ajax/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/jquery-ajax-error/</guid>
+      <guid>https://coolgood88142.github.io/tags/jquery-ajax/</guid>
       <description></description>
     </item>
     

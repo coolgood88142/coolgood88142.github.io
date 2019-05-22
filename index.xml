@@ -6,10 +6,28 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; Lorem ipsum ... and so on ...</copyright>
-    <lastBuildDate>Mon, 06 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coolgood88142.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>HeroKu教學：部署網站</title>
+      <link>https://coolgood88142.github.io/posts/heroku/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/posts/heroku/</guid>
+      <description>說明如何使用HeroKu部署網站</description>
+    </item>
+    
+    <item>
+      <title>Hugo教學：部落格網站</title>
+      <link>https://coolgood88142.github.io/posts/hugo/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/posts/hugo/</guid>
+      <description>說明如何使用Hugo製作部落格網站</description>
+    </item>
     
     <item>
       <title>Google Map教學：操作地址</title>
@@ -39,7 +57,7 @@
     </item>
     
     <item>
-      <title>ajax error</title>
+      <title>Ajax Error</title>
       <link>https://coolgood88142.github.io/posts/ajax-error/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       

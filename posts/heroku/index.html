@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" HeroKu教學：部署網站 &middot;  " />
+  
+  <meta property="og:site_name" content="" />
+  <meta property="og:url" content="https://coolgood88142.github.io/posts/heroku/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2019-05-12T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="HeroKu" />
+    
+      <meta property="og:article:tag" content="Git" />
+    
+  
+
+  <title>
+     HeroKu教學：部署網站 &middot;  
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/"></a></h1>
+      
+        <h3 class="tag-line">
+          我的部落格
+        </h3>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;Home
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/pages/about">
+            About
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">HeroKu教學：部署網站</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    
+
+<p><strong>Heroku</strong> 是多個雲端伺服器當中之一，結合Github是一個專門讓人放置網站的服務，給開發者一個固定的 URL (含有 HTTPS 憑證)，可快速將自己的專案部署上去。</p>
+
+<p><img src="https://coolgood88142.github.io/images/background_heroku.png" alt="background_heroku" /></p>
+
+<p>以下範例，將自己的專案部署在HeroKu網站上</p>
+
+<h3 id="1-註冊-heroku-https-id-heroku-com-login-帳號">1.註冊<a href="https://id.heroku.com/login">HeroKu</a>帳號</h3>
+
+<h3 id="2-安裝-heroku-cli-https-devcenter-heroku-com-articles-heroku-cli-windows-用cmd執行heroku">2.安裝<a href="https://devcenter.heroku.com/articles/heroku-cli#windows">Heroku CLI</a>，用cmd執行HeroKu</h3>
+
+<pre><code>heroku
+</code></pre>
+
+<h3 id="3-登入剛剛註冊的heroku帳號">3.登入剛剛註冊的HeroKu帳號</h3>
+
+<pre><code>heroku login
+Email: coolgood88142@gmail.com
+Password: xxxxxxx
+Logged in as coolgood88142@gmail.com #登入成功
+</code></pre>
+
+<h3 id="4-安裝-git-https-git-scm-com-downloads-安裝好之後用cmd執行git">4.安裝<a href="https://git-scm.com/downloads">Git</a>，安裝好之後用cmd執行Git</h3>
+
+<pre><code>git
+</code></pre>
+
+<h3 id="5-登入heroku網站-在personal新增create-new-app">5.登入HeroKu網站，在Personal新增create new app</h3>
+
+<p><img src="https://coolgood88142.github.io/images/heroku-1.png" alt="heroku-1" /></p>
+
+<h3 id="6-從heroku網站裡的setting找heroku-git-url並複製-代表app的連結">6.從HeroKu網站裡的Setting找HeroKu Git URL並複製，代表app的連結</h3>
+
+<p><img src="https://coolgood88142.github.io/images/heroku-2.png" alt="heroku-2" /></p>
+
+<h3 id="7-用cmd路徑改到自己要放在heroku上版的專案">7.用cmd路徑改到自己要放在HeroKu上版的專案</h3>
+
+<pre><code>cd C:\xampp\htdocs\javascript_work #自己要部署專案的檔案路徑
+</code></pre>
+
+<h3 id="8-將專案上版至heroku">8.將專案上版至HeroKu</h3>
+
+<pre><code>git init
+git remote add origin https://git.heroku.com/quiet-crag-79025.git
+git add .
+git commit -m &quot;my-first-website&quot;
+git push origin master
+</code></pre>
+
+<h3 id="9-回到剛剛heroku網站-點右上角的open-app-這時會開啟heroku專案的網頁-顯示專案名稱的網址">9.回到剛剛HeroKu網站，點右上角的Open app，這時會開啟Heroku專案的網頁，顯示專案名稱的網址</h3>
+
+<p><img src="https://coolgood88142.github.io/images/heroku-3.png" alt="heroku-3" /></p>
+
+<p><img src="https://coolgood88142.github.io/images/heroku-4.png" alt="heroku-4" /></p>
+
+<p>參考資料:</p>
+
+<p><a href="https://ithelp.ithome.com.tw/articles/10196129">https://ithelp.ithome.com.tw/articles/10196129</a>、</p>
+
+<p><a href="https://blog.wu-boy.com/2019/02/deploy-golang-app-to-heroku/">https://blog.wu-boy.com/2019/02/deploy-golang-app-to-heroku/</a>、</p>
+
+<p><a href="https://id.heroku.com/login">https://id.heroku.com/login</a>、</p>
+
+<p><a href="https://devcenter.heroku.com/articles/heroku-cli#windows">https://devcenter.heroku.com/articles/heroku-cli#windows</a>、</p>
+
+<p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>、</p>
+
+<p><a href="https://www.gomaji.com/store/39678?pid=150656&amp;city=7">https://www.gomaji.com/store/39678?pid=150656&amp;city=7</a></p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          Posted on
+          May 12, 2019 at 00:00
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/tags/heroku/">#HeroKu</a></span>
+        
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/tags/git/">#Git</a></span>
+        
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts disabled" href="#">
+          <div>
+            <span aria-hidden="true">&larr;</span> Older Posts
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/posts/hugo/">
+          <div>
+            Newer Posts <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      &copy; Lorem ipsum ... and so on ...
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+
