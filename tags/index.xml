@@ -39,29 +39,20 @@
     </item>
     
     <item>
-      <title>Geocoding API</title>
-      <link>https://coolgood88142.github.io/tags/geocoding-api/</link>
+      <title>Geocoding</title>
+      <link>https://coolgood88142.github.io/tags/geocoding/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/geocoding-api/</guid>
+      <guid>https://coolgood88142.github.io/tags/geocoding/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Google Map</title>
-      <link>https://coolgood88142.github.io/tags/google-map/</link>
+      <title>Map JavaScript</title>
+      <link>https://coolgood88142.github.io/tags/map-javascript/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/google-map/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Map JavaScript API </title>
-      <link>https://coolgood88142.github.io/tags/map-javascript-api/</link>
-      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/tags/map-javascript-api/</guid>
+      <guid>https://coolgood88142.github.io/tags/map-javascript/</guid>
       <description></description>
     </item>
     
@@ -71,15 +62,6 @@
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coolgood88142.github.io/tags/flow-chart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Flow Chart symbol</title>
-      <link>https://coolgood88142.github.io/tags/flow-chart-symbol/</link>
-      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/tags/flow-chart-symbol/</guid>
       <description></description>
     </item>
     
@@ -111,20 +93,11 @@
     </item>
     
     <item>
-      <title>XMLHttpRequest</title>
-      <link>https://coolgood88142.github.io/tags/xmlhttprequest/</link>
+      <title>Ajax</title>
+      <link>https://coolgood88142.github.io/tags/ajax/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://coolgood88142.github.io/tags/xmlhttprequest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jQuery Ajax</title>
-      <link>https://coolgood88142.github.io/tags/jquery-ajax/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/tags/jquery-ajax/</guid>
+      <guid>https://coolgood88142.github.io/tags/ajax/</guid>
       <description></description>
     </item>
     
@@ -147,29 +120,11 @@
     </item>
     
     <item>
-      <title>Package Manager</title>
-      <link>https://coolgood88142.github.io/tags/package-manager/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/tags/package-manager/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Webpack</title>
       <link>https://coolgood88142.github.io/tags/webpack/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coolgood88142.github.io/tags/webpack/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Development,Production</title>
-      <link>https://coolgood88142.github.io/tags/developmentproduction/</link>
-      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/tags/developmentproduction/</guid>
       <description></description>
     </item>
     
@@ -188,6 +143,24 @@
       <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coolgood88142.github.io/tags/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>https://coolgood88142.github.io/tags/about/</link>
+      <pubDate>Mon, 10 Sep 2018 19:04:46 +0200</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>page</title>
+      <link>https://coolgood88142.github.io/tags/page/</link>
+      <pubDate>Mon, 10 Sep 2018 19:04:46 +0200</pubDate>
+      
+      <guid>https://coolgood88142.github.io/tags/page/</guid>
       <description></description>
     </item>
     

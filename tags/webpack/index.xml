@@ -20,5 +20,14 @@
       <description>webpack是來自於npm底下其中一個套件，主要是3個步驟：輸入、編譯、輸出</description>
     </item>
     
+    <item>
+      <title>development與production差異?</title>
+      <link>https://coolgood88142.github.io/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</guid>
+      <description>webpack mode 模型分為兩種，development、production</description>
+    </item>
+    
   </channel>
 </rss>
