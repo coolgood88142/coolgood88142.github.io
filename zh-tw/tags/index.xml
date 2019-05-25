@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 我的部落格</title>
+    <link>https://coolgood88142.github.io/zh-tw/tags/</link>
+    <description>Recent content in Tags on 我的部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coolgood88142.github.io/zh-tw/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/git/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HeroKu</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/heroku/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/heroku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/hugo/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geocoding</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/geocoding/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/geocoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Map JavaScript</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/map-javascript/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/map-javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flow Chart</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/flow-chart/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/flow-chart/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cookie</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/cookie/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/cookie/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LocalStorage</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/localstorage/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/localstorage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SessionStorage</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/sessionstorage/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/sessionstorage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ajax</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/ajax/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/ajax/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/npm/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/npm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>yarn</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/yarn/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/yarn/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/webpack/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regex</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/regex/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/regex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regular Expression</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/regular-expression/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/regular-expression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/about/</link>
+      <pubDate>Mon, 10 Sep 2018 19:04:46 +0200</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>page</title>
+      <link>https://coolgood88142.github.io/zh-tw/tags/page/</link>
+      <pubDate>Mon, 10 Sep 2018 19:04:46 +0200</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/tags/page/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" Google Map教學：操作地址 &middot;  我的部落格" />
+  
+  <meta property="og:site_name" content="我的部落格" />
+  <meta property="og:url" content="https://coolgood88142.github.io/zh-tw/posts/google-map/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2019-05-06T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="Geocoding" />
+    
+      <meta property="og:article:tag" content="Map JavaScript" />
+    
+  
+
+  <title>
+     Google Map教學：操作地址 &middot;  我的部落格
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/zh-tw/">我的部落格</a></h1>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/zh-tw/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/categories/">
+            分類
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/tags/">
+            標籤
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/pages/about/">
+            關於
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/">
+            首頁
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">Google Map教學：操作地址</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    
+
+<p>什麼是Google Map?是由Google公司像全球提供的電子地圖服務，用地圖規劃出地表、線條、符號等資訊。</p>
+
+<p><img src="https://coolgood88142.github.io/images/question.png" alt="question" /></p>
+
+<h3 id="架構">架構</h3>
+
+<p>我們比較常看到的用法，在文字框輸入想要地點或地址之後點查詢，地圖會自動刷新顯示地標以及相關資訊。</p>
+
+<p><img src="https://coolgood88142.github.io/images/UML.png" alt="map" /></p>
+
+<p><img src="https://coolgood88142.github.io/images/Flow Chart.png" alt="map" /></p>
+
+<p><img src="https://coolgood88142.github.io/images/Frame.png" alt="map" /></p>
+
+<p>製作Google Map需要google提供的google map API才能實做，今天我們使用Geocoding API裡的地理編碼請求與Map JavaScript API來實做，以下介紹兩種的官網文件資訊</p>
+
+<h3 id="1-geocoding-api">1. Geocoding API</h3>
+
+<p>Geocoding為地理編碼，將地址（如“1600 Amphitheatre Parkway，Mountain View，CA”）轉換為地理坐標（如緯度37.423021和經度-122.083739）的過程，您可以使用它來在地圖上放置標記或定位地圖。</p>
+
+<p>您可以通過HTTP接口訪問Geocoding API。以下是地理編碼請求的示例。</p>
+
+<h3 id="地理編碼請求和響應-緯度-經度查找">地理編碼請求和響應（緯度/經度查找）</h3>
+
+<p>以下示例請求“1600 Amphitheatre Parkway，Mountain View，CA”的緯度和經度，並指定輸出必須採用JSON格式。</p>
+
+<pre><code class="language-html">https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&amp;key=YOUR_API_KE
+</code></pre>
+
+<p>您可以通過在Web瀏覽器中輸入URL來進行測試（請務必<code>YOUR_API_KEY</code>使用實際的API密鑰替換 ）。響應包括地址的緯度和經度。</p>
+
+<p>以下是JSON中的地理編碼響應示例：</p>
+
+<pre><code class="language-javascript">{
+   &quot;results&quot; : [
+      {
+         &quot;address_components&quot; : [
+            {
+               &quot;long_name&quot; : &quot;1600&quot;,
+               &quot;short_name&quot; : &quot;1600&quot;,
+               &quot;types&quot; : [ &quot;street_number&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Amphitheatre Pkwy&quot;,
+               &quot;short_name&quot; : &quot;Amphitheatre Pkwy&quot;,
+               &quot;types&quot; : [ &quot;route&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Mountain View&quot;,
+               &quot;short_name&quot; : &quot;Mountain View&quot;,
+               &quot;types&quot; : [ &quot;locality&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;Santa Clara County&quot;,
+               &quot;short_name&quot; : &quot;Santa Clara County&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_2&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;California&quot;,
+               &quot;short_name&quot; : &quot;CA&quot;,
+               &quot;types&quot; : [ &quot;administrative_area_level_1&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;United States&quot;,
+               &quot;short_name&quot; : &quot;US&quot;,
+               &quot;types&quot; : [ &quot;country&quot;, &quot;political&quot; ]
+            },
+            {
+               &quot;long_name&quot; : &quot;94043&quot;,
+               &quot;short_name&quot; : &quot;94043&quot;,
+               &quot;types&quot; : [ &quot;postal_code&quot; ]
+            }
+         ],
+         &quot;formatted_address&quot; : &quot;1600 Amphitheatre Parkway, Mountain View, CA 94043, USA&quot;,
+         &quot;geometry&quot; : {
+            &quot;location&quot; : {
+               &quot;lat&quot; : 37.4224764,
+               &quot;lng&quot; : -122.0842499
+            },
+            &quot;location_type&quot; : &quot;ROOFTOP&quot;,
+            &quot;viewport&quot; : {
+               &quot;northeast&quot; : {
+                  &quot;lat&quot; : 37.4238253802915,
+                  &quot;lng&quot; : -122.0829009197085
+               },
+               &quot;southwest&quot; : {
+                  &quot;lat&quot; : 37.4211274197085,
+                  &quot;lng&quot; : -122.0855988802915
+               }
+            }
+         },
+         &quot;place_id&quot; : &quot;ChIJ2eUgeAK6j4ARbn5u_wAGqWA&quot;,
+         &quot;types&quot; : [ &quot;street_address&quot; ]
+      }
+   ],
+   &quot;status&quot; : &quot;OK&quot;
+}
+</code></pre>
+
+<p>※要使用地理編碼API，您必須先在Google Cloud Platform控制台中激活API，然後獲取正確的身份驗證憑據。您需要在每個請求中提供<strong>API密鑰</strong></p>
+
+<p>單擊下面的按鈕以完成您將要執行的過程：</p>
+
+<ol>
+<li>創建或選擇一個項目</li>
+<li>啟用API</li>
+<li>獲取API密鑰</li>
+</ol>
+
+<h3 id="2-map-javascript-api">2. Map JavaScript API</h3>
+
+<p>通過Maps JavaScript API，您可以使用自己的內容和圖像自定義地圖，以便在網頁和移動設備上顯示。Maps JavaScript API具有四種基本地圖類型（路線圖，衛星，混合和地形），您可以使用圖層和样式，控件和事件以及各種服務和庫來修改這些類型。</p>
+
+<p>以下網頁顯示以澳大利亞新南威爾士州悉尼為中心的地圖：</p>
+
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Simple Map&lt;/title&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1.0&quot;&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;style&gt;
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id=&quot;map&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    &lt;/script&gt;
+    &lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;callback=initMap&quot;
+    async defer&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>使用div名為&rdquo;map&rdquo;區塊元素呈現google map，用API的Map物件設定經緯度參數與地圖比例大小，在設定script標記加載Maps JavaScript API</p>
+
+<ol>
+<li>我們使用聲明將應用程序聲明為HTML5 <code>&lt;!DOCTYPE html&gt;</code>。</li>
+<li>我們創建了一個<code>div</code>名為“map” 的元素來保存地圖。</li>
+<li>我們定義了一個JavaScript函數，用於在中創建地圖 <code>div</code>。</li>
+<li>我們使用<code>script</code>標記加載Maps JavaScript API 。</li>
+</ol>
+
+<p>要加載Maps JavaScript API，請使用以下示例中的標記：</p>
+
+<pre><code class="language-html">&lt;script async defer
+  src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;callback=initMap&quot;&gt;
+&lt;/script&gt;
+</code></pre>
+
+<p><code>script</code>標記中包含的URL 是JavaScript文件的位置，該文件加載了使用Maps JavaScript API所需的所有符號和定義。此<code>script</code>標記是必需的。</p>
+
+<p>該<code>async</code>屬性允許瀏覽器在加載Maps JavaScript API時呈現您網站的其餘部分。API準備就緒後，將調用使用<code>callback</code>參數指定的函數。</p>
+
+<p>該<code>key</code>參數包含應用程序的API密鑰</p>
+
+<p>以下範例是在開啟地圖與查詢地圖時，顯示的google map的畫面:</p>
+
+<h3 id="1-開啟地圖">1.開啟地圖</h3>
+
+<p><img src="https://coolgood88142.github.io/images/open_map1.png" alt="open_map1" /></p>
+
+<p>剛開啟地圖時預設是帶台灣地圖，這時可直接輸入地點或地址之後點選查詢，google map會重新讀取地圖</p>
+
+<h3 id="2-查詢地點">2.查詢地點</h3>
+
+<p><img src="https://coolgood88142.github.io/images/open_map2.png" alt="open_map2" /></p>
+
+<p>當查詢地點時，google map會重新讀取查詢到的地圖資訊，顯示地點的道路、附近地名等等。</p>
+
+<p>上面顯示剛查詢地點後google map API提供完整地址，可點選右邊的複製圖示，複製地址到文字框做儲存。</p>
+
+<p>以下程式碼是我使用Google Map API的Geocoding API與Map JavaScript API的寫法</p>
+
+<pre><code>//打開地圖
+function openAddressMap(address,number){
+    //經緯度變數
+    var Latlng=null;
+
+    //判斷查詢的地點或地址確認是否為空值
+    if(address!='' &amp;&amp; address!=undefined){
+        //使用Geocoding API，目前要收費
+        var geocoder = new google.maps.Geocoder(); 
+        //用地點或地址先取得經緯度
+        geocoder.geocode( { 'address': address}, function(results, status) {
+            //狀態為OK才可以進行
+            if (status == google.maps.GeocoderStatus.OK) {
+                var latitude = results[0].geometry.location.lat(); 
+                var longitude = results[0].geometry.location.lng();
+
+                //使用Map JavaScript API的LatLng物件當經緯度
+                Latlng = new google.maps.LatLng(latitude,longitude);
+                $(&quot;input[name='copy_address']&quot;).val(results[0].formatted_address);
+
+                //用變數在地圖使用哪些參數
+                var mapOptions = {
+                    zoom:17,
+                    zoomControl:true,
+                    center:Latlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                }
+
+            //在頁面上使用Map JavaScript API的Map物件檔地圖(map與copy_map)
+            var map = new google.maps.Map(document.getElementById('map'),mapOptions);
+            var copy_map = new google.maps.Map(
+                            document.getElementById('copy_map'),
+                            mapOptions);
+            //使用Map JavaScript API的marker物件設定經緯度 
+            var marker = new google.maps.Marker({
+                position: Latlng
+            });
+
+                //id為map與copy_map區塊 set地圖物件
+                marker.setMap(map);
+                marker.setMap(copy_map);
+
+                //顯示id為map區塊，隱藏id為copy_map區塊
+                $(&quot;#map&quot;).show();
+                $(&quot;#copy_map&quot;).hide();
+                console.log(results[0].formatted_address);
+            } else if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT){
+                //因API有請求計算次數，所以先在背後元素做兩個相同的地圖，當第二次使用可以用另外一张                  顯示達到減少重複相同查詢的次數
+                $(&quot;#map&quot;).hide();
+                $(&quot;#copy_map&quot;).show();
+            } else {
+                alert(&quot;Geocode was not successful for the following reason: &quot;+status);
+            }
+        });
+    }
+    }
+}
+
+//複製完整地址功能
+function copyAddress(){
+    //先取得地址文字框資料
+    var address = $(&quot;input[name='copy_address']&quot;).val();
+    if(address==''){
+        alert(&quot;請先查詢地點或地址&quot;);
+    }else{
+        $(&quot;input[name='address']&quot;).val(address);
+    }
+}
+</code></pre>
+
+<p>參考資料:<a href="https://zh.wikipedia.org/wiki/Google%E5%9C%B0%E5%9B%BE">https://zh.wikipedia.org/wiki/Google%E5%9C%B0%E5%9B%BE</a></p>
+
+<p><a href="https://developers.google.com/maps/documentation/geocoding/intro">https://developers.google.com/maps/documentation/geocoding/intro</a></p>
+
+<p><a href="https://developers.google.com/maps/documentation/javascript/tutorial">https://developers.google.com/maps/documentation/javascript/tutorial</a></p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          
+          
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/geocoding/">#Geocoding</a></span>
+        
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/map-javascript/">#Map JavaScript</a></span>
+        
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/hugo/">
+          <div>
+            <span aria-hidden="true">&larr;</span> 
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/">
+          <div>
+             <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+

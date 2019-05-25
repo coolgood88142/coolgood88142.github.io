@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 我的部落格</title>
+    <link>https://coolgood88142.github.io/zh-tw/categories/</link>
+    <description>Recent content in Categories on 我的部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coolgood88142.github.io/zh-tw/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloud Platform</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/cloud-platform/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/cloud-platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment Site</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/deployment-site/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/deployment-site/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Developers</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/google-developers/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/google-developers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diagram</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/diagram/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/diagram/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Records</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/records/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/records/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/webpack/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/jquery/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grammar</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/grammar/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/grammar/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" npm與yarn差異? &middot;  我的部落格" />
+  
+  <meta property="og:site_name" content="我的部落格" />
+  <meta property="og:url" content="https://coolgood88142.github.io/zh-tw/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2019-03-09T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="npm" />
+    
+      <meta property="og:article:tag" content="yarn" />
+    
+  
+
+  <title>
+     npm與yarn差異? &middot;  我的部落格
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/zh-tw/">我的部落格</a></h1>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/zh-tw/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/categories/">
+            分類
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/tags/">
+            標籤
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/pages/about/">
+            關於
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/">
+            首頁
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">npm與yarn差異?</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    <p><strong>npm與yarn差異?</strong></p>
+
+<p>npm與yarn一樣都是套件管理工具，但是yarn的安裝速度比npm快很多，使用指令上也有差異，yarn必須從package.json安裝，安裝套件時有一個yarn.lock文件，當套件想更換版本時只要變更yarn.lock文件就可隨時更換版本，npm必須依賴package.json手動更換版本安裝</p>
+
+<p><strong>npm與yarn指令差異</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>npm</th>
+<th>yarn</th>
+<th>功能描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>npm install</td>
+<td>yarn install</td>
+<td>依據package.json安裝</td>
+</tr>
+
+<tr>
+<td>npm –save [package]</td>
+<td>yarn add [package]</td>
+<td>安裝套件</td>
+</tr>
+
+<tr>
+<td>npm –save-dev [package]</td>
+<td>yarn add [package] –dev</td>
+<td>安裝套件至開發環境</td>
+</tr>
+
+<tr>
+<td>npm –g [package]</td>
+<td>yarn global add [package]</td>
+<td>安裝全域套件 (會安裝在nodenode_modules)</td>
+</tr>
+
+<tr>
+<td>npm update –save</td>
+<td>yarn upgrade</td>
+<td>升級版本</td>
+</tr>
+
+<tr>
+<td>npm uninstall</td>
+<td>yarn remove</td>
+<td>移除套件</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>yarn</strong>優點</p>
+
+<p><strong>離線模式</strong></p>
+
+<p>yarn會有一個快取目錄，會快取以前安裝過的軟體包，再次安裝時就不必從網路下載了，大大加速安裝速度。</p>
+
+<p><strong>依賴關係確定性</strong></p>
+
+<p>npm在執行安裝套件都會依賴別的套件版本，導致有重新安裝的問題，yarn在安裝時依賴結構是一致的</p>
+
+<p><strong>網路效能優化</strong></p>
+
+<p>yarn在安裝套件時會優化請求順序。</p>
+
+<p><strong>網路回彈</strong></p>
+
+<p>yarn在某個安裝包請求失敗時不會導致安裝失敗，它會自動去嘗試重新安裝。而npm則會毫不猶豫的失敗，導致得再來一次，耗費時間</p>
+
+<p><strong>扁平模式</strong></p>
+
+<p>對於多個包依賴同一個子包的情況，yarn會盡量提取為同一個包，防止出現多處副本，浪費空間。比如1.2中，yarn會為babel-generator和babel-helper-define-map 建立同一個lodash子依賴，這樣就節約一份的空間。</p>
+
+<p>npm與yarn安裝套件方式，npm相較之下依賴於package.json檔案切換版本重新安裝又會有其餘套件相依性問題，yarn從package.json安裝套件會記錄套件的相依性的其餘套件，當套件變更版本時會也會將相依性的套件一律做更新，就不用在找其餘套件的相依性</p>
+
+<p>yarn安裝時需要先npm，yarn是依賴node環境執行，npm install yarn -g</p>
+
+<p>參考資料:<a href="https://www.zcfy.cc/article/yarn-vs-npm-everything-you-need-to-know-1484.html">https://www.zcfy.cc/article/yarn-vs-npm-everything-you-need-to-know-1484.html</a></p>
+
+<p><a href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/251371/">https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/251371/</a></p>
+
+<p><a href="https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/">https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/</a></p>
+
+<p><a href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/263549/">https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/263549/</a></p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          
+          
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/npm/">#npm</a></span>
+        
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/yarn/">#yarn</a></span>
+        
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/ajax-error/">
+          <div>
+            <span aria-hidden="true">&larr;</span> 
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/webpack/">
+          <div>
+             <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+
