@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" cookie、localStorage、sessionStorage差異 &middot;  My Hugo Blog" />
+  
+  <meta property="og:site_name" content="My Hugo Blog" />
+  <meta property="og:url" content="https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2019-04-26T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="Cookie" />
+    
+      <meta property="og:article:tag" content="LocalStorage" />
+    
+      <meta property="og:article:tag" content="SessionStorage" />
+    
+  
+
+  <title>
+     cookie、localStorage、sessionStorage差異 &middot;  My Hugo Blog
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/en/">My Hugo Blog</a></h1>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/en/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;Home
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/en/pages/about/">
+            About
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/en/categories/">
+            Categories
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/en">
+            Home
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/en/tags/">
+            Tags
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <div class="language-container">
+          
+            <a class="btn btn-default language-button" href="/en/posts/cookielocalstoragesessionstorage/">English</a>
+          
+            <a class="btn btn-default language-button" href="/zh-tw/posts/cookielocalstoragesessionstorage/">中文</a>
+          
+        </div>
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">cookie、localStorage、sessionStorage差異</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    
+
+<h4 id="cookie">cookie</h4>
+
+<p>生命週期為只在設定的cookie過期時間之前一直有效，即使視窗或瀏覽器關閉。 存放資料大小為4K左右 ，所以cookie只適合儲存很小的資料。</p>
+
+<h4 id="localstorage">localStorage</h4>
+
+<p>localStorage生命週期是永久，除非使用者顯示在瀏覽器達到清除localStorage資訊，否則這些資訊將永遠存在。</p>
+
+<h4 id="sessionstorage">sessionStorage</h4>
+
+<p>sessionStorage僅在當前畫面下有效，關閉頁面或瀏覽器後被清除。</p>
+
+<p>不同瀏覽器無法共享localStorage或sessionStorage中的資訊。相同瀏覽器用不同頁面間可使用相同的 localStorage，但是sessionStorage不行。</p>
+
+<p><strong>cookie、localStorage、sessionStorage表格差異</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+<th>功能描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>由瀏覽器產生cookie，需要關閉瀏覽器或生命週期過了才會被清除</td>
+<td>除非被清除，否則無時間限制</td>
+<td>記錄只存在目前頁面，</td>
+<td>生命週期-設定時間</td>
+</tr>
+
+<tr>
+<td>V</td>
+<td>無法透過瀏覽器的輔助功能清除</td>
+<td>無法透過瀏覽器的輔助功能清除</td>
+<td>生命週期-使用者使用自行清除</td>
+</tr>
+
+<tr>
+<td>V</td>
+<td>V</td>
+<td>V</td>
+<td>生命週期-網頁UI清除動作</td>
+</tr>
+
+<tr>
+<td>只會在有設定瀏覽器中存在，直接時間結束</td>
+<td>除非關閉原本開的瀏覽器，否則無時間限制</td>
+<td>除非關閉原本開的瀏覽器，否則無時間限制</td>
+<td>生命週期-換瀏覽器使用</td>
+</tr>
+
+<tr>
+<td>cookie只會在http網頁存取，存取一個變數為4KB</td>
+<td>存取一個變數為5MB</td>
+<td>存取一個變數為5MB</td>
+<td>大小</td>
+</tr>
+
+<tr>
+<td>每次用http網頁，因為cookie資料過多會占用頻寬導致網頁效能很慢</td>
+<td>只存在瀏覽器，不占用頻寬也不會影響網頁效能</td>
+<td>只存在瀏覽器，不占用頻寬也不會影響網頁效能</td>
+<td>與server傳遞資料</td>
+</tr>
+</tbody>
+</table>
+
+<p>三種適用的例子，含說明，為什麼適用?</p>
+
+<p>cookie:網頁關鍵字記錄，當網頁一直沒動作，因cookie時間關係會自動清除</p>
+
+<p>localStorage:購物車，使用者一直篩選想要的項目，但是項目可能較多，適用於5M大小做存取，若沒有清除當下次開啟瀏覽器，購物車的篩選項目還是會存在</p>
+
+<p>seesoinStorage :搜尋關鍵字搜尋不同關鍵字，用分頁時紀錄只存在當前的頁面，可適用多個分頁做相同的事情</p>
+
+<p>實做cookie 新增記錄讓網頁效能變慢</p>
+
+<p>參考資料:<a href="https://medium.com/@jscinin/javascript-cookie-localstorage-sessionstorage-三種差異-fe7f38260439">https://medium.com/@jscinin/javascript-cookie-localstorage-sessionstorage-%E4%B8%89%E7%A8%AE%E5%B7%AE%E7%95%B0-fe7f38260439</a>、<a href="https://www.itread01.com/articles/1501797427.html">https://www.itread01.com/articles/1501797427.html</a>、<a href="https://dotblogs.com.tw/shadow/2014/07/10/145879">https://dotblogs.com.tw/shadow/2014/07/10/145879</a></p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          Posted on
+          Apr 26, 2019 at 00:00
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/en/tags/cookie/">#Cookie</a></span>
+        
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/en/tags/localstorage/">#LocalStorage</a></span>
+        
+      
+        
+          <span class="post-tag small"><a href="https://coolgood88142.github.io/en/tags/sessionstorage/">#SessionStorage</a></span>
+        
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/en/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/">
+          <div>
+            <span aria-hidden="true">&larr;</span> Older Posts
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/en/posts/ajax-error/">
+          <div>
+            Newer Posts <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+

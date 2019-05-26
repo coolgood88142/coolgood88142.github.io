@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SessionStorage on My Hugo Blog</title>
+    <link>https://coolgood88142.github.io/en/tags/sessionstorage/</link>
+    <description>Recent content in SessionStorage on My Hugo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coolgood88142.github.io/en/tags/sessionstorage/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>cookie、localStorage、sessionStorage差異</title>
+      <link>https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/</guid>
+      <description>cookie、localStorage、sessionStorag三種不同的記錄，適用於哪些功能上</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,9 +6,82 @@
     <description>Recent content in Categories on My Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://coolgood88142.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cloud Platform</title>
+      <link>https://coolgood88142.github.io/en/categories/cloud-platform/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/cloud-platform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deployment Site</title>
+      <link>https://coolgood88142.github.io/en/categories/deployment-site/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/deployment-site/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Developers</title>
+      <link>https://coolgood88142.github.io/en/categories/google-developers/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/google-developers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diagram</title>
+      <link>https://coolgood88142.github.io/en/categories/diagram/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/diagram/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Records</title>
+      <link>https://coolgood88142.github.io/en/categories/records/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/records/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>https://coolgood88142.github.io/en/categories/webpack/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/webpack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jQuery</title>
+      <link>https://coolgood88142.github.io/en/categories/jquery/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Grammar</title>
+      <link>https://coolgood88142.github.io/en/categories/grammar/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/categories/grammar/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -46,7 +46,7 @@
       
         <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/zh-tw/">
           <i class="fa fa-angle-left" aria-hidden="true"></i>
-          &nbsp;
+          &nbsp;首頁
         </a>
       
       
@@ -80,6 +80,14 @@
       
       
       
+        <div class="language-container">
+          
+            <a class="btn btn-default language-button" href="/en/posts/hugo/">English</a>
+          
+            <a class="btn btn-default language-button" href="/zh-tw/posts/hugo/">中文</a>
+          
+        </div>
+      
     </section>
   </header>
   <main class="container">
@@ -112,7 +120,7 @@ cd hugo_blog
 
 <h3 id="3-新增-部落格主題-https-themes-gohugo-io-例如-hamburg-https-themes-gohugo-io-hugo-theme-hamburg-為例">3.新增<a href="https://themes.gohugo.io/">部落格主題</a>，例如:<a href="https://themes.gohugo.io/hugo-theme-hamburg/">hamburg</a>為例</h3>
 
-<p>以下使用3種方式新增：</p>
+<p>以下使用2種方式新增：</p>
 
 <h4 id="1-使用git-clone-下載hamburg專案在themes-hamburg資料夾底下">(1) 使用Git Clone，下載hamburg專案在themes/hamburg資料夾底下</h4>
 
@@ -123,10 +131,6 @@ cd hugo_blog
 
 <pre><code> git submodule add https://github.com/hauke96/hugo-theme-hamburg.git themes/hamburg
 </code></pre>
-
-<h4 id="3-直接下載-hamburg-https-themes-gohugo-io-hugo-theme-hamburg-檔案-解壓縮到自己專案底下的-themes-hamburg-路徑">(3) 直接下載<a href="https://themes.gohugo.io/hugo-theme-hamburg/">hamburg</a>檔案，解壓縮到自己專案底下的<code>themes/hamburg</code>路徑</h4>
-
-<p>如果想要找主題的話，依據上面的連結點選Download，進入GitHub的repositories，將上面的網址改成主題的網址，再將<code>themes/hamburg</code>改成<code>themes/你的主題名稱</code>。</p>
 
 <h3 id="4-建立新文章-例如-檔名為my-first-file">4.建立新文章，例如:檔名為my-first-file</h3>
 
@@ -210,7 +214,7 @@ git push origin master
 
 <p>上版後，在瀏覽器輸入自己帳號的網址<code>http://'your account'.github.io</code>，會看到跟本機看到的部落格是一樣的。</p>
 
-<h2 id="備註-以下是留言版與標籤功能"><strong>備註：以下是留言版與標籤功能</strong></h2>
+<h2 id="備註"><strong>備註</strong></h2>
 
 <h3 id="1-新增留言版-建立-disqus-https-help-disqus-com-帳號-之後編輯config-toml">1.新增留言版，建立<a href="https://help.disqus.com/">Disqus</a>帳號，之後編輯config.toml</h3>
 
@@ -256,8 +260,8 @@ tags: [&quot;First&quot;]
     
       <div class="post-date pull-left">
         <span class="small">
-          
-          
+          Posted on
+          2019/05/12 at 00:00
         </span>
       </div>
     
@@ -295,14 +299,14 @@ tags: [&quot;First&quot;]
       
         <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/heroku/">
           <div>
-            <span aria-hidden="true">&larr;</span> 
+            <span aria-hidden="true">&larr;</span> 上一頁
           </div>
         </a>
       
       
         <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/google-map/">
           <div>
-             <span aria-hidden="true">&rarr;</span>
+            下一頁 <span aria-hidden="true">&rarr;</span>
           </div>
         </a>
       

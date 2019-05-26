@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My Hugo Blog</title>
+    <link>https://coolgood88142.github.io/en/posts/</link>
+    <description>Recent content in Posts on My Hugo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coolgood88142.github.io/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HeroKu教學：部署網站</title>
+      <link>https://coolgood88142.github.io/en/posts/heroku/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/heroku/</guid>
+      <description>說明如何使用HeroKu部署網站</description>
+    </item>
+    
+    <item>
+      <title>Hugo教學：部落格網站</title>
+      <link>https://coolgood88142.github.io/en/posts/hugo/</link>
+      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/hugo/</guid>
+      <description>說明如何使用Hugo製作部落格網站</description>
+    </item>
+    
+    <item>
+      <title>Google Map教學：操作地址</title>
+      <link>https://coolgood88142.github.io/en/posts/google-map/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/google-map/</guid>
+      <description>什麼是Google Map?是由Google公司像全球提供的電子地圖服務，用地圖規劃出地表、線條、符號等資訊。</description>
+    </item>
+    
+    <item>
+      <title>流程圖形狀符號</title>
+      <link>https://coolgood88142.github.io/en/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/</guid>
+      <description>說明流程圖形符號哪些功能</description>
+    </item>
+    
+    <item>
+      <title>cookie、localStorage、sessionStorage差異</title>
+      <link>https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/</link>
+      <pubDate>Fri, 26 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/</guid>
+      <description>cookie、localStorage、sessionStorag三種不同的記錄，適用於哪些功能上</description>
+    </item>
+    
+    <item>
+      <title>Ajax Error</title>
+      <link>https://coolgood88142.github.io/en/posts/ajax-error/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/ajax-error/</guid>
+      <description>說明在ajax執行時可以會顯是哪些錯誤，function(xhr, status, error),回傳哪些訊息知道錯在哪裡?</description>
+    </item>
+    
+    <item>
+      <title>npm與yarn差異?</title>
+      <link>https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/</guid>
+      <description>npm與yarn一樣都是套件管理工具，在指令上有所差異</description>
+    </item>
+    
+    <item>
+      <title>webpack</title>
+      <link>https://coolgood88142.github.io/en/posts/webpack/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/webpack/</guid>
+      <description>webpack是來自於npm底下其中一個套件，主要是3個步驟：輸入、編譯、輸出</description>
+    </item>
+    
+    <item>
+      <title>development與production差異?</title>
+      <link>https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</guid>
+      <description>webpack mode 模型分為兩種，development、production</description>
+    </item>
+    
+    <item>
+      <title>正規化表示法</title>
+      <link>https://coolgood88142.github.io/en/posts/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/</guid>
+      <description>使用範例說明</description>
+    </item>
+    
+  </channel>
+</rss>

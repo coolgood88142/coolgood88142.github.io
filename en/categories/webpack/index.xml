@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webpack on My Hugo Blog</title>
+    <link>https://coolgood88142.github.io/en/categories/webpack/</link>
+    <description>Recent content in Webpack on My Hugo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://coolgood88142.github.io/en/categories/webpack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>npm與yarn差異?</title>
+      <link>https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/</guid>
+      <description>npm與yarn一樣都是套件管理工具，在指令上有所差異</description>
+    </item>
+    
+    <item>
+      <title>webpack</title>
+      <link>https://coolgood88142.github.io/en/posts/webpack/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/webpack/</guid>
+      <description>webpack是來自於npm底下其中一個套件，主要是3個步驟：輸入、編譯、輸出</description>
+    </item>
+    
+    <item>
+      <title>development與production差異?</title>
+      <link>https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</guid>
+      <description>webpack mode 模型分為兩種，development、production</description>
+    </item>
+    
+  </channel>
+</rss>
