@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Git on 我的部落格</title>
-    <link>https://coolgood88142.github.io/zh-tw/tags/git/</link>
-    <description>Recent content in Git on 我的部落格</description>
+    <title>Cloud Platform on 我的部落格</title>
+    <link>https://coolgood88142.github.io/zh-tw/categories/cloud-platform/</link>
+    <description>Recent content in Cloud Platform on 我的部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://coolgood88142.github.io/zh-tw/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://coolgood88142.github.io/zh-tw/categories/cloud-platform/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://coolgood88142.github.io/zh-tw/posts/heroku/</guid>
       <description>說明如何使用HeroKu部署網站</description>
-    </item>
-    
-    <item>
-      <title>Hugo教學：部落格網站</title>
-      <link>https://coolgood88142.github.io/zh-tw/posts/hugo/</link>
-      <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/zh-tw/posts/hugo/</guid>
-      <description>說明如何使用Hugo製作部落格網站</description>
     </item>
     
   </channel>

@@ -19,6 +19,22 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/en/categories/cloud-platform/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/categories/cloud-platform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/categories/cloud-platform/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/en/categories/deployment-site/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -47,6 +63,39 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://coolgood88142.github.io/en/tags/git/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/en/tags/heroku/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/heroku/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/heroku/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/en/posts/heroku/</loc>
+    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/heroku/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/heroku/"
                 />
   </url>
   
