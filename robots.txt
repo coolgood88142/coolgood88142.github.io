@@ -1,0 +1,2 @@
+User-agent *
+Sitemap:https://coolgood88142.github.io/zh-tw/sitemap.xml
