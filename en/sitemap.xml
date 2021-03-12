@@ -37,23 +37,6 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/en/tags/cwb/</loc>
-    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/tags/cwb/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/tags/cwb/"
-                />
-  </url>
-  
-  <url>
     <loc>https://coolgood88142.github.io/en/tags/cwb-api/</loc>
     <lastmod>2021-03-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -71,19 +54,19 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/en/posts/weather/</loc>
+    <loc>https://coolgood88142.github.io/en/tags/cwb/</loc>
     <lastmod>2021-03-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/posts/weather/"
+                href="https://coolgood88142.github.io/zh-tw/tags/cwb/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://coolgood88142.github.io/en/posts/weather/"
+                href="https://coolgood88142.github.io/en/tags/cwb/"
                 />
   </url>
   
@@ -292,6 +275,23 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/en/tags/weather/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/weather/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/weather/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/</loc>
     <lastmod>2021-03-12T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -322,6 +322,23 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/en/posts/weather/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/weather/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/weather/"
                 />
   </url>
   
