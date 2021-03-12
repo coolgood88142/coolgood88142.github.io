@@ -82,9 +82,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/hugo/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/hugo/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/hugo/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/hugo/">中文</a>
           
         </div>
       
@@ -100,10 +100,7 @@
   </header>
   <div class="delimiter"></div>
   <section>
-    
-
-<p>什麼是Hugo?是一個用 Go 語言編寫的靜態站點生成器，使用Hugo與Git來建立個人部落格。</p>
-
+    <p>什麼是Hugo?是一個用 Go 語言編寫的靜態站點生成器，使用Hugo與Git來建立個人部落格。</p>
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
@@ -114,65 +111,36 @@
     <a href="https://coolgood88142.github.io/images/question_hugo.png" itemprop="contentUrl"></a>
   </figure>
 </div>
-
 <p>以下分為兩部分介紹：<strong>本地建立檔案、部署到 GitHub</strong>。</p>
-
 <h2 id="本地建立檔案"><strong>本地建立檔案</strong></h2>
-
-<h3 id="1-先安裝-hugo-https-gohugo-io-getting-started-installing-按照官網的步驟執行安裝-window-mac都有寫">1.先安裝<a href="https://gohugo.io/getting-started/installing/">hugo</a>，按照官網的步驟執行安裝(window、Mac都有寫)</h3>
-
-<h3 id="2-用cmd在想要的路徑-建立網址的資料夾之後進入-例如-hugo-blog">2.用cmd在想要的路徑，建立網址的資料夾之後進入，例如:hugo_blog</h3>
-
+<h3 id="1先安裝hugohttpsgohugoiogetting-startedinstalling按照官網的步驟執行安裝windowmac都有寫">1.先安裝<a href="https://gohugo.io/getting-started/installing/">hugo</a>，按照官網的步驟執行安裝(window、Mac都有寫)</h3>
+<h3 id="2用cmd在想要的路徑建立網址的資料夾之後進入例如hugo_blog">2.用cmd在想要的路徑，建立網址的資料夾之後進入，例如:hugo_blog</h3>
 <pre><code>hugo new site hugo_blog
 cd hugo_blog
-</code></pre>
-
-<h3 id="3-新增-部落格主題-https-themes-gohugo-io-例如-hamburg-https-themes-gohugo-io-hugo-theme-hamburg-為例">3.新增<a href="https://themes.gohugo.io/">部落格主題</a>，例如:<a href="https://themes.gohugo.io/hugo-theme-hamburg/">hamburg</a>為例</h3>
-
+</code></pre><h3 id="3新增部落格主題httpsthemesgohugoio例如hamburghttpsthemesgohugoiohugo-theme-hamburg為例">3.新增<a href="https://themes.gohugo.io/">部落格主題</a>，例如:<a href="https://themes.gohugo.io/hugo-theme-hamburg/">hamburg</a>為例</h3>
 <p>以下使用2種方式新增：</p>
-
-<h4 id="1-使用git-clone-下載hamburg專案在themes-hamburg資料夾底下">(1) 使用Git Clone，下載hamburg專案在themes/hamburg資料夾底下</h4>
-
+<h4 id="1-使用git-clone下載hamburg專案在themeshamburg資料夾底下">(1) 使用Git Clone，下載hamburg專案在themes/hamburg資料夾底下</h4>
 <pre><code>git clone https://github.com/hauke96/hugo-theme-hamburg.git themes/hamburg
-</code></pre>
-
-<h4 id="2-使用git-submodule-新增連結hamburg專案在themes-hamburg資料夾底下-注意submodule只有要使用而不是要開發-因為是使用別人做好的主題-我們不需要更改">(2) 使用Git Submodule，新增連結hamburg專案在themes/hamburg資料夾底下，注意Submodule只有要使用而不是要開發，因為是使用別人做好的主題，我們不需要更改</h4>
-
-<pre><code> git submodule add https://github.com/hauke96/hugo-theme-hamburg.git themes/hamburg
-</code></pre>
-
-<h3 id="4-建立新文章-例如-檔名為my-first-file">4.建立新文章，例如:檔名為my-first-file</h3>
-
+</code></pre><h4 id="2-使用git-submodule新增連結hamburg專案在themeshamburg資料夾底下注意submodule只有要使用而不是要開發因為是使用別人做好的主題我們不需要更改">(2) 使用Git Submodule，新增連結hamburg專案在themes/hamburg資料夾底下，注意Submodule只有要使用而不是要開發，因為是使用別人做好的主題，我們不需要更改</h4>
+<pre><code> git submodule add -f https://github.com/hauke96/hugo-theme-hamburg.git themes/hamburg
+</code></pre><h3 id="4建立新文章例如檔名為my-first-file">4.建立新文章，例如:檔名為my-first-file</h3>
 <pre><code>hugo new posts/my-first-file.md
-</code></pre>
-
-<p>在時檔案會在<code>content/posts</code>資料夾裡產生，此檔可使用任意文字編輯器打開markdown文件，將 draft 改成 false，文件內容任意更改。</p>
-
+</code></pre><p>在時檔案會在<code>content/posts</code>資料夾裡產生，此檔可使用任意文字編輯器打開markdown文件，將 draft 改成 false，文件內容任意更改。</p>
 <p>以下為my-first-file.md內容：</p>
-
 <pre><code>---
 title: &quot;My First&quot;
 date: 2019-05-20T00:33:10+08:00
 draft: false
 ---
 測試部落格
-</code></pre>
-
-<h3 id="5-編輯config-toml-baseurl改成你的github帳號名稱">5.編輯config.toml，baseURL改成你的github帳號名稱</h3>
-
+</code></pre><h3 id="5編輯configtomlbaseurl改成你的github帳號名稱">5.編輯config.toml，baseURL改成你的github帳號名稱</h3>
 <pre><code>baseURL = &quot;https://coolgood88142.github.io/&quot; #改成你github帳號名稱
 languageCode = &quot;zh-tw&quot;
 title = &quot;我的第一個部落格&quot; #標題可自行更改
 theme = &quot;hamburg&quot; #主題名稱
-</code></pre>
-
-<h3 id="6-本機測試">6.本機測試</h3>
-
+</code></pre><h3 id="6本機測試">6.本機測試</h3>
 <pre><code>hugo server -D
-</code></pre>
-
-<p>執行後，在瀏覽器輸入網址<code>http://localhost:1313</code>，可看剛建立的部落格網站</p>
-
+</code></pre><p>執行後，在瀏覽器輸入網址<code>http://localhost:1313</code>，可看剛建立的部落格網站</p>
 
 
 <div class="box" >
@@ -185,7 +153,6 @@ theme = &quot;hamburg&quot; #主題名稱
 </div>
 
 
-
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
@@ -194,57 +161,33 @@ theme = &quot;hamburg&quot; #主題名稱
     <a href="https://coolgood88142.github.io/images/hugo-2.png" itemprop="contentUrl"></a>
   </figure>
 </div>
-
 <h2 id="部署到-github"><strong>部署到 GitHub</strong></h2>
-
-<h3 id="1-在github建立兩個repositories">1.在GitHub建立兩個repositories</h3>
-
+<h3 id="1在github建立兩個repositories">1.在GitHub建立兩個repositories</h3>
 <p>在Github建立<code>hugo_blog</code>和<code>'your account'.github.io</code>(使用自己的GitHub帳號)</p>
-
-<h3 id="2-建立public資料夾-並連結github-上自己帳號的repositories">2.建立public資料夾，並連結GitHub 上自己帳號的repositories</h3>
-
+<h3 id="2建立public資料夾並連結github-上自己帳號的repositories">2.建立public資料夾，並連結GitHub 上自己帳號的repositories</h3>
 <pre><code>git submodule add -f https://github.com/'your account'/'your account'.github.io.git public
-</code></pre>
-
-<p>這時public資料夾是新增連結而不是專案</p>
-
-<h3 id="3-執行hugo指令">3.執行Hugo指令</h3>
-
+</code></pre><p>這時public資料夾是新增連結而不是專案</p>
+<h3 id="3執行hugo指令">3.執行Hugo指令</h3>
 <pre><code>hugo
-</code></pre>
-
-<p>執行<code>hugo</code>指令，自動產生編譯檔案新增public資料夾</p>
-
-<h3 id="4-將-public-資料夾上版到github上自己帳號的repositories">4.將 public 資料夾上版到Github上自己帳號的repositories</h3>
-
+</code></pre><p>執行<code>hugo</code>指令，自動產生編譯檔案新增public資料夾</p>
+<h3 id="4將-public-資料夾上版到github上自己帳號的repositories">4.將 public 資料夾上版到Github上自己帳號的repositories</h3>
 <pre><code>cd public
 git init
 git remote add origin https://github.com/your account/'your account'.github.io.git
 git add .
 git commit -m &quot;my-first-hugo&quot;
 git push origin master
-</code></pre>
-
-<h3 id="5-回到上一層將hugo-blog資料夾連結到github-上的hugo-blog">5.回到上一層將hugo_blog資料夾連結到GitHub 上的hugo_blog</h3>
-
+</code></pre><h3 id="5回到上一層將hugo_blog資料夾連結到github-上的hugo_blog">5.回到上一層將hugo_blog資料夾連結到GitHub 上的hugo_blog</h3>
 <pre><code>cd ..
 git init
 git remote add origin https://github.com/coolgood88142/hugo_blog.git
-</code></pre>
-
-<h3 id="6-將hugo-blog資料夾上版">6.將hugo_blog資料夾上版</h3>
-
+</code></pre><h3 id="6將hugo_blog資料夾上版">6.將hugo_blog資料夾上版</h3>
 <pre><code>git add .
 git commit -m &quot;my-hugo-file&quot;
 git push origin master
-</code></pre>
-
-<p>上版後，在瀏覽器輸入自己帳號的網址<code>http://'your account'.github.io</code>，會看到跟本機看到的部落格是一樣的。</p>
-
+</code></pre><p>上版後，在瀏覽器輸入自己帳號的網址<code>http://'your account'.github.io</code>，會看到跟本機看到的部落格是一樣的。</p>
 <h2 id="備註"><strong>備註</strong></h2>
-
-<h3 id="1-新增留言版-建立-disqus-https-help-disqus-com-帳號-之後編輯config-toml">1.新增留言版，建立<a href="https://help.disqus.com/">Disqus</a>帳號，之後編輯config.toml</h3>
-
+<h3 id="1新增留言版建立disqushttpshelpdisquscom帳號之後編輯configtoml">1.新增留言版，建立<a href="https://help.disqus.com/">Disqus</a>帳號，之後編輯config.toml</h3>
 <pre><code>baseURL = &quot;https://coolgood88142.github.io/&quot; 
 languageCode = &quot;zh-tw&quot;
 title = &quot;我的第一個部落格&quot;
@@ -252,36 +195,21 @@ theme = &quot;hamburg&quot;
 
 [params]
 disqus = &quot;Kai88142&quot;
-</code></pre>
-
-<p>disqus放你的Disqus帳號的<code>Username</code>，<strong>在Disqus要先填資料時要在語言的部分，填哪種語言留言板就顯示哪種呈現</strong>，請在admin-&gt;Edit Settings-&gt;General裡的Language選擇Chinese，就可顯示中文樣式，目前Disqus沒有繁體中文只有簡體，先將就點用吧。</p>
-
-<h3 id="2-新增標籤-方便搜尋部落格資料">2.新增標籤，方便搜尋部落格資料</h3>
-
+</code></pre><p>disqus放你的Disqus帳號的<code>Username</code>，<strong>在Disqus要先填資料時要在語言的部分，填哪種語言留言板就顯示哪種呈現</strong>，請在admin-&gt;Edit Settings-&gt;General裡的Language選擇Chinese，就可顯示中文樣式，目前Disqus沒有繁體中文只有簡體，先將就點用吧。</p>
+<h3 id="2新增標籤方便搜尋部落格資料">2.新增標籤，方便搜尋部落格資料</h3>
 <pre><code>title: &quot;My First&quot;
 date: 2019-05-20T00:33:10+08:00
 draft: false
 tags: [&quot;First&quot;]
-</code></pre>
-
-<p>參考資料:</p>
-
-<p><a href="https://codertw.com/程式語言/540757/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/540757/</a>、</p>
-
+</code></pre><p>參考資料:</p>
+<p><a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/540757/">https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/540757/</a>、</p>
 <p><a href="https://gohugo.io/getting-started/installing/">https://gohugo.io/getting-started/installing/</a>、</p>
-
 <p><a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a>、</p>
-
 <p><a href="https://themes.gohugo.io/hugo-theme-hamburg/">https://themes.gohugo.io/hugo-theme-hamburg/</a>、</p>
-
-<p><a href="https://medium.com/@chs_wei/在-github-部署-hugo-靜態網站-9c40682dfe40">https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40</a>、</p>
-
-<p><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/、">https://gohugo.io/hosting-and-deployment/hosting-on-github/、</a></p>
-
-<p><a href="http://coolgood88142.github.io、">http://coolgood88142.github.io、</a></p>
-
+<p><a href="https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40">https://medium.com/@chs_wei/%E5%9C%A8-github-%E9%83%A8%E7%BD%B2-hugo-%E9%9D%9C%E6%85%8B%E7%B6%B2%E7%AB%99-9c40682dfe40</a>、</p>
+<p><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">https://gohugo.io/hosting-and-deployment/hosting-on-github/</a>、</p>
+<p><a href="http://coolgood88142.github.io">http://coolgood88142.github.io</a>、</p>
 <p><a href="http://m.tooopen.com/view/520372.html">http://m.tooopen.com/view/520372.html</a></p>
-
 
 
 
@@ -356,13 +284,17 @@ tags: [&quot;First&quot;]
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/hugo/">#Hugo</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/hugo/">
+            #Hugo
+          </a>
+        </span>
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/git/">#Git</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/git/">
+            #Git
+          </a>
+        </span>
       
     </div>
   </div>
@@ -386,14 +318,14 @@ tags: [&quot;First&quot;]
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/heroku/">
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/google-map/">
           <div>
             <span aria-hidden="true">&larr;</span> 
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/google-map/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/heroku/">
           <div>
              <span aria-hidden="true">&rarr;</span>
           </div>

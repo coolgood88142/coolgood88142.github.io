@@ -82,9 +82,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/%e6%ad%a3%e8%a6%8f%e5%8c%96%e8%a1%a8%e7%a4%ba%e6%b3%95/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/%e6%ad%a3%e8%a6%8f%e5%8c%96%e8%a1%a8%e7%a4%ba%e6%b3%95/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/%e6%ad%a3%e8%a6%8f%e5%8c%96%e8%a1%a8%e7%a4%ba%e6%b3%95/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/%e6%ad%a3%e8%a6%8f%e5%8c%96%e8%a1%a8%e7%a4%ba%e6%b3%95/">中文</a>
           
         </div>
       
@@ -101,123 +101,74 @@
   <div class="delimiter"></div>
   <section>
     <p>1.需要能符合大小寫英文字母和特殊符號各3個</p>
-
-<p>^[A-Za-z.`&rsquo;~*!+-?%%&amp;@^${}()|[]\]{3}$</p>
-
+<p>^[A-Za-z.`'~*!+-?%%&amp;@^${}()|[]\]{3}$</p>
 <ul>
-<li>[A-Za-z.`&rsquo;~*!+-?%%&amp;@^${}()|[]\]</li>
+<li>[A-Za-z.`'~*!+-?%%&amp;@^${}()|[]\]</li>
 </ul>
-
-<p>只能輸入A-Z字元與a-z字元和( .` &lsquo; ~ * ! + - ? % &amp; @  $ { } ( ) | [ ]  ) 幾種特殊符號；( - )跳脫字元減號 ( - )；( ] )跳脫字元中括號右邊 ( ] )</p>
-
+<p>只能輸入A-Z字元與a-z字元和( .` ' ~ * ! + - ? % &amp; @  $ { } ( ) | [ ]  ) 幾種特殊符號；( - )跳脫字元減號 ( - )；( ] )跳脫字元中括號右邊 ( ] )</p>
 <ul>
 <li>{3}</li>
 </ul>
-
 <p>最多輸入3個字元</p>
-
-<p>總結：^為啟始位置，只能輸入A-Z字元與a-z字元和 . ` &lsquo; ~ * ! + - ? % &amp; @  $ { } ( ) | [ ]  幾種特殊符號；最多輸入3個字元，$為結束位置。</p>
-
+<p>總結：^為啟始位置，只能輸入A-Z字元與a-z字元和 . ` ' ~ * ! + - ? % &amp; @  $ { } ( ) | [ ]  幾種特殊符號；最多輸入3個字元，$為結束位置。</p>
 <p>Full match 跟 Group</p>
-
 <p>例如:\d(?=.*[a-z])</p>
-
 <ul>
 <li>Full match:有符合條件的字元或符號</li>
 <li>Group:要來區分有符合的字元或符號，用括號先找符合條件在找剩下的條件</li>
 </ul>
-
 <p>先找.*[a-z]的部分，a-z字元的前面可以輸入任一種字元，在找\d的部分，符合數字，加起來就是a-z字元的前面可以輸入的數字。</p>
-
 <p>[ ] 中括號裡有小括號:從左邊開始看找小括號的比對條件，在找中括號的比對條件</p>
-
-<p>例如：^[(A-Z)a-z.`&rsquo;~*!+-?%%&amp;@^${}()|[]\]{3}$</p>
-
+<p>例如：^[(A-Z)a-z.`'~*!+-?%%&amp;@^${}()|[]\]{3}$</p>
 <p>第1字元要A-Z符合後，2、3字元要符合中括號剩下的比對符號條件要符合</p>
-
 <p>( ) 小括號裡有中括號:從左邊開始看找小括號的比對條件，在找中括號的比對條件</p>
-
 <p>例如：\d(?=.*[a-z])</p>
-
 <p>只能符合a-z字元前面可輸入1個數字以上</p>
-
 <p>{ } 大括號只能輸入輸字比對前面的字元</p>
-
 <p>例如：b{3} =&gt;只能符合’bbb’字元，數字有多少就多少個疊字</p>
-
-<p>加逗號為b{3,5} =&gt; 只能符合’bbb’、&rsquo;bbbb&rsquo;、’bbbbb’字元</p>
-
+<p>加逗號為b{3,5} =&gt; 只能符合’bbb’、&lsquo;bbbb&rsquo;、’bbbbb’字元</p>
 <p>* 星號</p>
-
 <p>例如：ab* =&gt;只能符合’a’以及&rsquo;ab&rsquo;兩種字元1次以上</p>
-
 <p>+ 加號</p>
-
-<p>例如：ab+ =&gt;只能符合&rdquo;ab&rsquo;兩種字元1次以上</p>
-
+<p>例如：ab+ =&gt;只能符合'&lsquo;ab&rsquo;兩種字元1次以上</p>
 <p>? 問號</p>
-
 <p>例如：ab+ =&gt;只能符合’a’以及&rsquo;ab&rsquo;兩種字元0次或1次</p>
-
 <p>. 句點</p>
-
 <p>例如：ab. =&gt;&lsquo;ab&rsquo;字元以後可以輸入任意一種字元</p>
-
 <p>2.最少1個英文大寫和1個英文小寫和數字，總共最少8碼</p>
-
 <p>^(?=.<em>[a-z])(?=.</em>[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$</p>
-
 <ul>
 <li>(?=.*[a-z]) =&gt; 有a-z字元以前的字元可以輸入多個任何一種字元</li>
 </ul>
-
 <p>問號(?)為比對前1個字元或0個；句點[.]為比對任何一種字元；星號(*)為比對一個以上個字元，[a-z]為只能輸入a-z字元。</p>
-
 <ul>
 <li>(?=.*[A-Z]) =&gt; 有A-Z字元以前的字元可以輸入多個任何一種字元</li>
 </ul>
-
 <p>問號(?)為比對前1個字元或0個；句點[.]為比對任何一種字元；星號(*)為比對一個以上個字元，[A-Z]為只能輸入A-Z字元。</p>
-
 <ul>
 <li>(?=.*\d) =&gt; 有0-9數字以前的字元可以輸入多個任何一種字元</li>
 </ul>
-
 <p>問號(?)為比對前1個字元或0個；句點[.]為比對任何一種字元；星號(*)為比對一個以上個字元，[A-Z]為只能輸入A-Z字元。</p>
-
 <ul>
 <li>[a-zA-Z\d]</li>
 </ul>
-
 <p>只能輸入a-z字元與A-Z字元和數字[0-9]。</p>
-
 <ul>
 <li>{8,}</li>
 </ul>
-
 <p>至少能輸入8個字元以上</p>
-
 <p>總結：^為啟始位置；有a-z字元或A-Z字元或數字[0-9]以前可以輸入多個任一種字元，全部至少要輸入8個字元以上； $為結束位置。</p>
-
-<p>3.要能match <a href="https://www.youtube.com/watch?v=[輸入多個任何一種字元]這段">https://www.youtube.com/watch?v=[輸入多個任何一種字元]這段</a></p>
-
+<p>3.要能match <a href="https://www.youtube.com/watch?v=%5B">https://www.youtube.com/watch?v=[</a>輸入多個任何一種字元]這段</p>
 <p><a href="https://www.youtube.com/watch?v=FoTO4htP8BE3">https://www.youtube.com/watch?v=FoTO4htP8BE3</a></p>
-
 <p><a href="https://www.youtube.com/watch?v=FoT4Q235FGP">https://www.youtube.com/watch?v=FoT4Q235FGP</a></p>
-
 <p><a href="https://www.youtube.com/watch?v=F1234TO1254ht">https://www.youtube.com/watch?v=F1234TO1254ht</a></p>
-
-<p>^https:\/\/www.youtube.com\/watch\?v=.*$</p>
-
+<p>^https://www.youtube.com/watch?v=.*$</p>
 <ul>
-<li>https:\/\/www.youtube.com\/watch\?v=.*</li>
+<li>https://www.youtube.com/watch?v=.*</li>
 </ul>
-
-<p>只能輸入https字元；冒號(:)字元；( \/ )跳脫字元斜線 ( / )；在輸入www字元；</p>
-
-<p>( . )跳脫字元點 ( . )；在輸入youtube字元；( . )跳脫字元點 ( . )；在輸入com字元；( \/ )跳脫字元斜線 ( / )；在輸入watch字元；( \?)跳脫字元問號 ( ? )；在輸入v=字元；在輸入多個任何一種字元。</p>
-
-<p>總結：^為啟始位置；只能輸入<a href="https://www.youtube.com/watch?v=字元以後，可在輸入多個任何一種字元；">https://www.youtube.com/watch?v=字元以後，可在輸入多個任何一種字元；</a> $為結束位置。</p>
+<p>只能輸入https字元；冒號(:)字元；( / )跳脫字元斜線 ( / )；在輸入www字元；</p>
+<p>( . )跳脫字元點 ( . )；在輸入youtube字元；( . )跳脫字元點 ( . )；在輸入com字元；( / )跳脫字元斜線 ( / )；在輸入watch字元；( ?)跳脫字元問號 ( ? )；在輸入v=字元；在輸入多個任何一種字元。</p>
+<p>總結：^為啟始位置；只能輸入https://www.youtube.com/watch?v=字元以後，可在輸入多個任何一種字元； $為結束位置。</p>
 
   </section>
   <div class="clearfix">
@@ -231,13 +182,17 @@
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/regular-expression/">#Regular Expression</a></span>
-        
+        <span class="post-tag small">
+          <a href="">
+            #Regular Expression
+          </a>
+        </span>
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/regex/">#Regex</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/regex/">
+            #Regex
+          </a>
+        </span>
       
     </div>
   </div>
@@ -261,14 +216,14 @@
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/">
+        <a class="btn btn-primary btn-older-posts disabled" href="#">
           <div>
             <span aria-hidden="true">&larr;</span> 
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/pages/about/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/">
           <div>
              <span aria-hidden="true">&rarr;</span>
           </div>

@@ -84,9 +84,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/cookielocalstoragesessionstorage/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/cookielocalstoragesessionstorage/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/cookielocalstoragesessionstorage/">中文</a>
           
         </div>
       
@@ -102,24 +102,14 @@
   </header>
   <div class="delimiter"></div>
   <section>
-    
-
-<h4 id="cookie">cookie</h4>
-
+    <h4 id="cookie">cookie</h4>
 <p>生命週期為只在設定的cookie過期時間之前一直有效，即使視窗或瀏覽器關閉。 存放資料大小為4K左右 ，所以cookie只適合儲存很小的資料。</p>
-
 <h4 id="localstorage">localStorage</h4>
-
 <p>localStorage生命週期是永久，除非使用者顯示在瀏覽器達到清除localStorage資訊，否則這些資訊將永遠存在。</p>
-
 <h4 id="sessionstorage">sessionStorage</h4>
-
 <p>sessionStorage僅在當前畫面下有效，關閉頁面或瀏覽器後被清除。</p>
-
 <p>不同瀏覽器無法共享localStorage或sessionStorage中的資訊。相同瀏覽器用不同頁面間可使用相同的 localStorage，但是sessionStorage不行。</p>
-
 <p><strong>cookie、localStorage、sessionStorage表格差異</strong></p>
-
 <table>
 <thead>
 <tr>
@@ -129,7 +119,6 @@
 <th>功能描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>由瀏覽器產生cookie，需要關閉瀏覽器或生命週期過了才會被清除</td>
@@ -137,35 +126,30 @@
 <td>記錄只存在目前頁面，</td>
 <td>生命週期-設定時間</td>
 </tr>
-
 <tr>
 <td>V</td>
 <td>無法透過瀏覽器的輔助功能清除</td>
 <td>無法透過瀏覽器的輔助功能清除</td>
 <td>生命週期-使用者使用自行清除</td>
 </tr>
-
 <tr>
 <td>V</td>
 <td>V</td>
 <td>V</td>
 <td>生命週期-網頁UI清除動作</td>
 </tr>
-
 <tr>
 <td>只會在有設定瀏覽器中存在，直接時間結束</td>
 <td>除非關閉原本開的瀏覽器，否則無時間限制</td>
 <td>除非關閉原本開的瀏覽器，否則無時間限制</td>
 <td>生命週期-換瀏覽器使用</td>
 </tr>
-
 <tr>
 <td>cookie只會在http網頁存取，存取一個變數為4KB</td>
 <td>存取一個變數為5MB</td>
 <td>存取一個變數為5MB</td>
 <td>大小</td>
 </tr>
-
 <tr>
 <td>每次用http網頁，因為cookie資料過多會占用頻寬導致網頁效能很慢</td>
 <td>只存在瀏覽器，不占用頻寬也不會影響網頁效能</td>
@@ -174,18 +158,12 @@
 </tr>
 </tbody>
 </table>
-
 <p>三種適用的例子，含說明，為什麼適用?</p>
-
 <p>cookie:網頁關鍵字記錄，當網頁一直沒動作，因cookie時間關係會自動清除</p>
-
 <p>localStorage:購物車，使用者一直篩選想要的項目，但是項目可能較多，適用於5M大小做存取，若沒有清除當下次開啟瀏覽器，購物車的篩選項目還是會存在</p>
-
 <p>seesoinStorage :搜尋關鍵字搜尋不同關鍵字，用分頁時紀錄只存在當前的頁面，可適用多個分頁做相同的事情</p>
-
 <p>實做cookie 新增記錄讓網頁效能變慢</p>
-
-<p>參考資料:<a href="https://medium.com/@jscinin/javascript-cookie-localstorage-sessionstorage-三種差異-fe7f38260439">https://medium.com/@jscinin/javascript-cookie-localstorage-sessionstorage-%E4%B8%89%E7%A8%AE%E5%B7%AE%E7%95%B0-fe7f38260439</a>、<a href="https://www.itread01.com/articles/1501797427.html">https://www.itread01.com/articles/1501797427.html</a>、<a href="https://dotblogs.com.tw/shadow/2014/07/10/145879">https://dotblogs.com.tw/shadow/2014/07/10/145879</a></p>
+<p>參考資料:<a href="https://medium.com/@jscinin/javascript-cookie-localstorage-sessionstorage-%E4%B8%89%E7%A8%AE%E5%B7%AE%E7%95%B0-fe7f38260439">https://medium.com/@jscinin/javascript-cookie-localstorage-sessionstorage-%E4%B8%89%E7%A8%AE%E5%B7%AE%E7%95%B0-fe7f38260439</a>、<a href="https://www.itread01.com/articles/1501797427.html">https://www.itread01.com/articles/1501797427.html</a>、<a href="https://dotblogs.com.tw/shadow/2014/07/10/145879">https://dotblogs.com.tw/shadow/2014/07/10/145879</a></p>
 
   </section>
   <div class="clearfix">
@@ -199,17 +177,23 @@
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/cookie/">#Cookie</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/cookie/">
+            #Cookie
+          </a>
+        </span>
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/localstorage/">#LocalStorage</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/localstorage/">
+            #LocalStorage
+          </a>
+        </span>
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/sessionstorage/">#SessionStorage</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/sessionstorage/">
+            #SessionStorage
+          </a>
+        </span>
       
     </div>
   </div>
@@ -233,14 +217,14 @@
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/">
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/ajax-error/">
           <div>
             <span aria-hidden="true">&larr;</span> 
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/ajax-error/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/%E6%B5%81%E7%A8%8B%E5%9C%96%E5%BD%A2%E7%8B%80%E7%AC%A6%E8%99%9F/">
           <div>
              <span aria-hidden="true">&rarr;</span>
           </div>

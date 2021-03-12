@@ -1,11 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://coolgood88142.github.io/zh-tw/categories/api-document/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/categories/api-document/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/categories/api-document/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/</loc>
-    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -19,9 +37,384 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/cwb/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/cwb/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/cwb/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/cwb-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/cwb-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/cwb-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/posts/weather/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/weather/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/weather/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/fugle/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/fugle/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/fugle/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/fugle-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/fugle-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/fugle-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/posts/fugle/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/fugle/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/fugle/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/google-cloud-storage-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/google-cloud-storage-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/google-cloud-storage-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/google-cloud-translate-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/google-cloud-translate-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/google-cloud-translate-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/google-cloud-vision-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/google-cloud-vision-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/google-cloud-vision-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/posts/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/storage/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/storage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/storage/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/translate/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/translate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/translate/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/vision/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/vision/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/vision/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/%E5%9C%96%E7%89%87%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/%E5%9C%96%E7%89%87%E8%A7%A3%E6%9E%90/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/%E5%9C%96%E7%89%87%E8%A7%A3%E6%9E%90/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/posts/vision/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/vision/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/vision/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/%E5%AF%8C%E6%9E%9C/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/%E5%AF%8C%E6%9E%9C/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/%E5%AF%8C%E6%9E%9C%E5%8F%B0%E8%82%A1-api/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C%E5%8F%B0%E8%82%A1-api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/%E5%AF%8C%E6%9E%9C%E5%8F%B0%E8%82%A1-api/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/</loc>
+    <lastmod>2021-03-12T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/posts/line-notify/</loc>
+    <lastmod>2020-05-20T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/line-notify/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/line-notify/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/cloud-platform/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -37,7 +430,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/deployment-site/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -53,7 +447,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/git/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -69,7 +464,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/heroku/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -102,7 +498,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/hugo/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -133,57 +530,10 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/zh-tw/posts/</loc>
-    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/posts/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/zh-tw/tags/</loc>
-    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/zh-tw/</loc>
-    <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/"
-                />
-  </url>
-  
-  <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/geocoding/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -199,7 +549,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/google-developers/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -232,7 +583,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/map-javascript/</loc>
     <lastmod>2019-05-06T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -248,7 +600,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/diagram/</loc>
     <lastmod>2019-05-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -264,7 +617,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/flow-chart/</loc>
     <lastmod>2019-05-03T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -297,7 +651,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/cookie/</loc>
     <lastmod>2019-04-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -307,54 +662,6 @@
                 rel="alternate"
                 hreflang="zh-tw"
                 href="https://coolgood88142.github.io/zh-tw/tags/cookie/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/zh-tw/tags/localstorage/</loc>
-    <lastmod>2019-04-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/tags/localstorage/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/tags/localstorage/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/zh-tw/categories/records/</loc>
-    <lastmod>2019-04-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/categories/records/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/categories/records/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/zh-tw/tags/sessionstorage/</loc>
-    <lastmod>2019-04-26T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/tags/sessionstorage/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/tags/sessionstorage/"
                 />
   </url>
   
@@ -376,9 +683,61 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/localstorage/</loc>
+    <lastmod>2019-04-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/localstorage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/localstorage/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/categories/records/</loc>
+    <lastmod>2019-04-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/categories/records/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/categories/records/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/tags/sessionstorage/</loc>
+    <lastmod>2019-04-26T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/tags/sessionstorage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/tags/sessionstorage/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/ajax/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -409,25 +768,10 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/zh-tw/categories/webpack/</loc>
-    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/categories/webpack/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/categories/webpack/"
-                />
-  </url>
-  
-  <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/jquery/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -443,7 +787,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/npm/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -474,9 +819,27 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/zh-tw/categories/webpack/</loc>
+    <lastmod>2019-03-09T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/categories/webpack/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/categories/webpack/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/yarn/</loc>
     <lastmod>2019-03-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -492,7 +855,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/webpack/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -523,9 +887,27 @@
   </url>
   
   <url>
+    <loc>https://coolgood88142.github.io/zh-tw/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</loc>
+    <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/"
+                />
+  </url>
+  
+  <url>
     <loc>https://coolgood88142.github.io/zh-tw/categories/grammar/</loc>
     <lastmod>2019-02-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -541,7 +923,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/regex/</loc>
     <lastmod>2019-02-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -557,7 +940,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/regular-expression/</loc>
     <lastmod>2019-02-13T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -567,23 +951,6 @@
                 rel="alternate"
                 hreflang="zh-tw"
                 href="https://coolgood88142.github.io/zh-tw/tags/regular-expression/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://coolgood88142.github.io/zh-tw/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/</loc>
-    <lastmod>2019-02-13T00:00:00+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/"
                 />
   </url>
   
@@ -622,25 +989,10 @@
   </url>
   
   <url>
-    <loc>https://coolgood88142.github.io/zh-tw/pages/</loc>
-    <lastmod>2018-09-10T19:04:46+02:00</lastmod>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://coolgood88142.github.io/en/pages/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-tw"
-                href="https://coolgood88142.github.io/zh-tw/pages/"
-                />
-  </url>
-  
-  <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/about/</loc>
     <lastmod>2018-09-10T19:04:46+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -656,7 +1008,8 @@
   <url>
     <loc>https://coolgood88142.github.io/zh-tw/tags/page/</loc>
     <lastmod>2018-09-10T19:04:46+02:00</lastmod>
-    <priority>0</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -666,6 +1019,23 @@
                 rel="alternate"
                 hreflang="zh-tw"
                 href="https://coolgood88142.github.io/zh-tw/tags/page/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://coolgood88142.github.io/zh-tw/pages/</loc>
+    <lastmod>2018-09-10T19:04:46+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://coolgood88142.github.io/en/pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-tw"
+                href="https://coolgood88142.github.io/zh-tw/pages/"
                 />
   </url>
   

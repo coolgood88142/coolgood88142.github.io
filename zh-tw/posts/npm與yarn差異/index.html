@@ -82,9 +82,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/npm%e8%88%87yarn%e5%b7%ae%e7%95%b0/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/npm%e8%88%87yarn%e5%b7%ae%e7%95%b0/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/npm%e8%88%87yarn%e5%b7%ae%e7%95%b0/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/npm%e8%88%87yarn%e5%b7%ae%e7%95%b0/">中文</a>
           
         </div>
       
@@ -101,11 +101,8 @@
   <div class="delimiter"></div>
   <section>
     <p><strong>npm與yarn差異?</strong></p>
-
 <p>npm與yarn一樣都是套件管理工具，但是yarn的安裝速度比npm快很多，使用指令上也有差異，yarn必須從package.json安裝，安裝套件時有一個yarn.lock文件，當套件想更換版本時只要變更yarn.lock文件就可隨時更換版本，npm必須依賴package.json手動更換版本安裝</p>
-
 <p><strong>npm與yarn指令差異</strong></p>
-
 <table>
 <thead>
 <tr>
@@ -114,38 +111,32 @@
 <th>功能描述</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>npm install</td>
 <td>yarn install</td>
 <td>依據package.json安裝</td>
 </tr>
-
 <tr>
 <td>npm –save [package]</td>
 <td>yarn add [package]</td>
 <td>安裝套件</td>
 </tr>
-
 <tr>
 <td>npm –save-dev [package]</td>
 <td>yarn add [package] –dev</td>
 <td>安裝套件至開發環境</td>
 </tr>
-
 <tr>
 <td>npm –g [package]</td>
 <td>yarn global add [package]</td>
 <td>安裝全域套件 (會安裝在nodenode_modules)</td>
 </tr>
-
 <tr>
 <td>npm update –save</td>
 <td>yarn upgrade</td>
 <td>升級版本</td>
 </tr>
-
 <tr>
 <td>npm uninstall</td>
 <td>yarn remove</td>
@@ -153,39 +144,22 @@
 </tr>
 </tbody>
 </table>
-
 <p><strong>yarn</strong>優點</p>
-
 <p><strong>離線模式</strong></p>
-
 <p>yarn會有一個快取目錄，會快取以前安裝過的軟體包，再次安裝時就不必從網路下載了，大大加速安裝速度。</p>
-
 <p><strong>依賴關係確定性</strong></p>
-
 <p>npm在執行安裝套件都會依賴別的套件版本，導致有重新安裝的問題，yarn在安裝時依賴結構是一致的</p>
-
 <p><strong>網路效能優化</strong></p>
-
 <p>yarn在安裝套件時會優化請求順序。</p>
-
 <p><strong>網路回彈</strong></p>
-
 <p>yarn在某個安裝包請求失敗時不會導致安裝失敗，它會自動去嘗試重新安裝。而npm則會毫不猶豫的失敗，導致得再來一次，耗費時間</p>
-
 <p><strong>扁平模式</strong></p>
-
 <p>對於多個包依賴同一個子包的情況，yarn會盡量提取為同一個包，防止出現多處副本，浪費空間。比如1.2中，yarn會為babel-generator和babel-helper-define-map 建立同一個lodash子依賴，這樣就節約一份的空間。</p>
-
 <p>npm與yarn安裝套件方式，npm相較之下依賴於package.json檔案切換版本重新安裝又會有其餘套件相依性問題，yarn從package.json安裝套件會記錄套件的相依性的其餘套件，當套件變更版本時會也會將相依性的套件一律做更新，就不用在找其餘套件的相依性</p>
-
 <p>yarn安裝時需要先npm，yarn是依賴node環境執行，npm install yarn -g</p>
-
-<p>參考資料:<a href="https://www.zcfy.cc/article/yarn-vs-npm-everything-you-need-to-know-1484.html">https://www.zcfy.cc/article/yarn-vs-npm-everything-you-need-to-know-1484.html</a></p>
-
+<p>參考資料:https://www.zcfy.cc/article/yarn-vs-npm-everything-you-need-to-know-1484.html</p>
 <p><a href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/251371/">https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/251371/</a></p>
-
 <p><a href="https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/">https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/</a></p>
-
 <p><a href="https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/263549/">https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/263549/</a></p>
 
   </section>
@@ -200,13 +174,17 @@
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/npm/">#npm</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/npm/">
+            #npm
+          </a>
+        </span>
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/yarn/">#yarn</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/yarn/">
+            #yarn
+          </a>
+        </span>
       
     </div>
   </div>
@@ -230,14 +208,14 @@
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/ajax-error/">
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/webpack/">
           <div>
             <span aria-hidden="true">&larr;</span> 
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/webpack/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/ajax-error/">
           <div>
              <span aria-hidden="true">&rarr;</span>
           </div>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" fugle API &middot;  我的部落格" />
+  
+  <meta property="og:site_name" content="我的部落格" />
+  <meta property="og:url" content="https://coolgood88142.github.io/zh-tw/posts/fugle/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2021-03-12T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="fugle" />
+    
+      <meta property="og:article:tag" content="fugle API" />
+    
+      <meta property="og:article:tag" content="富果" />
+    
+      <meta property="og:article:tag" content="富果台股 API" />
+    
+  
+
+  <title>
+     fugle API &middot;  我的部落格
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/zh-tw/">我的部落格</a></h1>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/zh-tw/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/categories/">
+            分類
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/tags/">
+            標籤
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/pages/about/">
+            關於
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/">
+            首頁
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <div class="language-container">
+          
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/fugle/">English</a>
+          
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/fugle/">中文</a>
+          
+        </div>
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">fugle API</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    <h2 id="富果台股-api">富果台股 API</h2>
+<h3 id="大綱">大綱</h3>
+<p>介紹</p>
+<ul>
+<li>富果API有些股票資訊?</li>
+</ul>
+<p>Line Bot</p>
+<ol>
+<li>建立Providers</li>
+<li>建立API</li>
+<li>安裝ngrok</li>
+</ol>
+<p>流程圖</p>
+<p>功能介紹</p>
+<ol>
+<li>查詢</li>
+<li>線圖</li>
+<li>統計資訊</li>
+<li>當日資料</li>
+<li>當日成交資訊</li>
+</ol>
+<p>問題記錄</p>
+<h3 id="介紹">介紹</h3>
+<p><a href="https://developer.fugle.tw/">富果 API </a>是由 <a href="https://info.infotimes.com.tw/">時報資訊</a> 與 Fugle 富果技術團隊共同開發，提供台股及時行情 。</p>
+<p>還需要申辦玉山證券富果帳戶，才可以免費申請  API token 使用 Fugle 富果 API。</p>
+<p>在申辦玉山證券富果帳戶，必須要有玉山銀行帳戶，開戶還需要7天作業時間。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/fugle.PNG" alt="fugle"></p>
+<h4 id="富果api有哪些股票資訊">富果API有哪些股票資訊?</h4>
+<p>API類型分為線圖(chart)、統計資訊(Quote)、當天資訊(Meta)、當天成交資訊(Deatlls)。</p>
+<p>在拿資料前要做驗證，確認使用者輸入的股票代號，以下示範API的寫法</p>
+<pre><code>https://api.fugle.tw/realtime/v0/intraday/類型?symbolId=股票代號&amp;apiToken=富果帳號的token
+</code></pre><p>例如回傳的當天資訊資料，在data的meta裡，會記錄著股票的資料，顯示股票名稱、做什麼產業等等</p>
+<pre><code>{
+  &quot;apiVersion&quot;: &quot;0.1.0&quot;,
+  &quot;data&quot;: {
+    &quot;info&quot;: {
+      &quot;countryCode&quot;: &quot;TW&quot;,
+      &quot;date&quot;: &quot;2021-03-09&quot;,
+      &quot;lastUpdatedAt&quot;: &quot;2021-03-09T00:49:39.928Z&quot;,
+      &quot;mode&quot;: &quot;twse-sem&quot;,
+      &quot;symbolId&quot;: &quot;2330&quot;,
+      &quot;timeZone&quot;: &quot;Asia/Taipei&quot;
+    },
+    &quot;meta&quot;: {
+      &quot;abnormal&quot;: &quot;正常&quot;,
+      &quot;canDayBuySell&quot;: true,
+      &quot;canDaySellBuy&quot;: true,
+      &quot;canShortLend&quot;: true,
+      &quot;canShortMargin&quot;: true,
+      &quot;currency&quot;: &quot;TWD&quot;,
+      &quot;industryZhTw&quot;: &quot;半導體業&quot;,
+      &quot;isIndex&quot;: false,
+      &quot;isSuspended&quot;: false,
+      &quot;isTerminated&quot;: false,
+      &quot;isWarrant&quot;: false,
+      &quot;nameZhTw&quot;: &quot;台積電&quot;,
+      &quot;priceHighLimit&quot;: 657,
+      &quot;priceLowLimit&quot;: 539,
+      &quot;priceReference&quot;: 598,
+      &quot;typeZhTw&quot;: &quot;一般股票&quot;,
+      &quot;volumePerUnit&quot;: 1000
+    }
+  }
+}
+</code></pre><p>以下程式碼為範例，拿股票名稱，如果回傳的是null就是驗證失敗</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getStockName</span>(<span style="color:#a6e22e">String</span> $fugleUrl, <span style="color:#a6e22e">String</span> $parameter, <span style="color:#a6e22e">String</span> $symbolId){
+    $url <span style="color:#f92672">=</span> $fugleUrl <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;meta&#39;</span> <span style="color:#f92672">.</span> $parameter <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;&amp;symbolId=&#39;</span><span style="color:#f92672">.</span> (<span style="color:#a6e22e">int</span>)$symbolId;
+    $Guzzleclient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\GuzzleHttp\Client</span>();
+    $name <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    <span style="color:#66d9ef">try</span>{
+        $response <span style="color:#f92672">=</span> $Guzzleclient<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($url);
+        $json <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>());
+        $name <span style="color:#f92672">=</span> $json<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">data</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">meta</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">nameZhTw</span>;
+    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">RequestException</span> $e) {
+        <span style="color:#66d9ef">return</span> $name;
+    }
+    <span style="color:#66d9ef">return</span> $name;
+}
+</code></pre></div><h2 id="line-bot">Line Bot</h2>
+<p>Line Bot是Line 的聊天機器人，是一個單向傳輸文字、圖片等訊息，而且還免費，不會被依訊息則數來收費。它是一個官方帳號，加入好友後，用他接收你的服務發送過來的推播訊息。</p>
+<h3 id="1建立providers">1.建立Providers</h3>
+<p>先登入<a href="https://developers.line.biz/en/">Line </a>頁面，在<strong>Providers</strong>點選<strong>Create</strong>，輸入完<strong>Provider name</strong>之後</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot1.png" alt="line-bot1"></p>
+<p>點選<strong>Create a Messageing API channel</strong></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot2.png" alt="line-bot2"></p>
+<p>輸入<strong>Channel name</strong>(頻道名稱)，在輸入<strong>Channel description</strong>，來描述頻道功能</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot3.png" alt="line-bot3"></p>
+<p>再從<strong>Category</strong>選擇類別，再到<strong>Subcategory</strong>，選擇子類別</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot4.png" alt="line-bot4"></p>
+<p>勾選下面的<strong>LINE Official Account Terms of Use</strong>和<strong>LINE Official Account API Terms of Use</strong>，在點選<strong>Create</strong>建立起來。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot5.png" alt="line-bot5"></p>
+<h3 id="2建立api">2.建立API</h3>
+<p>選擇剛建立好的<strong>Providers</strong>，在點選<strong>Messaging API</strong>，到下面的<strong>channel access token(long-lived)</strong>，點選<strong>lssue</strong>，產生<strong>token</strong>，等等講解需要用到。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot7.png" alt="line-bot7"></p>
+<p>掃描<strong>QRcode</strong>之後，加入好友</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot8.png" alt="line-bot8"></p>
+<h3 id="3安裝ngrok">3.安裝ngrok</h3>
+<p>Line Bot需要用https協定可以測試，我們在本機開發，無法使用協定，因此我們需要安裝ngrok，幫我們產生https協定的網址。</p>
+<p>下載完ngrok之後打開exe檔，我們用laravel 做本機開發，port會是8000，要輸入ngrok.exe http 8000，再複製https網址</p>
+<p><strong>Line bot</strong>需要<strong>Webhook URL</strong>才能連到部署的網址，但是現在要連線到本機，需要靠<strong>ngrok</strong>建立臨時的部署網址</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot9.png" alt="line-bot9"></p>
+<p>在回到Line Bot網頁上，裡面有個叫Webhook Settings，把https的網址貼上去後，點選Verify，在打開瀏覽器貼上https網址，這時ngrok.exe會多一行GET status200，代表成功了。</p>
+<p>先到<a href="https://dashboard.ngrok.com/login">ngrok</a>註冊帳號，註冊完之後下載檔案，在做解壓縮</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot10.png" alt="line-bot10"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot11.png" alt="line-bot11"></p>
+<p>打開資料夾的ngrok.exe</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot12.png" alt="line-bot12"></p>
+<p>輸入本機網址port，ngrok.exe http 8000 ，<strong>ngrok</strong>會產生網址出來，將https的網址貼到<strong>Line bot</strong>的<strong>Webhook URL</strong></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot13.png" alt="line-bot13"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot14.png" alt="line-bot14"></p>
+<h2 id="流程圖">流程圖</h2>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/stock-1.png" alt="stock-1"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/stock-2.png" alt="stock-2"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/stock-3.png" alt="stock-3"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/stock-4.png" alt="stock-4"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/stock-5.png" alt="stock-5"></p>
+<h2 id="功能介紹">功能介紹</h2>
+<h3 id="1股票menu">1.股票menu</h3>
+<p>在我們需要一個menu可以點選股票資訊，來回應各種資料，前提是使用者要告訴我們，你要查哪支股票資訊?</p>
+<p>所以會請使用者輸入股票代號後，系統會提供該股票相關的menu，menu的格式可以用這個<a href="https://developers.line.biz/flex-simulator/">網址</a>去設計</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageStock</span>(<span style="color:#a6e22e">Request</span> $request){
+	$replyToken <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;replyToken&#39;</span>];
+    $type <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;type&#39;</span>];
+    $symbolId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    
+    <span style="color:#75715e">//先判斷是否從Line裡輸入文字，如果是的話type會是message
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>($type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;message&#39;</span>){
+        <span style="color:#75715e">//[&#39;message&#39;][&#39;text&#39;]是指訊息文字
+</span><span style="color:#75715e"></span>        $symbolId <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;message&#39;</span>][<span style="color:#e6db74">&#39;text&#39;</span>];
+    }
+
+    $apiToken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;富果帳號的token&#39;</span>;
+    $fugleUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.fugle.tw/realtime/v0/intraday/&#39;</span>;
+    $parameter <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?apiToken=&#39;</span> <span style="color:#f92672">.</span> $apiToken;
+    
+    <span style="color:#75715e">//先檢查輸入的股票代號，是否會取得股票名稱(ex:2330-台積電)
+</span><span style="color:#75715e"></span>    $name <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getStockName</span>($fugleUrl, $parameter, $symbolId);
+
+    <span style="color:#75715e">//預設回傳訊息為請輸入【股票代碼】
+</span><span style="color:#75715e"></span>    $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;請輸入【股票代碼】&#39;</span>);
+    <span style="color:#66d9ef">if</span>($name <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+        $size <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;lg&#39;</span>;
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">strlen</span>($name) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span> ){
+            $size <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;md&#39;</span>;
+        }
+        
+        <span style="color:#75715e">//組回傳訊息的格式
+</span><span style="color:#75715e"></span>        $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+            [
+                <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;請問要選擇哪個&#39;</span> <span style="color:#f92672">.</span> $name <span style="color:#f92672">.</span><span style="color:#e6db74">&#39;股票資訊?&#39;</span>,
+                <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                    <span style="color:#e6db74">&#39;hero&#39;</span><span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;image&#39;</span>,
+                        <span style="color:#e6db74">&#39;url&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;https://i.imgur.com/Yx8s4WL.png&#39;</span>,
+                        <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;full&#39;</span>,
+                        <span style="color:#e6db74">&#39;aspectRatio&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;20:13&#39;</span>,
+                        <span style="color:#e6db74">&#39;aspectMode&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;cover&#39;</span>
+                     ],
+                     <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                         <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                         <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                         <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> [
+                             [
+                                 <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text&#39;</span>,
+                                 <span style="color:#e6db74">&#39;text&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;請問要選擇哪個&#39;</span> <span style="color:#f92672">.</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票資訊?&#39;</span>,
+                                 <span style="color:#e6db74">&#39;weight&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bold&#39;</span>,
+                                 <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> $size,
+                                 <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;md&#39;</span>
+                             ],
+                             [
+                                 <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;spacer&#39;</span>
+                             ],
+                         ],
+                     ],
+                     <span style="color:#e6db74">&#39;footer&#39;</span><span style="color:#f92672">=&gt;</span> [
+                         <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;box&#39;</span>,
+                         <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;vertical&#39;</span>,
+                         <span style="color:#e6db74">&#39;spacing&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;sm&#39;</span>,
+                         <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> [
+                             [
+                                 <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;button&#39;</span>,
+                                 <span style="color:#e6db74">&#39;action&#39;</span><span style="color:#f92672">=&gt;</span>[
+                                     <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;postback&#39;</span>,
+                                     <span style="color:#e6db74">&#39;label&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;線圖&#39;</span>,
+                                     <span style="color:#e6db74">&#39;text&#39;</span> <span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;-線圖&#39;</span>,
+                                     <span style="color:#e6db74">&#39;data&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text=線圖&amp;symbolId=&#39;</span><span style="color:#f92672">.</span>$symbolId,
+                                 ],
+                                 <span style="color:#e6db74">&#39;height&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;sm&#39;</span>
+                             ],
+                             <span style="color:#75715e">//以下為flex message格式，其餘3個股票資訊格式...
+</span><span style="color:#75715e"></span>                         ],
+                         <span style="color:#e6db74">&#39;flex&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#ae81ff">0</span>,
+                     ],
+                    <span style="color:#e6db74">&#39;styles&#39;</span><span style="color:#f92672">=&gt;</span>[
+                        <span style="color:#e6db74">&#39;footer&#39;</span><span style="color:#f92672">=&gt;</span>[
+                            <span style="color:#e6db74">&#39;separator&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">true</span>
+                        ],
+                    ],
+                ]
+            ],
+        );
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>我們先用api的meta，檢查股票代號，並且取得股票名稱，在建立menu的flex message的格式</p>
+<h3 id="2線圖">2.線圖</h3>
+<p>點擊menu上的線圖，是提供股票最新各項即時資訊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageStock</span>(<span style="color:#a6e22e">Request</span> $request){
+    $text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $symbolId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $type <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;type&#39;</span>];
+    $apiToken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;富果帳號的token&#39;</span>;
+    $fugleUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.fugle.tw/realtime/v0/intraday/&#39;</span>;
+    $parameter <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?apiToken=&#39;</span> <span style="color:#f92672">.</span> $apiToken;
+    
+    <span style="color:#75715e">//這裡會先判斷menu設定的type是否為postback，postback可以夾帶參數和設定點擊時會顯示什麼訊息
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>($type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;postback&#39;</span>){
+        <span style="color:#75715e">//例如postback的data是長這樣，text=線圖&amp;symbolId=2330
+</span><span style="color:#75715e"></span>        $data <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;postback&#39;</span>][<span style="color:#e6db74">&#39;data&#39;</span>];
+        $dataArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;&amp;&#39;</span>, $data);
+        $textArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">0</span>]);
+        $symbolIdArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">1</span>]);
+        $text <span style="color:#f92672">=</span> $textArray[<span style="color:#ae81ff">1</span>];
+        $symbolId <span style="color:#f92672">=</span> $symbolIdArray[<span style="color:#ae81ff">1</span>];
+    }
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;線圖&#39;</span>){
+        $url <span style="color:#f92672">=</span> $fugleUrl <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;chart&#39;</span> <span style="color:#f92672">.</span> $parameter;
+        $Guzzleclient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\GuzzleHttp\Client</span>();
+        $response <span style="color:#f92672">=</span> $Guzzleclient<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($url);
+        $json <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>());
+        $datas <span style="color:#f92672">=</span> $json<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">data</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">chart</span>;
+        $deatsKeys <span style="color:#f92672">=</span> <span style="color:#a6e22e">array_keys</span>(<span style="color:#a6e22e">get_object_vars</span>($datas));
+    
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($deatsKeys) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+            $lastKey <span style="color:#f92672">=</span> $deatsKeys[<span style="color:#a6e22e">count</span>($deatsKeys) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+            $lastDeatlsData <span style="color:#f92672">=</span> $datas<span style="color:#f92672">-&gt;</span>$lastKey;
+            $charts <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;chart&#39;</span>);
+    
+            $messageArray <span style="color:#f92672">=</span> [
+                [
+                 <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text&#39;</span>,
+                 <span style="color:#e6db74">&#39;text&#39;</span><span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                 <span style="color:#e6db74">&#39;weight&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bold&#39;</span>,
+                 <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>,
+                 <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;md&#39;</span>
+                ],
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;separator&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>
+                ],
+            ];
+    
+            <span style="color:#66d9ef">foreach</span>($charts <span style="color:#66d9ef">as</span> $chart){
+                <span style="color:#66d9ef">foreach</span>($chart <span style="color:#66d9ef">as</span> $key <span style="color:#f92672">=&gt;</span> $value){
+                    $chartValue <span style="color:#f92672">=</span> $lastDeatlsData<span style="color:#f92672">-&gt;</span>$key;
+                    <span style="color:#66d9ef">if</span>($key <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;unit&#39;</span> <span style="color:#f92672">&amp;&amp;</span> $key <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;volume&#39;</span>){
+                        $chartValue <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;$&#39;</span> <span style="color:#f92672">.</span> $chartValue;
+                    }
+                    
+                    $message <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getStockHorizontalTemplate</span>((<span style="color:#a6e22e">string</span>)$value, (<span style="color:#a6e22e">string</span>)$chartValue);
+                    
+                    <span style="color:#a6e22e">array_push</span>($messageArray, $message);
+                    
+                    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($messageArray) <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+                        <span style="color:#a6e22e">array_push</span>($messageArray[<span style="color:#ae81ff">1</span>], [
+                            <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>,
+                            <span style="color:#e6db74">&#39;spacing&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;sm&#39;</span>,
+                        ]);
+                    }
+                }
+            }
+            
+            $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                    <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                        <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;mega&#39;</span>,
+                        <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                            <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                            <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                            <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> $messageArray
+                        ]  
+                    ]
+                ]
+            );
+        }<span style="color:#66d9ef">else</span>{
+            $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;目前股票尚未開盤&#39;</span>);
+        }
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>透過menu傳過來的參數，先判斷目前是點哪個資訊，直接取得股票資料，在套用Line bot的flex message格式，系統會自動回覆【股票名稱-線圖】，在跳出訊息，顯示股票的開盤價、最高價、最低價、收盤價、交易張數、交易量。</p>
+<h3 id="3統計資訊">3.統計資訊</h3>
+<p>點擊menu上的的統計資訊，是提供股票每筆交易金額、狀態、最佳五檔及其他資訊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageStock</span>(<span style="color:#a6e22e">Request</span> $request){
+    $text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $symbolId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $type <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;type&#39;</span>];
+    $apiToken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;富果帳號的token&#39;</span>;
+    $fugleUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.fugle.tw/realtime/v0/intraday/&#39;</span>;
+    $parameter <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?apiToken=&#39;</span> <span style="color:#f92672">.</span> $apiToken;
+    
+    <span style="color:#75715e">//這裡會先判斷menu設定的type是否為postback，postback可以夾帶參數和設定點擊時會顯示什麼訊息
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>($type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;postback&#39;</span>){
+        <span style="color:#75715e">//例如postback的data是長這樣，text=統計資訊&amp;symbolId=2330
+</span><span style="color:#75715e"></span>        $data <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;postback&#39;</span>][<span style="color:#e6db74">&#39;data&#39;</span>];
+        $dataArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;&amp;&#39;</span>, $data);
+        $textArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">0</span>]);
+        $symbolIdArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">1</span>]);
+        $text <span style="color:#f92672">=</span> $textArray[<span style="color:#ae81ff">1</span>];
+        $symbolId <span style="color:#f92672">=</span> $symbolIdArray[<span style="color:#ae81ff">1</span>];
+    }
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;統計資訊&#39;</span>){
+    	$url <span style="color:#f92672">=</span> $fugleUrl <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;quote&#39;</span> <span style="color:#f92672">.</span> $parameter;
+        $Guzzleclient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\GuzzleHttp\Client</span>();
+        $response <span style="color:#f92672">=</span> $Guzzleclient<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($url);
+        $json <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>());
+        $datas <span style="color:#f92672">=</span> <span style="color:#a6e22e">get_object_vars</span>($json<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">data</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">quote</span>);
+    
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($datas) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+            $quotes <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;quote&#39;</span>);
+            $messageArray1 <span style="color:#f92672">=</span> [
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text&#39;</span>,
+                    <span style="color:#e6db74">&#39;text&#39;</span><span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;weight&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bold&#39;</span>,
+                    <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;md&#39;</span>
+                ],
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;separator&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>
+                ],
+            ];
+    
+            $messageArray2 <span style="color:#f92672">=</span> [];
+    
+            <span style="color:#66d9ef">foreach</span>($quotes <span style="color:#66d9ef">as</span> $quote){
+                <span style="color:#66d9ef">foreach</span>($quote <span style="color:#66d9ef">as</span> $key <span style="color:#f92672">=&gt;</span> $value){
+                    <span style="color:#75715e">//以下為flex message格式
+</span><span style="color:#75715e"></span>                    <span style="color:#a6e22e">array_push</span>($messageArray2, $value);
+                }
+            }
+            
+            $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                    <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;carousel&#39;</span>,
+                        <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                            [
+                                <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                                <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;giga&#39;</span>,
+                                <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                                    <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                                    <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> $messageArray1
+                                ]
+                            ],
+                            [
+                                <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                                <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;giga&#39;</span>,
+                                <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                                    <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                                    <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> $messageArray2
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            );
+        }<span style="color:#66d9ef">else</span>{
+            $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;目前股票尚未開盤&#39;</span>);
+        } 
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>透過menu傳過來的參數，先判斷目前是點哪個資訊，直接取得股票資料，在套用Line bot的flex message格式，系統會自動回覆【股票名稱-統計資訊】，在跳出訊息，顯示當天的股票狀態、最後一筆的交易資訊、最新一筆最佳五檔資料。</p>
+<p>五檔指的是目前成交價上下最接近的5個價位，分別有多少買家和賣家。</p>
+<h3 id="4當日資訊">4.當日資訊</h3>
+<p>點擊menu上的的當日資訊，是提供股票基本資訊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageStock</span>(<span style="color:#a6e22e">Request</span> $request){
+    $text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $symbolId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $type <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;type&#39;</span>];
+    $apiToken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;富果帳號的token&#39;</span>;
+    $fugleUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.fugle.tw/realtime/v0/intraday/&#39;</span>;
+    $parameter <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?apiToken=&#39;</span> <span style="color:#f92672">.</span> $apiToken;
+    
+    <span style="color:#75715e">//這裡會先判斷menu設定的type是否為postback，postback可以夾帶參數和設定點擊時會顯示什麼訊息
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>($type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;postback&#39;</span>){
+        <span style="color:#75715e">//例如postback的data是長這樣，text=當日資訊&amp;symbolId=2330
+</span><span style="color:#75715e"></span>        $data <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;postback&#39;</span>][<span style="color:#e6db74">&#39;data&#39;</span>];
+        $dataArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;&amp;&#39;</span>, $data);
+        $textArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">0</span>]);
+        $symbolIdArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">1</span>]);
+        $text <span style="color:#f92672">=</span> $textArray[<span style="color:#ae81ff">1</span>];
+        $symbolId <span style="color:#f92672">=</span> $symbolIdArray[<span style="color:#ae81ff">1</span>];
+    }
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;當日資訊&#39;</span>){
+		$url <span style="color:#f92672">=</span> $fugleUrl <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;meta&#39;</span> <span style="color:#f92672">.</span> $parameter;
+        $Guzzleclient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\GuzzleHttp\Client</span>();
+        $response <span style="color:#f92672">=</span> $Guzzleclient<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($url);
+        $json <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>());
+        $datas <span style="color:#f92672">=</span> <span style="color:#a6e22e">get_object_vars</span>($json<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">data</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">meta</span>);
+    
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($datas) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+            $metas <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;meta&#39;</span>);
+    
+            $messageArray <span style="color:#f92672">=</span> [
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text&#39;</span>,
+                    <span style="color:#e6db74">&#39;text&#39;</span><span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;weight&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bold&#39;</span>,
+                    <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;md&#39;</span>
+                ],
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;separator&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>
+                ],
+            ];
+        
+            <span style="color:#66d9ef">foreach</span>($metas <span style="color:#66d9ef">as</span> $meta){
+                <span style="color:#66d9ef">foreach</span>($meta <span style="color:#66d9ef">as</span> $key <span style="color:#f92672">=&gt;</span> $value){
+                    <span style="color:#75715e">//以下為flex message格式
+</span><span style="color:#75715e"></span>                    <span style="color:#a6e22e">array_push</span>($messageArray, $value);
+                }
+            }
+        
+            $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                    <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                        <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                            <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                            <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                            <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> $messageArray
+                        ]  
+                    ]
+                          
+                ]
+            );
+        }<span style="color:#66d9ef">else</span>{
+            $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;目前股票尚未開盤&#39;</span>);
+        }	
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>透過menu傳過來的參數，先判斷目前是點哪個資訊，直接取得股票資料，在套用Line bot的flex message格式，系統會自動回覆【股票名稱-統計資訊】，在跳出訊息，顯示當天的股票名稱、產業、今日參考值、漲停價、跌停價等等資訊。</p>
+<h3 id="5當日成交資訊">5.當日成交資訊</h3>
+<p>點擊menu上的的當日成交資訊，是提供股票當天最新一筆成交資訊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageStock</span>(<span style="color:#a6e22e">Request</span> $request){
+    $text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $symbolId <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+    $type <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;type&#39;</span>];
+    $apiToken <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;富果帳號的token&#39;</span>;
+    $fugleUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.fugle.tw/realtime/v0/intraday/&#39;</span>;
+    $parameter <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;?apiToken=&#39;</span> <span style="color:#f92672">.</span> $apiToken;
+    
+    <span style="color:#75715e">//這裡會先判斷menu設定的type是否為postback，postback可以夾帶參數和設定點擊時會顯示什麼訊息
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span>($type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;postback&#39;</span>){
+        <span style="color:#75715e">//例如postback的data是長這樣，text=當日成交資訊&amp;symbolId=2330
+</span><span style="color:#75715e"></span>        $data <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;postback&#39;</span>][<span style="color:#e6db74">&#39;data&#39;</span>];
+        $dataArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;&amp;&#39;</span>, $data);
+        $textArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">0</span>]);
+        $symbolIdArray <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;=&#39;</span>, $dataArray[<span style="color:#ae81ff">1</span>]);
+        $text <span style="color:#f92672">=</span> $textArray[<span style="color:#ae81ff">1</span>];
+        $symbolId <span style="color:#f92672">=</span> $symbolIdArray[<span style="color:#ae81ff">1</span>];
+    }
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;當日成交資訊&#39;</span>){
+		$url <span style="color:#f92672">=</span> $fugleUrl <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;dealts&#39;</span> <span style="color:#f92672">.</span> $parameter <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;&amp;limit=1&#39;</span>;
+        $Guzzleclient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\GuzzleHttp\Client</span>();
+        $response <span style="color:#f92672">=</span> $Guzzleclient<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($url);
+        $json <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>());
+        $datas <span style="color:#f92672">=</span> $json<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">data</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">dealts</span>;
+                
+        <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">count</span>($datas) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+            $dealts <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;dealts&#39;</span>);
+    
+            $messageArray <span style="color:#f92672">=</span> [
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text&#39;</span>,
+                    <span style="color:#e6db74">&#39;text&#39;</span><span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;weight&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bold&#39;</span>,
+                    <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;md&#39;</span>
+                ],
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;separator&#39;</span>,
+                    <span style="color:#e6db74">&#39;margin&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;xxl&#39;</span>
+                ],
+            ];
+    
+            $dealt <span style="color:#f92672">=</span> <span style="color:#a6e22e">end</span>($dealts);
+                    
+            <span style="color:#66d9ef">foreach</span>($dealt <span style="color:#66d9ef">as</span> $key <span style="color:#f92672">=&gt;</span> $value){
+                <span style="color:#75715e">//以下為flex message格式
+</span><span style="color:#75715e"></span>                <span style="color:#a6e22e">array_push</span>($messageArray, $message);
+            }
+        
+            $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+                [
+                    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                    <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> $name <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;股票&#39;</span>,
+                    <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                        <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                            <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                            <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                            <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> $messageArray
+                        ]  
+                    ]
+                          
+                ]
+            );
+        }<span style="color:#66d9ef">else</span>{
+            $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;目前股票尚未開盤&#39;</span>);
+        }	
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>透過menu傳過來的參數，先判斷目前是點哪個資訊，直接取得股票資料，在套用Line bot的flex message格式，系統會自動回覆【股票名稱-當日成交資訊】，在跳出訊息，顯示當天的股票最新交易時間、價格、張數、序號。</p>
+<h2 id="問題紀錄">問題紀錄</h2>
+<ol>
+<li>
+<p>使用ngrok在本機測試，系統一直顯示419 unknown status，用log找錯誤訊息也沒有顯示?</p>
+<p>要在app/http/Middleware/VerifyCsrfToken.php，這隻檔案的except新增<code>/webhook</code>，告訴laravel這個路徑不需要驗證。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">protected</span> $except <span style="color:#f92672">=</span> [
+ <span style="color:#e6db74">&#39;/webhook&#39;</span>
+];
+</code></pre></div></li>
+<li>
+<p>Line Bot 組文字資料使用換行符號(/n)，怎麼沒反應</p>
+<p>在PHP已經都習慣寫單引號，要換改用雙引號才有用。</p>
+</li>
+</ol>
+<p>參考資料:</p>
+<p><a href="https://stackoverflow.com/questions/46266553/why-does-the-laravel-api-return-a-419-status-code-on-post-and-put-methods">https://stackoverflow.com/questions/46266553/why-does-the-laravel-api-return-a-419-status-code-on-post-and-put-methods</a>、</p>
+<p><a href="https://eric0324.github.io/2019/09/16/let-line-chatbot-say-hello-world/">https://eric0324.github.io/2019/09/16/let-line-chatbot-say-hello-world/</a>、</p>
+<p><a href="https://developers.line.biz/en/">https://developers.line.biz/en/</a>、</p>
+<p><a href="https://developer.fugle.tw/document/intraday/introduction">https://developer.fugle.tw/document/intraday/introduction</a></p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          
+          
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/fugle/">
+            #fugle
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #fugle API
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/%E5%AF%8C%E6%9E%9C/">
+            #富果
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #富果台股 API
+          </a>
+        </span>
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/vision/">
+          <div>
+            <span aria-hidden="true">&larr;</span> 
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/weather/">
+          <div>
+             <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+

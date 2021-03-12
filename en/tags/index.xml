@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on My Hugo Blog</title>
@@ -6,10 +6,141 @@
     <description>Recent content in Tags on My Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coolgood88142.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CWB</title>
+      <link>https://coolgood88142.github.io/en/tags/cwb/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/cwb/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="https://coolgood88142.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CWB API</title>
+      <link>https://coolgood88142.github.io/en/tags/cwb-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/cwb-api/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>fugle</title>
+      <link>https://coolgood88142.github.io/en/tags/fugle/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/fugle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fugle API</title>
+      <link>https://coolgood88142.github.io/en/tags/fugle-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/fugle-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Cloud Storage API</title>
+      <link>https://coolgood88142.github.io/en/tags/google-cloud-storage-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/google-cloud-storage-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Cloud Translate API</title>
+      <link>https://coolgood88142.github.io/en/tags/google-cloud-translate-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/google-cloud-translate-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Google Cloud Vision API</title>
+      <link>https://coolgood88142.github.io/en/tags/google-cloud-vision-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/google-cloud-vision-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Storage</title>
+      <link>https://coolgood88142.github.io/en/tags/storage/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Translate</title>
+      <link>https://coolgood88142.github.io/en/tags/translate/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/translate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vision&#34;</title>
+      <link>https://coolgood88142.github.io/en/tags/vision/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/vision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>中央氣象局</title>
+      <link>https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>中央氣象局 API</title>
+      <link>https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80-api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>圖片解析</title>
+      <link>https://coolgood88142.github.io/en/tags/%E5%9C%96%E7%89%87%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/%E5%9C%96%E7%89%87%E8%A7%A3%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>富果</title>
+      <link>https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>富果台股 API</title>
+      <link>https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C%E5%8F%B0%E8%82%A1-api/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C%E5%8F%B0%E8%82%A1-api/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Git</title>

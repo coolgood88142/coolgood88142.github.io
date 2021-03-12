@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" CWB API &middot;  我的部落格" />
+  
+  <meta property="og:site_name" content="我的部落格" />
+  <meta property="og:url" content="https://coolgood88142.github.io/zh-tw/posts/weather/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2021-03-12T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="CWB" />
+    
+      <meta property="og:article:tag" content="CWB API" />
+    
+      <meta property="og:article:tag" content="中央氣象局" />
+    
+      <meta property="og:article:tag" content="中央氣象局 API" />
+    
+  
+
+  <title>
+     CWB API &middot;  我的部落格
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/zh-tw/">我的部落格</a></h1>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/zh-tw/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/categories/">
+            分類
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/tags/">
+            標籤
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/pages/about/">
+            關於
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/">
+            首頁
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <div class="language-container">
+          
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/weather/">English</a>
+          
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/weather/">中文</a>
+          
+        </div>
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">CWB API</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    <h2 id="中央氣象局-api">中央氣象局 API</h2>
+<h3 id="大綱">大綱</h3>
+<p>介紹</p>
+<p>Line Bot</p>
+<ol>
+<li>建立Providers</li>
+<li>建立API</li>
+<li>安裝ngrok</li>
+</ol>
+<p>流程圖</p>
+<p>功能介紹</p>
+<ol>
+<li>查詢</li>
+<li>縣市menu</li>
+<li>今天氣候</li>
+<li>明天氣候</li>
+<li>雷達</li>
+</ol>
+<h3 id="介紹">介紹</h3>
+<p>是中央氣象局提供的開放式資料，我們可以利用API快速拿到氣象局的最新資訊。</p>
+<p>使用之前要先到<a href="https://opendata.cwb.gov.tw/index">氣象資料開放平台</a>註冊帳號，登入之後點選取得授權碼</p>
+<p><img src="C:%5Cxampp%5Chtdocs%5Cmarkdown_note%5Cassets%5Cimages%5Cweather.PNG" alt="fugle"></p>
+<p>再到開放資料平台的API網站，用授權碼測試取得資料，成功之後，下方有可以把整個json資料下載下來看，以下示範API的寫法。</p>
+<pre><code>https://opendata.cwb.gov.tw/api/各種天氣資訊的url?Authorization=氣象api的token&amp;locationName=縣市名稱
+</code></pre><p>這裡有各種氣象資料，例如：未來兩天的天氣預報、目前的降雨量、風速、酸雨PH值、地震等等。</p>
+<h3 id="line-bot">Line Bot</h3>
+<p>Line Bot是Line 的聊天機器人，是一個單向傳輸文字、圖片等訊息，而且還免費，不會被依訊息則數來收費。它是一個官方帳號，加入好友後，用他接收你的服務發送過來的推播訊息。</p>
+<h4 id="1建立providers">1.建立Providers</h4>
+<p>先登入<a href="https://developers.line.biz/en/">Line </a>頁面，在<strong>Providers</strong>點選<strong>Create</strong>，輸入完<strong>Provider name</strong>之後</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot1.png" alt="line-bot1"></p>
+<p>點選<strong>Create a Messageing API channel</strong></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot2.png" alt="line-bot2"></p>
+<p>輸入<strong>Channel name</strong>(頻道名稱)，在輸入<strong>Channel description</strong>，來描述頻道功能</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot3.png" alt="line-bot3"></p>
+<p>再從<strong>Category</strong>選擇類別，再到<strong>Subcategory</strong>，選擇子類別</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot4.png" alt="line-bot4"></p>
+<p>勾選下面的<strong>LINE Official Account Terms of Use</strong>和<strong>LINE Official Account API Terms of Use</strong>，在點選<strong>Create</strong>建立起來。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot5.png" alt="line-bot5"></p>
+<h4 id="2建立api">2.建立API</h4>
+<p>選擇剛建立好的<strong>Providers</strong>，在點選<strong>Messaging API</strong>，到下面的<strong>channel access token</strong>，點選<strong>lssue</strong>，產生<strong>token</strong>，等等講解需要用到。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot7.png" alt="line-bot7"></p>
+<p>掃描<strong>QRcode</strong>之後，加入好友</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot8.png" alt="line-bot8"></p>
+<h4 id="3安裝ngrok">3.安裝ngrok</h4>
+<p>Line Bot需要用https協定可以測試，我們在本機開發，無法使用協定，因此我們需要安裝ngrok，幫我們產生https協定的網址。</p>
+<p>下載完ngrok之後打開exe檔，我們用laravel 做本機開發，port會是8000，要輸入ngrok.exe http 8000，再複製https網址</p>
+<p><strong>Line bot</strong>需要<strong>Webhook URL</strong>才能連到部署的網址，需要靠<strong>ngrok</strong>建立臨時的部署網址</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot9.png" alt="line-bot9"></p>
+<p>在回到Line Bot網頁上，裡面有個叫Webhook Settings，把https的網址貼上去後，點選Verify，在打開瀏覽器貼上https網址，這時ngrok.exe會多一行GET status200，代表成功了。</p>
+<p>先到<a href="https://dashboard.ngrok.com/login">ngrok</a>註冊帳號，註冊完之後下載檔案，在做解壓縮</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot10.png" alt="line-bot10"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot11.png" alt="line-bot11"></p>
+<p>打開資料夾的ngrok.exe</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot12.png" alt="line-bot12"></p>
+<p>輸入本機網址port，ngrok.exe http 8000 ，<strong>ngrok</strong>會產生網址出來，將https的網址貼到<strong>Line bot</strong>的<strong>Webhook URL</strong></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot13.png" alt="line-bot13"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/line-bot14.png" alt="line-bot14"></p>
+<h3 id="流程圖">流程圖</h3>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/weather-1.png" alt="weather-1"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/weather-2.png" alt="weather-2">)</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/weather-3.png" alt="weather-3"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/weather-4.png" alt="weather-4"></p>
+<h3 id="功能介紹">功能介紹</h3>
+<h4 id="共用的function">共用的function</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">//使用API拿到中央氣象局的各種氣候資料
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getCrawlerData</span>(<span style="color:#a6e22e">Client</span> $client, <span style="color:#a6e22e">String</span> $weather, <span style="color:#a6e22e">String</span> $locationName){
+    $token <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;中央氣象局的token&#39;</span>;
+    $weatherUrl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://opendata.cwb.gov.tw/api&#39;</span>;
+    $url <span style="color:#f92672">=</span> $weatherUrl <span style="color:#f92672">.</span> $weather <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;?Authorization=&#39;</span> <span style="color:#f92672">.</span> $token;
+        
+    <span style="color:#66d9ef">if</span>($locationName<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span> <span style="color:#f92672">&amp;&amp;</span> $locationName<span style="color:#f92672">!=</span><span style="color:#e6db74">&#39;&#39;</span>){
+        $url <span style="color:#f92672">=</span> $url <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;&amp;locationName=&#39;</span> <span style="color:#f92672">.</span> $locationName;
+    }
+        
+    $response <span style="color:#f92672">=</span> $client<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($url);
+    $weatherData <span style="color:#f92672">=</span> <span style="color:#a6e22e">json_decode</span>($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>())<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">records</span>;
+
+    <span style="color:#66d9ef">return</span> $weatherData;
+}
+
+<span style="color:#75715e">//發送今天或明天氣候，要組flex message格式，並且跳出訊息
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sendMessageWeather</span>(<span style="color:#a6e22e">int</span> $type, <span style="color:#a6e22e">String</span> $cityText){
+    $cityArray <span style="color:#f92672">=</span> [];
+    $now <span style="color:#f92672">=</span> <span style="color:#a6e22e">Carbon</span><span style="color:#f92672">::</span><span style="color:#a6e22e">now</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">timezone</span>(<span style="color:#e6db74">&#39;Asia/Taipei&#39;</span>);
+    $yesterday <span style="color:#f92672">=</span> $now<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">yesterday</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;m/d&#39;</span>);
+    $today <span style="color:#f92672">=</span> $now<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;m/d&#39;</span>);
+    $tomorrow <span style="color:#f92672">=</span> $now<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">tomorrow</span>(<span style="color:#e6db74">&#39;Asia/Taipei&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;m/d&#39;</span>);
+    $carouselData <span style="color:#f92672">=</span> [];
+    $carouselContentsData <span style="color:#f92672">=</span> [];
+
+    <span style="color:#66d9ef">if</span>($type <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>){
+        <span style="color:#66d9ef">if</span>($cityText <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+            $cityArray <span style="color:#f92672">=</span> [$cityText];
+        }
+
+        $datas <span style="color:#f92672">=</span> <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">table</span>(<span style="color:#e6db74">&#39;weather_tomorrow&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">whereIn</span>(<span style="color:#e6db74">&#39;city&#39;</span>, $cityArray)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>();
+
+        <span style="color:#66d9ef">foreach</span>($datas <span style="color:#66d9ef">as</span> $data){
+            <span style="color:#75715e">//以下為flex message格式
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">array_push</span>($carouselData, $value);
+        }
+
+
+        $carouselContentsData <span style="color:#f92672">=</span> [
+            <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+            <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;氣候&#39;</span>,
+            <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;carousel&#39;</span>,
+                <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> $carouselData
+            ]
+        ];
+    }<span style="color:#66d9ef">else</span>{
+        $weatherController <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>(<span style="color:#a6e22e">WeatherController</span><span style="color:#f92672">::</span><span style="color:#a6e22e">class</span>);
+        $client <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\GuzzleHttp\Client</span>();
+        $weathers <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;weather&#39;</span>);
+        $locationName <span style="color:#f92672">=</span> <span style="color:#a6e22e">urlencode</span>($cityText);
+        $todayDate <span style="color:#f92672">=</span> $now<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;Y-m-d&#39;</span>);
+        $hour <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>)$now<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;H&#39;</span>);
+        $count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        $probabilityNum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+        $messageArray <span style="color:#f92672">=</span> [
+            [
+                <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;text&#39;</span>,
+                <span style="color:#e6db74">&#39;text&#39;</span> <span style="color:#f92672">=&gt;</span> $now<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#39;m/d&#39;</span>),
+                <span style="color:#e6db74">&#39;weight&#39;</span> <span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;bold&#39;</span>,
+                <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span><span style="color:#e6db74">&#39;xl&#39;</span>
+            ]
+        ];
+
+        $weatherData <span style="color:#f92672">=</span> $weatherController<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getCrawlerData</span>($client, $weathers[<span style="color:#ae81ff">13</span>], $locationName);
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isset</span>($weatherData<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">locations</span>[<span style="color:#ae81ff">0</span>])){
+            $weatherForecast <span style="color:#f92672">=</span> $weatherData<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">locations</span>[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">location</span>[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">weatherElement</span>[<span style="color:#ae81ff">6</span>]<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">time</span>;
+            <span style="color:#66d9ef">foreach</span>($weatherForecast <span style="color:#66d9ef">as</span> $forecast){
+                <span style="color:#75715e">//以下為flex message格式
+</span><span style="color:#75715e"></span>                <span style="color:#a6e22e">array_push</span>($messageArray, $value);
+                $count<span style="color:#f92672">++</span>;
+            }
+        }
+
+        $rain <span style="color:#f92672">=</span> $probabilityNum <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> $count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">?</span> <span style="color:#a6e22e">round</span>($probabilityNum<span style="color:#f92672">/</span>$count) <span style="color:#f92672">:</span> $probabilityNum;
+            
+        $carouselContentsData <span style="color:#f92672">=</span> [
+            <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+            <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;氣候&#39;</span>,
+            <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                <span style="color:#e6db74">&#39;size&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;giga&#39;</span>,
+                <span style="color:#e6db74">&#39;hero&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;image&#39;</span>,
+                    <span style="color:#e6db74">&#39;url&#39;</span> <span style="color:#f92672">=&gt;</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getProbabilityOfPrecipitationImage</span>((<span style="color:#a6e22e">string</span>) $rain),
+                    <span style="color:#e6db74">&#39;size&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;full&#39;</span>,
+                    <span style="color:#e6db74">&#39;aspectRatio&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;20:13&#39;</span>,
+                ],
+                <span style="color:#e6db74">&#39;body&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                    <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                    <span style="color:#e6db74">&#39;layout&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                    <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> $messageArray
+                ]
+            ]
+        ];
+    }
+
+    <span style="color:#66d9ef">if</span>($cityText <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>){
+        <span style="color:#66d9ef">return</span> $carouselContentsData;
+    }
+}
+
+<span style="color:#75715e">//判斷降雨機率未達20%顯示晴天圖片，20%-50%之間顯示多雲圖片，50%以上顯示下雨圖片
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getProbabilityOfPrecipitationImage</span>(<span style="color:#a6e22e">String</span> $probability_of_precipitation){
+    $rain <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>)$probability_of_precipitation;
+    $image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://i.imgur.com/C5CarmM.jpg&#39;</span>;
+
+    <span style="color:#66d9ef">if</span>($rain <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">50</span>){
+        $image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://i.imgur.com/fzUnYi1.jpg&#39;</span>;
+    }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>($rain <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">&amp;&amp;</span> $rain <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">50</span>){
+        $image <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://i.imgur.com/WRsK9Dg.jpg&#39;</span>;
+    }
+
+    <span style="color:#66d9ef">return</span> $image;
+}
+</code></pre></div><h4 id="1查詢">1.查詢</h4>
+<p>在我們告訴Line Bot什麼時候要查天氣，我們要設定輸入【氣候】，要系統告訴我們有那些縣市可以選擇</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageWeather</span>(<span style="color:#a6e22e">Request</span> $request){
+	$replyToken <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;replyToken&#39;</span>];
+    $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    $text <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;message&#39;</span>][<span style="color:#e6db74">&#39;text&#39;</span>];
+    $cityData <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;city&#39;</span>);
+    $len <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_strlen</span>($text, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    $text <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;台&#39;</span>,<span style="color:#e6db74">&#39;臺&#39;</span>,$text);
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;氣候&#39;</span>){
+        $cityText <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;請輸入要查詢的縣市：&#39;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+        <span style="color:#66d9ef">foreach</span>($cityData <span style="color:#66d9ef">as</span> $city){
+            $cityText <span style="color:#f92672">=</span> $cityText <span style="color:#f92672">.</span> $city <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+        }
+    
+        $cityText <span style="color:#f92672">=</span> <span style="color:#a6e22e">rtrim</span>($cityText, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\LINE\LINEBot\MessageBuilder\TextMessageBuilder</span>($cityText);
+    }<span style="color:#66d9ef">else</span>{
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\LINE\LINEBot\MessageBuilder\TextMessageBuilder</span>(<span style="color:#e6db74">&#39;請輸入【氣候】&#39;</span>);
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>這裡是先判斷使用者是否輸入【氣候】，如果是的話，顯示縣市資料的訊息，如果不是就顯示【請輸入氣候】。</p>
+<h4 id="2縣市menu">2.縣市menu</h4>
+<p>點擊menu上的線圖，是提供股票最新各項即時資訊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageWeather</span>(<span style="color:#a6e22e">Request</span> $request){
+	$replyToken <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;replyToken&#39;</span>];
+    $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    $text <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;message&#39;</span>][<span style="color:#e6db74">&#39;text&#39;</span>];
+    $cityData <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;city&#39;</span>);
+    $len <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_strlen</span>($text, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    $text <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;台&#39;</span>,<span style="color:#e6db74">&#39;臺&#39;</span>,$text);
+    
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">in_array</span>($text, $cityData)){
+        $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+            [
+                <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;請問要選擇哪一天?&#39;</span>,
+                <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                    <span style="color:#e6db74">&#39;hero&#39;</span><span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;image&#39;</span>,
+                        <span style="color:#e6db74">&#39;url&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;https://i.imgur.com/l8yNat5.jpg&#39;</span>,
+                        <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;full&#39;</span>,
+                        <span style="color:#e6db74">&#39;aspectRatio&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;20:13&#39;</span>,
+                        <span style="color:#e6db74">&#39;aspectMode&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;cover&#39;</span>
+                    ],
+                    <span style="color:#75715e">//...flax message格式
+</span><span style="color:#75715e"></span>                ]
+            ],
+        );
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>檢查使用者是否傳縣市名稱，在套用Line bot的flex message格式，系統會跳出訊息，顯示使用者輸入縣市的今天或明天的menu。</p>
+<h4 id="3今天氣候">3.今天氣候</h4>
+<p>點擊menu上的的今天，會顯示今天的每隔3小時的溫度與降雨機率資料</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageWeather</span>(<span style="color:#a6e22e">Request</span> $request){
+    $replyToken <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;replyToken&#39;</span>];
+    $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    $text <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;message&#39;</span>][<span style="color:#e6db74">&#39;text&#39;</span>];
+    $cityData <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;city&#39;</span>);
+    $len <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_strlen</span>($text, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    $text <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;台&#39;</span>,<span style="color:#e6db74">&#39;臺&#39;</span>,$text);
+    
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">strpos</span>($text,<span style="color:#e6db74">&#39;今天氣候&#39;</span>)){
+    	$cityWeather <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_substr</span>($text , <span style="color:#ae81ff">0</span> , <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">in_array</span>($cityWeather, $cityData)){
+            $fix <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">sendMessageWeather</span>(<span style="color:#ae81ff">0</span>, $cityWeather);
+        }
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>($fix);
+    }<span style="color:#66d9ef">else</span>{
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">\LINE\LINEBot\MessageBuilder\TextMessageBuilder</span>(<span style="color:#e6db74">&#39;請輸入【氣候】&#39;</span>);
+    }
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>透過menu傳過來的參數，先判斷是否傳今天氣候的訊息，在套用Line bot的flex message格式，系統會自動回覆【縣市名稱+今天氣候】在跳出訊息，顯示今天縣市的天氣資訊。</p>
+<h4 id="4明天氣候">4.明天氣候</h4>
+<p>點擊menu上的的當日資訊，是提供股票基本資訊</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageWeather</span>(<span style="color:#a6e22e">Request</span> $request){
+    $replyToken <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;replyToken&#39;</span>];
+    $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    $text <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;message&#39;</span>][<span style="color:#e6db74">&#39;text&#39;</span>];
+    $cityData <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;city&#39;</span>);
+    $len <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_strlen</span>($text, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    $text <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;台&#39;</span>,<span style="color:#e6db74">&#39;臺&#39;</span>,$text);
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;明天氣候&#39;</span>){
+        $cityWeather <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_substr</span>($text , <span style="color:#ae81ff">0</span> , <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">in_array</span>($cityWeather, $cityData)){
+            $fix <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">sendMessageWeather</span>(<span style="color:#ae81ff">1</span>, $cityWeather);
+        }
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>($fix);
+     }<span style="color:#66d9ef">else</span>{
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;目前股票尚未開盤&#39;</span>);
+     }	
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+</code></pre></div><p>透過menu傳過來的參數，先判斷是否傳今天氣候的訊息，在套用Line bot的flex message格式，系統會自動回覆【縣市名稱+明天氣候】在跳出訊息，顯示今天縣市的天氣資訊。</p>
+<h4 id="5雷達">5.雷達</h4>
+<p>顯示氣候雷達圖</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getMessageStock</span>(<span style="color:#a6e22e">Request</span> $request){
+	$replyToken <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;replyToken&#39;</span>];
+    $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+    $text <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">events</span>[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;message&#39;</span>][<span style="color:#e6db74">&#39;text&#39;</span>];
+    $cityData <span style="color:#f92672">=</span> <span style="color:#a6e22e">Config</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;city&#39;</span>);
+    $len <span style="color:#f92672">=</span> <span style="color:#a6e22e">mb_strlen</span>($text, <span style="color:#e6db74">&#39;utf-8&#39;</span>);
+    $text <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;台&#39;</span>,<span style="color:#e6db74">&#39;臺&#39;</span>,$text);
+    
+    <span style="color:#66d9ef">if</span>($text <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;雷達&#39;</span>){
+        $url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://www.cwb.gov.tw&#39;</span>;
+        $radarUrl <span style="color:#f92672">=</span> $url <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/V8/C/W/OBS_Radar.html&#39;</span>;
+        $content <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">crawlerService</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getOriginalData</span>($radarUrl);
+        $image <span style="color:#f92672">=</span>  $content<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">filter</span>(<span style="color:#e6db74">&#39;div &gt; img&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">first</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">attr</span>(<span style="color:#e6db74">&#39;src&#39;</span>);
+        $radarImage <span style="color:#f92672">=</span> $url <span style="color:#f92672">.</span> $image;
+        
+        $messageBuilder <span style="color:#f92672">=</span>  <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">RawMessageBuilder</span>(
+            [
+                <span style="color:#e6db74">&#39;type&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;flex&#39;</span>,
+                <span style="color:#e6db74">&#39;altText&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;氣象雷達圖&#39;</span>,
+                <span style="color:#e6db74">&#39;contents&#39;</span> <span style="color:#f92672">=&gt;</span> [
+                    <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;bubble&#39;</span>,
+                    <span style="color:#e6db74">&#39;body&#39;</span><span style="color:#f92672">=&gt;</span> [
+                        <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;box&#39;</span>,
+                        <span style="color:#e6db74">&#39;layout&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vertical&#39;</span>,
+                        <span style="color:#e6db74">&#39;contents&#39;</span><span style="color:#f92672">=&gt;</span> [
+                            [
+                                <span style="color:#e6db74">&#39;type&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;image&#39;</span>,
+                                <span style="color:#e6db74">&#39;url&#39;</span><span style="color:#f92672">=&gt;</span> $radarImage,
+                                <span style="color:#e6db74">&#39;size&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;full&#39;</span>,
+                                <span style="color:#e6db74">&#39;aspectMode&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;cover&#39;</span>,
+                                <span style="color:#e6db74">&#39;aspectRatio&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;1:1&#39;</span>,
+                                <span style="color:#e6db74">&#39;gravity&#39;</span><span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;center&#39;</span>
+                            ],
+                       <span style="color:#75715e">//以下為flex message格式
+</span><span style="color:#75715e"></span>                    ]
+                ]
+            ]
+        );
+    }<span style="color:#66d9ef">else</span>{
+        $messageBuilder <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TextMessageBuilder</span>(<span style="color:#e6db74">&#39;目前股票尚未開盤&#39;</span>);
+    }	
+    
+    <span style="color:#75715e">//這裡是告訴Line bot要顯示訊息版面的物件
+</span><span style="color:#75715e"></span>    $response <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bot</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">replyMessage</span>($replyToken, $messageBuilder);
+
+    <span style="color:#66d9ef">if</span> ($response<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">isSucceeded</span>()) {
+        <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Succeeded!&#39;</span>;
+        <span style="color:#66d9ef">return</span>;
+    }
+}
+
+<span style="color:#75715e">//crawlerService
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getOriginalData</span>(<span style="color:#a6e22e">string</span> $path)
+{
+    $content <span style="color:#f92672">=</span> $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">client</span><span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>($path)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getBody</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getContents</span>();
+    $crawler <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Crawler</span>();
+    $crawler<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">addHtmlContent</span>($content);
+
+    <span style="color:#66d9ef">return</span> $crawler;
+}
+</code></pre></div><p>使用者輸入雷達時，系統使用<code>GuzzleHttp</code>做爬蟲，爬中央氣象局的雷達圖，在套用在套用Line bot的flex message格式，在跳出訊息，顯示氣候雷達圖。</p>
+<h3 id="問題紀錄">問題紀錄</h3>
+<ol>
+<li>
+<p>使用ngrok在本機測試，系統一直顯示419 unknown status，用log找錯誤訊息也沒有顯示?</p>
+<p>要在app/http/Middleware/VerifyCsrfToken.php，這隻檔案的except新增<code>/webhook</code>，告訴laravel這個路徑不需要驗證。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">protected</span> $except <span style="color:#f92672">=</span> [
+ <span style="color:#e6db74">&#39;/webhook&#39;</span>
+];
+</code></pre></div></li>
+<li>
+<p>Line Bot 組文字資料使用換行符號(/n)，怎麼沒反應</p>
+<p>在PHP已經都習慣寫單引號，要換改用雙引號才有用。</p>
+</li>
+</ol>
+<p>參考資料:</p>
+<p><a href="https://stackoverflow.com/questions/46266553/why-does-the-laravel-api-return-a-419-status-code-on-post-and-put-methods">https://stackoverflow.com/questions/46266553/why-does-the-laravel-api-return-a-419-status-code-on-post-and-put-methods</a>、</p>
+<p><a href="https://eric0324.github.io/2019/09/16/let-line-chatbot-say-hello-world/">https://eric0324.github.io/2019/09/16/let-line-chatbot-say-hello-world/</a>、</p>
+<p><a href="https://developers.line.biz/en/">https://developers.line.biz/en/</a>、</p>
+<p><a href="https://www.cwb.gov.tw/V8/C/">https://www.cwb.gov.tw/V8/C/</a>、</p>
+<p><a href="https://opendata.cwb.gov.tw/dist/opendata-swagger.html">https://opendata.cwb.gov.tw/dist/opendata-swagger.html</a>、</p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          
+          
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/cwb/">
+            #CWB
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #CWB API
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/%E4%B8%AD%E5%A4%AE%E6%B0%A3%E8%B1%A1%E5%B1%80/">
+            #中央氣象局
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #中央氣象局 API
+          </a>
+        </span>
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/fugle/">
+          <div>
+            <span aria-hidden="true">&larr;</span> 
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts disabled" href="#">
+          <div>
+             <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+

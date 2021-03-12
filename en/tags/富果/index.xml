@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>富果 on My Hugo Blog</title>
+    <link>https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C/</link>
+    <description>Recent content in 富果 on My Hugo Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coolgood88142.github.io/en/tags/%E5%AF%8C%E6%9E%9C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>fugle API</title>
+      <link>https://coolgood88142.github.io/en/posts/fugle/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/en/posts/fugle/</guid>
+      <description>介紹使用富果台股API結合Line Bot做股票資訊</description>
+    </item>
+    
+  </channel>
+</rss>

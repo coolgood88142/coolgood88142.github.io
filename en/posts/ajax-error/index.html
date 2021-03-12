@@ -80,9 +80,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/ajax-error/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/ajax-error/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/ajax-error/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/ajax-error/">中文</a>
           
         </div>
       
@@ -99,7 +99,6 @@
   <div class="delimiter"></div>
   <section>
     <p>用登入頁面做範例</p>
-
 <pre><code>
 login.jsp
 
@@ -114,18 +113,18 @@ login.jsp
  &lt;body&gt;
 
    &lt;table id=&quot;example&quot;&gt;
-    &lt;tr&gt;
-        &lt;td&gt;學號&lt;/td&gt;
-        &lt;td&gt;姓名&lt;/td&gt;
-        &lt;td&gt;成績&lt;/td&gt;
+   	&lt;tr&gt;
+   		&lt;td&gt;學號&lt;/td&gt;
+   		&lt;td&gt;姓名&lt;/td&gt;
+   		&lt;td&gt;成績&lt;/td&gt;
         &lt;/tr&gt;
         &lt;?php foreach($row as $key =&gt; $value){?&gt;
         &lt;tr&gt;
         &lt;td class=&quot;ts_no&quot;&gt;&lt;?=$value['ts_no']?&gt;&lt;/td&gt;
         &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;ts_name[]&quot; value=&quot;&lt;?=$value['ts_name']?&gt;&quot;/&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;ts_grade[]&quot; value=&quot;&lt;?=$value['ts_grade']?&gt;&quot; size=&quot;3&quot;/&gt;&lt;/td&gt;
+		&lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;ts_grade[]&quot; value=&quot;&lt;?=$value['ts_grade']?&gt;&quot; size=&quot;3&quot;/&gt;&lt;/td&gt;
    &lt;/tr&gt;
-    &lt;?php }?&gt;
+   	&lt;?php }?&gt;
 
    &lt;/table&gt;
 
@@ -134,31 +133,31 @@ login.jsp
  &lt;/body&gt;
 
  &lt;script language=&quot;JavaScript&quot;&gt;
-    
-    function update(){
-    var ts_no=&quot;&quot;,ts_name=&quot;&quot;,ts_grade=&quot;&quot;;
-    $('#example .ts_no').each(function(i) {
-        ts_no = ts_no + $(this).text() + &quot;,&quot;;
-    });
+	
+	function update(){
+	var ts_no=&quot;&quot;,ts_name=&quot;&quot;,ts_grade=&quot;&quot;;
+	$('#example .ts_no').each(function(i) {
+		ts_no = ts_no + $(this).text() + &quot;,&quot;;
+	});
 
-    $(&quot;input[name='ts_name[]']&quot;).each(function(i) {
-        ts_name = ts_name + $(this).val() + &quot;,&quot;;
-    });
+	$(&quot;input[name='ts_name[]']&quot;).each(function(i) {
+		ts_name = ts_name + $(this).val() + &quot;,&quot;;
+	});
 
-    $(&quot;input[name='ts_grade[]']&quot;).each(function(i) {
-        ts_grade = ts_grade + $(this).val() + &quot;,&quot;;
-    });
+	$(&quot;input[name='ts_grade[]']&quot;).each(function(i) {
+		ts_grade = ts_grade + $(this).val() + &quot;,&quot;;
+	});
 
-    ts_no = ts_no.substring(0, ts_no.length-1);
-    ts_name = ts_name.substring(0, ts_name.length-1);
-    ts_grade = ts_grade.substring(0, ts_grade.length-1);
-    
-    var data = {
-        'isStatus':'update',
-        'ts_no': ts_no,
-        'ts_name': ts_name,
-        'ts_grade': ts_grade,
-    };
+	ts_no = ts_no.substring(0, ts_no.length-1);
+	ts_name = ts_name.substring(0, ts_name.length-1);
+	ts_grade = ts_grade.substring(0, ts_grade.length-1);
+	
+	var data = {
+		'isStatus':'update',
+		'ts_no': ts_no,
+		'ts_name': ts_name,
+		'ts_grade': ts_grade,
+	};
 
 ​     $.ajax({
 
@@ -195,9 +194,7 @@ login.jsp
  &lt;/script&gt;
 
 &lt;/html&gt;
-</code></pre>
-
-<pre><code>mysql.php
+</code></pre><pre><code>mysql.php
 
 &lt;?php
 
@@ -288,12 +285,8 @@ test_score.php
    }
 
 ?&gt;
-</code></pre>
-
-<p>以上面SQL錯誤回傳說明</p>
-
+</code></pre><p>以上面SQL錯誤回傳說明</p>
 <p>1.xhr：XMLHttpReques<a href="http://www.w3.org/TR/XMLHttpRequest/">t</a>物件</p>
-
 <ul>
 <li><a href="http://www.w3.org/TR/XMLHttpRequest/#the-status-attribute">s</a>tatus：回傳<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP</a> response.status代碼</li>
 <li><a href="http://www.w3.org/TR/XMLHttpRequest/#the-status-attribute">s</a>tatusText：回傳<a href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP</a> response.status代碼訊息</li>
@@ -301,70 +294,37 @@ test_score.php
 <li>responseText：回傳XMLHttpReques<a href="http://www.w3.org/TR/XMLHttpRequest/">t</a>內容</li>
 <li>responseXML：回傳XMLHttpReques<a href="http://www.w3.org/TR/XMLHttpRequest/">t</a>內容XML格式</li>
 </ul>
-
 <p>例如:SQL語法錯誤，因為WHERE ts_no = &lsquo;$ts_no&rsquo; 這句，$ts_no是陣列資料型態導致拋錯</p>
-
 <p>status：回傳代碼為200</p>
-
 <p>statusText：對應代碼訊息為OK，代表有傳到後端</p>
-
 <p>readyState：4，代表客戶端已完成。</p>
-
 <p>responseText：後段程式碼錯誤訊息。</p>
-
 <p>responseXML：後段程式碼錯誤訊息用標籤方式呈現。</p>
-
 <pre><code>&lt;br /&gt;&lt;font size='1'&gt;&lt;table class='xdebug-error xe-notice' dir='ltr' border='1' cellspacing='0' cellpadding='1'&gt;↵&lt;tr&gt;&lt;th align='left' bgcolor='#f57900' colspan=&quot;5&quot;&gt;&lt;span style='background-color: #cc0000; color: #fce94f; font-size: x-large;'&gt;&lt;/span&gt;Notice: Array to string conversion in C:\xampp\htdocs\active_plan\testfile\test_score.php on line &lt;i&gt;21&lt;/i&gt;..
-</code></pre>
-
-<p>用正規畫檢化這段錯誤訊息(ajax responsetext error)</p>
-
+</code></pre><p>用正規畫檢化這段錯誤訊息(ajax responsetext error)</p>
 <p>這種情況需要檢查後端回傳JSON物件內容</p>
-
 <p>2.status：string</p>
-
 <p>回傳服務器訊息timeout逾時、error錯誤、abort中止、parseerror分析錯誤、null(回傳訊息錯誤產生會null)</p>
-
 <p>timeout：在ajax裡有設定timeout多少秒，限定多少秒之內回傳JSON物件，超過就顯示訊息。</p>
-
 <p>error：代表ajax在後端發生錯誤。</p>
-
 <p>abort：在定義ajax物件之前有先定義response.abort() funcrion，當發生錯誤時會請求中止未結束的ajax。</p>
-
 <p>定義變數ajax function 傳後端未回傳時，若上一次的ajax請求未完成會中止目前的傳後端的動作</p>
-
 <p>parseerror：將參數回傳後端做運算時解析錯誤，如上面程式碼在後段SQL錯誤無法解析；回傳後端運作時哪個資料型態變數錯誤</p>
-
 <p>null：回傳資料為null，所以顯示null</p>
-
 <p>3.error:string</p>
-
 <p>回傳HTTP的代碼訊息，例如:404Not Found(錯誤的請求)、505Internal Server Error(內部服務器錯誤)、500、504、403..</p>
-
 <p>400 Bad Request(請求無效)</p>
-
 <p>例如：程式語法錯誤、參數資料型態有問題</p>
-
 <p>404 Not Found(錯誤的請求)</p>
-
 <p>例如：url後端檔案寫錯或表單內容寫錯</p>
-
 <p>403 Forbidden(沒有權限，被禁止的)</p>
-
 <p>例如：使用的IP沒有允許權限或者沒有連線到內部網路</p>
-
 <p>500 Internal Server Error(內部服務器錯誤)</p>
-
 <p>例如：請求server回傳資料找不到或網站升級和網站遷移</p>
-
 <p>503  Service unavailable(後端錯誤請求)</p>
-
 <p>例如：在後端執行時錯誤，回傳沒資料</p>
-
 <p>504 Gateway Timeout(網頁請求超時)</p>
-
 <p>例如：程式執行時間過長逾時或者太多人使用同一個資料庫排隊到逾時</p>
-
 <p>補上資料來源：網址</p>
 
   </section>
@@ -379,9 +339,11 @@ test_score.php
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/en/tags/ajax/">#Ajax</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/en/tags/ajax/">
+            #Ajax
+          </a>
+        </span>
       
     </div>
   </div>
@@ -405,14 +367,14 @@ test_score.php
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/">
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/">
           <div>
             <span aria-hidden="true">&larr;</span> Older Posts
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/en/posts/cookielocalstoragesessionstorage/">
           <div>
             Newer Posts <span aria-hidden="true">&rarr;</span>
           </div>

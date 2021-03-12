@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on 我的部落格</title>
@@ -6,10 +6,15 @@
     <description>Recent content in Categories on 我的部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
-    <lastBuildDate>Sun, 12 May 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://coolgood88142.github.io/zh-tw/categories/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Fri, 12 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://coolgood88142.github.io/zh-tw/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>API document</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/api-document/</link>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/api-document/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cloud Platform</title>
@@ -57,20 +62,20 @@
     </item>
     
     <item>
-      <title>Webpack</title>
-      <link>https://coolgood88142.github.io/zh-tw/categories/webpack/</link>
-      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://coolgood88142.github.io/zh-tw/categories/webpack/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>jQuery</title>
       <link>https://coolgood88142.github.io/zh-tw/categories/jquery/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
       <guid>https://coolgood88142.github.io/zh-tw/categories/jquery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Webpack</title>
+      <link>https://coolgood88142.github.io/zh-tw/categories/webpack/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://coolgood88142.github.io/zh-tw/categories/webpack/</guid>
       <description></description>
     </item>
     

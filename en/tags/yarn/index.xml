@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>yarn on My Hugo Blog</title>
@@ -6,11 +6,7 @@
     <description>Recent content in yarn on My Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://coolgood88142.github.io/en/tags/yarn/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 09 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://coolgood88142.github.io/en/tags/yarn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>npm與yarn差異?</title>
       <link>https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/</link>

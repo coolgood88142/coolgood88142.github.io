@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head prefix="og: http://ogp.me/ns#">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+  <meta property="og:title" content=" 圖片解析 &middot;  我的部落格" />
+  
+  <meta property="og:site_name" content="我的部落格" />
+  <meta property="og:url" content="https://coolgood88142.github.io/zh-tw/posts/vision/" />
+  
+  
+    <meta property="og:type" content="article" />
+    
+    <meta property="og:article:published_time" content="2021-03-12T00:00:00Z" />
+    
+      <meta property="og:article:tag" content="圖片解析" />
+    
+      <meta property="og:article:tag" content="Vision&#34;" />
+    
+      <meta property="og:article:tag" content="Google Cloud Vision API" />
+    
+      <meta property="og:article:tag" content="Translate" />
+    
+      <meta property="og:article:tag" content="Google Cloud Translate API" />
+    
+      <meta property="og:article:tag" content="Storage" />
+    
+      <meta property="og:article:tag" content="Google Cloud Storage API" />
+    
+  
+
+  <title>
+     圖片解析 &middot;  我的部落格
+  </title>
+
+  <link rel="alternative stylesheet" href="https://coolgood88142.github.io/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/main.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/github.css" />
+  <link rel="stylesheet" href="https://coolgood88142.github.io/css/color-theme.css" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400" type="text/css">
+  <link rel="shortcut icon" href="https://coolgood88142.github.io/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="https://coolgood88142.github.io/images/apple-touch-icon.png" />
+
+  
+
+  
+</head>
+<body>
+  
+  <header class="global-header"  style="background-image:url(https://coolgood88142.github.io/images/bg.jpg)">
+  
+    <section class="header-text">
+      <h1><a href="https://coolgood88142.github.io/zh-tw/">我的部落格</a></h1>
+      
+      
+        <a class="btn btn-default btn-home" href="https://coolgood88142.github.io/zh-tw/">
+          <i class="fa fa-angle-left" aria-hidden="true"></i>
+          &nbsp;
+        </a>
+      
+      
+      <div class="navbar-container">
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/categories/">
+            分類
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/tags/">
+            標籤
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/pages/about/">
+            關於
+          </a>
+        
+          <a class="btn btn-default navbar-item" href="https://coolgood88142.github.io/zh-tw/">
+            首頁
+          </a>
+        
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        <div class="language-container">
+          
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/vision/">English</a>
+          
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/vision/">中文</a>
+          
+        </div>
+      
+    </section>
+  </header>
+  <main class="container">
+
+
+
+<article>
+  <header class="article-title">
+    <h1 class="text-primary">圖片解析</h1>
+  </header>
+  <div class="delimiter"></div>
+  <section>
+    <h2 id="圖片解析">圖片解析</h2>
+<h3 id="大綱">大綱</h3>
+<p>介紹</p>
+<p>建立憑證</p>
+<ol>
+<li>登入Google API Console</li>
+<li>建立OAuth 同意畫面</li>
+<li>建立 OAuth 用戶端ID</li>
+<li>建立服務帳戶</li>
+<li>建立服務帳戶金鑰</li>
+</ol>
+<p>安裝套件</p>
+<p>laravel專案設定api</p>
+<p>新增js檔</p>
+<p>新增compoent</p>
+<ul>
+<li>keyword.vue</li>
+<li>upload.vue</li>
+<li>edit.vue</li>
+<li>imagel.vue</li>
+<li>editButton.vue</li>
+<li>deleteButton.vue</li>
+</ul>
+<p>新增頁面</p>
+<p>新增Controller</p>
+<p>Route</p>
+<p>編譯檔案</p>
+<p>啟動本機站台</p>
+<h3 id="介紹">介紹</h3>
+<p>我們需要用到google cloud vision API、google cloud translate API、google cloud storage API，3種API</p>
+<p>vision API主要取得解析圖片的物件，拿物件中的圖片解析的關鍵字當資料</p>
+<p>translate API是把關鍵字的資料中，有英文的資料做英翻中</p>
+<p>storage API是將圖片檔案存放到Google Cloud Storage裡，在讀取路徑方便我們在網頁上呈現。</p>
+<h3 id="建立憑證">建立憑證</h3>
+<p>使用google api需要啟用與建立憑證，以下介紹步驟</p>
+<h4 id="1登入google-api-consolehttpsconsoledevelopersgooglecomhlzh-tw">1.登入<a href="https://console.developers.google.com/?hl=zh-tw">Google API Console</a></h4>
+<p>登入google帳號之後，先新增專案，在搜尋google vision api、google cloud translate API、 cloud storage，並且點選啟用。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-1.png" alt="vision-1"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-2.png" alt="vision-2"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-3.png" alt="vision-3"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-4.png" alt="vision-4"></p>
+<h4 id="2建立oauth-同意畫面">2.建立OAuth 同意畫面</h4>
+<p>點選設定OAuth 同意畫面，User Type請選擇外部後點選建立，輸入應用程式名稱再儲存。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-5.png" alt="vision-5"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-6.png" alt="vision-6"></p>
+<p>這裡選擇外部之後，在輸入email即可。</p>
+<h4 id="3建立-oauth-用戶端id">3.建立 OAuth 用戶端ID</h4>
+<p>在建立憑證點選OAuth 用戶端ID，應用程式類型選擇網頁應用程式，並輸入名稱後建立，完成後會跳出用戶端ID與密碼，等等我們範例中會用到。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-7.png" alt="vision-7"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-8.png" alt="vision-8"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-9.png" alt="vision-9"></p>
+<h4 id="4建立服務帳戶">4.建立服務帳戶</h4>
+<p>點選管理服務帳戶，在建立服務帳戶，服務帳戶權限選擇角色管理員</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-10.png" alt="vision-10"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-11.png" alt="vision-11"></p>
+<h4 id="5建立服務帳戶金鑰">5.建立服務帳戶金鑰</h4>
+<p>在服務帳戶裡點選管理帳戶，在建立新的金鑰，金鑰類型選擇JSON，系統會下載json檔案，在檔案名稱請自行更換，例如:credentials.json。</p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-12.png" alt="vision-12"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-13.png" alt="vision-13"></p>
+<p><img src="https://raw.githubusercontent.com/coolgood88142/markdown_note/master/assets/images/vision-14.png" alt="vision-14"></p>
+<p>OAuth 用戶端ID主要是同意授權使用API資料，服務帳戶則是利用金鑰json檔取得API權限。</p>
+<p>要優先OAuth 授權哪種應用程式使用API，以上範例為網頁應用程式。</p>
+<p>當專案使用OAuth 用戶端時，會用access token(權杖)授權使用API，在用服務帳戶才有權限使用google API。</p>
+<h3 id="安裝套件">安裝套件</h3>
+<p>安裝vision、translate、storage、laravel vue datatable</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">composer</span> <span style="color:#66d9ef">require</span> <span style="color:#a6e22e">google</span><span style="color:#f92672">/</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vision</span>
+<span style="color:#a6e22e">composer</span> <span style="color:#66d9ef">require</span> <span style="color:#a6e22e">google</span><span style="color:#f92672">/</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">translate</span>
+<span style="color:#a6e22e">composer</span> <span style="color:#66d9ef">require</span> <span style="color:#a6e22e">google</span><span style="color:#f92672">/</span><span style="color:#a6e22e">cloud</span><span style="color:#f92672">-</span><span style="color:#a6e22e">storage</span>
+<span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">install</span> <span style="color:#a6e22e">laravel</span><span style="color:#f92672">-</span><span style="color:#a6e22e">vue</span><span style="color:#f92672">-</span><span style="color:#a6e22e">datatable</span>
+</code></pre></div><h3 id="laravel專案設定api">laravel專案設定api</h3>
+<p>建立laravel專案後，在.env檔案建立連線，GOOGLE_CLOUD_PROJECT是在google cloud建立的專案名稱、GOOGLE_APPLICATION_CREDENTIALS是找storage目錄底下的服務帳戶金鑰的json檔，檔案是從。</p>
+<p>.env檔</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">GOOGLE_CLOUD_PROJECT</span><span style="color:#f92672">=</span><span style="color:#a6e22e">專案名稱</span>
+<span style="color:#a6e22e">GOOGLE_APPLICATION_CREDENTIALS</span><span style="color:#f92672">=../</span><span style="color:#a6e22e">storage</span><span style="color:#f92672">/</span><span style="color:#a6e22e">credentials</span><span style="color:#f92672">.</span><span style="color:#a6e22e">json</span>
+</code></pre></div><h3 id="新增js檔">新增js檔</h3>
+<p>在resources/js路徑底下，新增vision.js檔案，這裡引入兩個component。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">keyword</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./components/vision/keyword.vue&#34;</span>
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">upload</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./components/vision/upload.vue&#34;</span>
+
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Vue</span>({
+    <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#app&#34;</span>,
+    <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./getVision&#39;</span>,
+        <span style="color:#a6e22e">saveVisionUrl</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;./upload&#39;</span>,
+        <span style="color:#a6e22e">showModal</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+    },
+    <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;keyword&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">keyword</span>,
+        <span style="color:#e6db74">&#39;upload&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">upload</span>,
+    },
+    
+})
+</code></pre></div><h3 id="新增component">新增component</h3>
+<h4 id="keywordvue">keyword.vue</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">data-table</span> 
+            <span style="color:#f92672">:data</span><span style="color:#e6db74">=&#34;data&#34;</span>
+            <span style="color:#f92672">:columns</span><span style="color:#e6db74">=&#34;columns&#34;</span>&gt;
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/data-table&gt;</span>
+        &lt;<span style="color:#f92672">edit</span>
+            <span style="color:#f92672">:english-keywords</span><span style="color:#e6db74">=&#34;englishKeywords&#34;</span> <span style="color:#f92672">:chinese-keywords</span><span style="color:#e6db74">=&#34;chineseKeywords&#34;</span> <span style="color:#f92672">:key-word-id</span><span style="color:#e6db74">=&#34;id&#34;</span>&gt;
+        &lt;/<span style="color:#f92672">edit</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">imageCell</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./imageCell&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">edit</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./edit&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">editButton</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./editButton&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">deleteButton</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./deleteButton&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">DataTable</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;laravel-vue-datatable&#39;</span>;
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">DataTable</span>);
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">keyWordUrl</span><span style="color:#f92672">:</span> {
+			<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+		},
+    },
+    <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">imageCell</span>,
+        <span style="color:#a6e22e">edit</span>,
+        <span style="color:#a6e22e">editButton</span>,
+        <span style="color:#a6e22e">deleteButton</span>,
+    },
+    <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+            <span style="color:#a6e22e">url</span><span style="color:#f92672">:</span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">keyWordUrl</span>,
+            <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {},
+            <span style="color:#a6e22e">tableProps</span><span style="color:#f92672">:</span> {
+                <span style="color:#a6e22e">search</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+                <span style="color:#a6e22e">length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">50</span>,
+                <span style="color:#a6e22e">column</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;no&#39;</span>,
+                <span style="color:#a6e22e">dir</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;asc&#39;</span>
+            },
+            <span style="color:#a6e22e">columns</span><span style="color:#f92672">:</span> [
+                {
+                    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;圖片&#39;</span>,
+                    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;image&#39;</span>,
+                    <span style="color:#a6e22e">orderable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">imageCell</span>,
+                },
+                {
+                    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;英文關鍵字&#39;</span>,
+                    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;englishKeyword&#39;</span>,
+                    <span style="color:#a6e22e">orderable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>,
+                },
+                {
+                    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;中文關鍵字&#39;</span>,
+                    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;chineseKeyword&#39;</span>,
+                    <span style="color:#a6e22e">orderable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span>,
+                },
+                {
+                    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;操作&#39;</span>,
+                    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+                    <span style="color:#a6e22e">orderable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+                    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+                    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">editButton</span>,
+                    <span style="color:#a6e22e">event</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;click&#34;</span>,
+                    <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">updateSelectedModal</span>,
+                }, 
+                {
+                    <span style="color:#a6e22e">label</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;刪除&#39;</span>,
+                    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>,
+                    <span style="color:#a6e22e">orderable</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+                    <span style="color:#a6e22e">classes</span><span style="color:#f92672">:</span> { 
+                        <span style="color:#e6db74">&#39;btn&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                        <span style="color:#e6db74">&#39;btn-primary&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                        <span style="color:#e6db74">&#39;btn-sm&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                    },
+                    <span style="color:#a6e22e">width</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">10</span>,
+                    <span style="color:#a6e22e">component</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">deleteButton</span>,
+                    <span style="color:#a6e22e">event</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;click&#34;</span>,
+                    <span style="color:#a6e22e">handler</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">deleteKeyWord</span>,
+                }, 
+            ],
+            <span style="color:#a6e22e">englishKeywords</span><span style="color:#f92672">:</span> [],
+            <span style="color:#a6e22e">chineseKeywords</span><span style="color:#f92672">:</span> [],
+            <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>,
+        }
+    },
+    <span style="color:#a6e22e">created</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getData</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url</span>);
+    },
+    <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span>{
+        <span style="color:#a6e22e">getData</span>(<span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">tableProps</span>) {
+            <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">get</span>(<span style="color:#a6e22e">url</span>, {
+                <span style="color:#a6e22e">params</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">options</span>
+            })
+            .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">response</span> =&gt; {
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>;
+            })
+            .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">errors</span> =&gt; {
+            })
+        },
+        <span style="color:#a6e22e">updateSelectedModal</span>(<span style="color:#a6e22e">data</span>) {
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">englishKeywords</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#e6db74">&#39;englishKeyword&#39;</span>].<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;,&#34;</span>); 
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chineseKeywords</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#e6db74">&#39;chineseKeyword&#39;</span>].<span style="color:#a6e22e">split</span>(<span style="color:#e6db74">&#34;,&#34;</span>); 
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">data</span>[<span style="color:#e6db74">&#34;editId&#34;</span>];
+        },
+        <span style="color:#a6e22e">deleteKeyWord</span>(<span style="color:#a6e22e">data</span>){
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+				<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>[<span style="color:#e6db74">&#34;editId&#34;</span>],
+			}
+            <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/deleteKeyWord&#39;</span>, <span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">response</span>) =&gt; {
+				<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;success&#34;</span>) {
+					<span style="color:#a6e22e">swal</span>({
+						<span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>,
+						<span style="color:#a6e22e">confirmButtonColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#e6b930&#34;</span>,
+						<span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">status</span>,
+						<span style="color:#a6e22e">showCloseButton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+					}).<span style="color:#a6e22e">then</span>(() =&gt; {
+						window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/vision&#39;</span>
+					});
+				}
+			}).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+				<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>) {
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>)
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span>)
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">headers</span>)
+				} <span style="color:#66d9ef">else</span> {
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error&#34;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>)
+				}
+			})
+        }
+    },
+    <span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span>{
+        <span style="color:#a6e22e">alarmUrl</span>(<span style="color:#a6e22e">val</span>){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getData</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">url</span>);
+        }
+    }
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>這裡引用laravel-vue-datatable套件，以及圖片、按鈕、編輯功能的component物件，updateSelectedModal是設定中文關鍵字與ID資料，getData與deleteKeyWord，是用axios傳到後端做查詢或刪除資料。</p>
+<h4 id="uploadvue">upload.vue</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#f92672">:action</span><span style="color:#e6db74">=&#34;uploadUrl&#34;</span> <span style="color:#a6e22e">enctype</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;multipart/form-data&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-inline&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-group&#34;</span>&gt;
+        &lt;<span style="color:#f92672">label</span> <span style="color:#a6e22e">for</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;po_image&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;block text-sm leading-5 font-medium text-gray-700&#34;</span>&gt;
+            <span style="color:#a6e22e">圖片上傳</span>
+            
+        &lt;/<span style="color:#f92672">label</span>&gt;
+        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;file&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-control-file&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;po_image&#34;</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;form-group&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-min-btn col-md-3 col-lg-2&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-align:right;&#34;</span>&gt;
+                &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query_data&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-primary&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;上傳&#34;</span> &gt;
+            &lt;/<span style="color:#f92672">div</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+        
+    &lt;/<span style="color:#f92672">form</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+     <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+		<span style="color:#a6e22e">uploadUrl</span><span style="color:#f92672">:</span> {
+			<span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> String,
+		},
+    },
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>從vision.js拿到上傳檔案的url，上傳檔案後執行submit</p>
+<h4 id="editvue">edit.vue</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;exampleModal&#34;</span> <span style="color:#a6e22e">tabindex</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-1&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dialog&#34;</span> <span style="color:#a6e22e">aria</span><span style="color:#f92672">-hidden</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">true</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-dialog modal-lg&#34;</span> <span style="color:#a6e22e">role</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;document&#34;</span>&gt;
+            &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-content&#34;</span>&gt;
+                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-header&#34;</span>&gt;
+                    &lt;<span style="color:#f92672">h5</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-title&#34;</span>&gt;<span style="color:#a6e22e">keywords</span>&lt;/<span style="color:#f92672">h5</span>&gt;
+                    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-min-btn col-md-3 col-lg-2&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-align:right;&#34;</span>&gt;
+                        &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;query_data&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-primary&#34;</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;新增&#34;</span> <span style="color:#a6e22e">v</span><span style="color:#f92672">-on:click</span><span style="color:#e6db74">=&#34;addKeyWord()&#34;</span>&gt;
+                    &lt;/<span style="color:#f92672">div</span>&gt;
+                    &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;close&#34;</span> <span style="color:#a6e22e">data</span><span style="color:#f92672">-dismiss</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">modal</span><span style="color:#960050;background-color:#1e0010">&#34;</span> <span style="color:#a6e22e">aria</span><span style="color:#f92672">-label</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">Close</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
+                    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">aria</span><span style="color:#f92672">-hidden</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">true</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">times</span>;&lt;/<span style="color:#f92672">span</span>&gt;
+                    &lt;/<span style="color:#f92672">button</span>&gt;
+                    
+                &lt;/<span style="color:#f92672">div</span>&gt;
+                &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;modal-body&#34;</span>&gt;
+                    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;row&#34;</span>&gt;
+                        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span>&gt;<span style="color:#a6e22e">英文關鍵字</span>&lt;/<span style="color:#f92672">div</span>&gt;
+                        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col&#34;</span>&gt;<span style="color:#a6e22e">中文關鍵字</span>&lt;/<span style="color:#f92672">div</span>&gt;
+                        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;w-100&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+                        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;col-6&#34;</span>&gt;
+                            &lt;<span style="color:#f92672">table</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;entable&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;table&#34;</span> <span style="color:#f92672">v-sortable</span><span style="color:#e6db74">=&#34;{ onUpdateEnglish: onUpdateEnglish }&#34;&gt;
+</span><span style="color:#e6db74">                               &lt;!-- 英文關鍵字表格內容 --&gt;
+</span><span style="color:#e6db74">                            &lt;/table&gt;
+</span><span style="color:#e6db74">                        &lt;/div&gt;
+</span><span style="color:#e6db74">                        &lt;div class=&#34;col-6&#34;&gt;
+</span><span style="color:#e6db74">                            &lt;table id=&#34;chtable&#34; class=&#34;table&#34; v-sortable=&#34;{ onUpdateChinese: onUpdateChinese }&#34;&gt;
+</span><span style="color:#e6db74">                                &lt;!-- 中文關鍵字表格內容 --&gt;
+</span><span style="color:#e6db74">                            &lt;/table&gt;
+</span><span style="color:#e6db74">                        &lt;/div&gt;
+</span><span style="color:#e6db74">                    &lt;/div&gt;
+</span><span style="color:#e6db74">                &lt;/div&gt;
+</span><span style="color:#e6db74">                &lt;div class=&#34;modal-footer&#34;&gt;
+</span><span style="color:#e6db74">                    &lt;!-- &lt;button type=&#34;button&#34; class=&#34;btn btn-secondary&#34; data-dismiss=&#34;modal&#34;&gt;Close&lt;/button&gt; --&gt;
+</span><span style="color:#e6db74">                    &lt;div class=&#34;form-check form-check-inline&#34;&gt;
+</span><span style="color:#e6db74">						&lt;input type=&#34;button&#34; class=&#34;btn btn-secondary&#34; id=&#34;cancel&#34; name=&#34;cancel&#34;
+</span><span style="color:#e6db74">								value=&#34;取消&#34; data-dismiss=&#34;modal&#34;&gt;
+</span><span style="color:#e6db74">					&lt;/div&gt;
+</span><span style="color:#e6db74">					&lt;div class=&#34;form-check form-check-inline&#34;&gt;
+</span><span style="color:#e6db74">						&lt;input type=&#34;button&#34; class=&#34;btn btn-primary&#34; id=&#34;save&#34; name=&#34;save&#34;
+</span><span style="color:#e6db74">								value=&#34;儲存&#34; @click=&#34;saveKeyword()&#34;</span>&gt;
+					&lt;/<span style="color:#f92672">div</span>&gt;
+                &lt;/<span style="color:#f92672">div</span>&gt;
+            &lt;/<span style="color:#f92672">div</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">div</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+
+<span style="color:#a6e22e">Vue</span>.<span style="color:#a6e22e">directive</span>(<span style="color:#e6db74">&#39;sortable&#39;</span>, {
+  <span style="color:#a6e22e">inserted</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">binding</span>) {
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Sortable</span>(<span style="color:#a6e22e">el</span>, <span style="color:#a6e22e">binding</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">||</span> {})
+  }
+})
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">englishKeywords</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Array,
+        },
+        <span style="color:#a6e22e">chineseKeywords</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Array,
+        },
+        <span style="color:#a6e22e">keyWordId</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Number,
+        }
+    },
+    <span style="color:#a6e22e">data</span>() {
+        <span style="color:#66d9ef">return</span> {
+            <span style="color:#e6db74">&#39;keywords&#39;</span><span style="color:#f92672">:</span> [
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">englishKeywords</span>,
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chineseKeywords</span>,
+            ],
+            <span style="color:#e6db74">&#39;enKeywords&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">englishKeywords</span>,
+            <span style="color:#e6db74">&#39;chKeywords&#39;</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chineseKeywords</span>,
+            <span style="color:#e6db74">&#39;id&#39;</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">keyWordId</span>
+        }
+    },
+    <span style="color:#a6e22e">methods</span><span style="color:#f92672">:</span>{
+        <span style="color:#a6e22e">onUpdateEnglish</span>(<span style="color:#a6e22e">event</span>) {
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">newIndex</span>]
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">old</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">oldIndex</span>]
+
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">newIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">old</span>
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">oldIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">now</span>
+        },
+        <span style="color:#a6e22e">onUpdateChinese</span>(<span style="color:#a6e22e">event</span>) {
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">newIndex</span>]
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">old</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">oldIndex</span>]
+
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">newIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">old</span>
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">oldIndex</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">now</span>
+        },
+        <span style="color:#a6e22e">addKeyWord</span>(){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">length1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">length</span>
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">length2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">length</span>
+
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">length1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;&#39;</span>)
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">length2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;&#39;</span>)
+        },
+        <span style="color:#a6e22e">deleteEnglishKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>, <span style="color:#ae81ff">1</span>)
+        },
+        <span style="color:#a6e22e">deleteChineseKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>, <span style="color:#ae81ff">1</span>)
+        },
+        <span style="color:#a6e22e">upEnglishKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">index</span>];
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">before</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">index</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">now</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">before</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span>){
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">now</span>)
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+            }
+        },
+        <span style="color:#a6e22e">upChineseKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">index</span>];
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">before</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">index</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">now</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">before</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span>){
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">now</span>)
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+            }
+        },
+        <span style="color:#a6e22e">downEnglishKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">index</span>];
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">after</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">now</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">after</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span>){
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">after</span>)
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+            }
+        },
+        <span style="color:#a6e22e">downChineseKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">now</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">index</span>];
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">after</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>];
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">now</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">after</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">undefined</span>){
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span>, <span style="color:#ae81ff">0</span>, <span style="color:#a6e22e">after</span>)
+                <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>.<span style="color:#a6e22e">splice</span>(<span style="color:#a6e22e">index</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+            }
+        },
+        <span style="color:#a6e22e">saveKeyword</span>(){
+            <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">params</span> <span style="color:#f92672">=</span> {
+				<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span>,
+                <span style="color:#a6e22e">english_keyword</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getEnglishKeyWord</span>(),
+                <span style="color:#a6e22e">chinese_keyword</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">getChineseKeyWord</span>()
+			}
+            <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/saveKeyWord&#39;</span>, <span style="color:#a6e22e">params</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">response</span>) =&gt; {
+				<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;success&#34;</span>) {
+					<span style="color:#a6e22e">swal</span>({
+						<span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">message</span>,
+						<span style="color:#a6e22e">confirmButtonColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#e6b930&#34;</span>,
+						<span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">status</span>,
+						<span style="color:#a6e22e">showCloseButton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+					}).<span style="color:#a6e22e">then</span>(() =&gt; {
+						window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/vision&#39;</span>
+					});
+				}
+			}).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt; {
+				<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>) {
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>)
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span>)
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">headers</span>)
+				} <span style="color:#66d9ef">else</span> {
+					<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error&#34;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>)
+				}
+			})
+
+        },
+        <span style="color:#a6e22e">getEnglishKeyWord</span>(){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ketElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByName</span>(<span style="color:#e6db74">&#39;enkeys[]&#39;</span>);
+            <span style="color:#a6e22e">ketElement</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">e</span>, <span style="color:#a6e22e">index</span>) =&gt; {
+                <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span>){
+                    <span style="color:#a6e22e">swal</span>({
+                        <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;英文關鍵字第&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;筆資料不能為空&#39;</span>,
+                        <span style="color:#a6e22e">confirmButtonColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#e6b930&#34;</span>,
+                        <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;error&#39;</span>,
+                        <span style="color:#a6e22e">showCloseButton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                    })
+                    <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+                }<span style="color:#66d9ef">else</span>{
+                    <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;,&#39;</span>
+                }
+            })
+
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">keyword</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+               <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">keyword</span>.<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">keyword</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            }
+
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">keyword</span>
+        },
+        <span style="color:#a6e22e">getChineseKeyWord</span>(){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ketElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByName</span>(<span style="color:#e6db74">&#39;chkeys[]&#39;</span>);
+            <span style="color:#a6e22e">ketElement</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">e</span>, <span style="color:#a6e22e">index</span>) =&gt; {
+                <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;&#39;</span>){
+                    <span style="color:#a6e22e">swal</span>({
+                        <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;中文關鍵字第&#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;筆資料不能為空&#39;</span>,
+                        <span style="color:#a6e22e">confirmButtonColor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;#e6b930&#34;</span>,
+                        <span style="color:#a6e22e">icon</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;error&#39;</span>,
+                        <span style="color:#a6e22e">showCloseButton</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+                    })
+                    <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>
+                }<span style="color:#66d9ef">else</span>{
+                    <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;,&#39;</span>
+                }
+            })
+
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">keyword</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+               <span style="color:#a6e22e">keyword</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">keyword</span>.<span style="color:#a6e22e">substring</span>(<span style="color:#ae81ff">0</span>,<span style="color:#a6e22e">keyword</span>.<span style="color:#a6e22e">length</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+            }
+
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">keyword</span>
+        },
+        <span style="color:#a6e22e">changeEnglishKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ketElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByName</span>(<span style="color:#e6db74">&#39;enkeys[]&#39;</span>);
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span>[<span style="color:#a6e22e">index</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">ketElement</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">value</span>
+        },
+        <span style="color:#a6e22e">changeChineseKeyWord</span>(<span style="color:#a6e22e">index</span>){
+            <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">ketElement</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">getElementsByName</span>(<span style="color:#e6db74">&#39;chkeys[]&#39;</span>);
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span>[<span style="color:#a6e22e">index</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">ketElement</span>[<span style="color:#a6e22e">index</span>].<span style="color:#a6e22e">value</span>
+        }
+    },
+    <span style="color:#a6e22e">watch</span><span style="color:#f92672">:</span>{
+        <span style="color:#a6e22e">keyWordId</span>(<span style="color:#a6e22e">val</span>){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span>
+        },
+        <span style="color:#a6e22e">englishKeywords</span>(<span style="color:#a6e22e">val</span>){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">enKeywords</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span>
+        },
+        <span style="color:#a6e22e">chineseKeywords</span>(<span style="color:#a6e22e">val</span>){
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">chKeywords</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">val</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">val</span>
+        },
+    }
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>顯示編輯畫面，並且可以將中英文關鍵字做編輯，可以做排序、滑鼠拖曳、新增、刪除、儲存，當中英文關鍵字改好之後做儲存，這時會跑到後端更新DB資料，網頁會在重新整理。</p>
+<p>onUpdateEnglish與onUpdateChinese是中英文關鍵字做排序時會更換資料，deleteEnglishKeyWord與deleteChineseKeyWord是移除中英文關鍵字的資料，saveKeyword是儲存中英文關鍵字的資料，changeEnglishKeyWord與changeChineseKeyWord是用滑鼠拖曳會將中英文關鍵字做排序。</p>
+<h4 id="imagevue">image.vue</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">img</span> <span style="color:#f92672">:src</span><span style="color:#e6db74">=&#34;data.image&#34;</span> /&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> Object,
+        }
+    },
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>將圖片路徑放在component裡</p>
+<h4 id="editbuttonvue">editButton.vue</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">button</span>
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>
+        <span style="color:#a6e22e">data</span><span style="color:#f92672">-toggle</span><span style="color:#960050;background-color:#1e0010">=&#34;</span><span style="color:#a6e22e">modal</span><span style="color:#960050;background-color:#1e0010">&#34;</span>
+        <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;click(data)&#34;</span>
+        <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-primary&#34;</span>
+        <span style="color:#a6e22e">data</span><span style="color:#f92672">-target</span><span style="color:#960050;background-color:#1e0010">=&#34;#</span><span style="color:#a6e22e">exampleModal</span><span style="color:#960050;background-color:#1e0010">&#34;</span>&gt;
+        <span style="color:#a6e22e">編輯</span>
+    &lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">meta</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">classes</span><span style="color:#f92672">:</span> {},
+    },
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>設定編輯按鈕使用bootstrap的modal，要對應顯示編輯視窗</p>
+<h4 id="deletebuttonvue">deleteButton.vue</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vue" data-lang="vue">&lt;<span style="color:#f92672">template</span>&gt;
+    &lt;<span style="color:#f92672">button</span>
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;button&#34;</span>
+        <span style="color:#f92672">@click</span><span style="color:#e6db74">=&#34;click(data)&#34;</span>
+        <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;btn btn-danger&#34;</span>&gt;
+        <span style="color:#a6e22e">刪除</span>
+    &lt;/<span style="color:#f92672">button</span>&gt;
+&lt;/<span style="color:#f92672">template</span>&gt;
+&lt;<span style="color:#f92672">script</span>&gt;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> {
+    <span style="color:#a6e22e">props</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">click</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">meta</span><span style="color:#f92672">:</span> {},
+        <span style="color:#a6e22e">classes</span><span style="color:#f92672">:</span> {},
+    },
+}
+&lt;/<span style="color:#f92672">script</span>&gt;
+</code></pre></div><p>設定刪除按鈕，移除該筆圖片的關鍵字資料與圖片檔案</p>
+<h3 id="新增頁面">新增頁面</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">html</span>&gt;
+    &lt;<span style="color:#f92672">head</span>&gt;
+        &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;csrf-token&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ csrf_token() }}&#34;</span>&gt;
+        &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/css/vision.css&#34;</span>&gt;
+        &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css&#34;</span>&gt;
+        <span style="color:#75715e">&lt;!-- SortableJS --&gt;</span>
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/sortablejs@1.4.2&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  <span style="color:#75715e">&lt;!-- VueSortable --&gt;</span>
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://unpkg.com/vue-sortable@0.1.3&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+      &lt;/<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">body</span>&gt;
+        &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;app&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+            &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fugle_form&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fugle_form&#34;</span> <span style="color:#a6e22e">action</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span> <span style="color:#a6e22e">method</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;POST&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;sidebar-form&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin-top:70px;&#34;</span>&gt;    
+                &lt;<span style="color:#f92672">h2</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text-center text-black font-weight-bold&#34;</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;margin-bottom:20px;&#34;</span>&gt;圖片解析&lt;/<span style="color:#f92672">h2</span>&gt;
+                &lt;<span style="color:#f92672">upload</span> <span style="color:#a6e22e">:upload-url</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;saveVisionUrl&#34;</span>&gt;&lt;/<span style="color:#f92672">upload</span>&gt;
+                &lt;<span style="color:#f92672">keyword</span> <span style="color:#a6e22e">:key-word-url</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;url&#34;</span>&gt;&lt;/<span style="color:#f92672">keyword</span>&gt;
+            &lt;/<span style="color:#f92672">form</span>&gt;
+        &lt;/<span style="color:#f92672">div</span>&gt;
+    &lt;/<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{mix(&#39;js/app.js&#39;)}}&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{mix(&#39;js/vision.js&#39;)}}&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h3 id="新增controller">新增Controller</h3>
+<p>在專案的目錄下，輸入指令新增<code>CloudVisionController.php</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#a6e22e">php</span> <span style="color:#a6e22e">artisan</span> <span style="color:#a6e22e">make</span><span style="color:#f92672">:</span><span style="color:#a6e22e">controller</span> <span style="color:#a6e22e">CloudVisionController</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getVisionDataTable</span>(<span style="color:#a6e22e">Request</span> $request)
+    {
+        $db <span style="color:#f92672">=</span> <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">table</span>(<span style="color:#e6db74">&#39;vision&#39;</span>);
+        $length <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">input</span>(<span style="color:#e6db74">&#39;length&#39;</span>);
+        $sortBy <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">input</span>(<span style="color:#e6db74">&#39;column&#39;</span>);
+        $orderBy <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">input</span>(<span style="color:#e6db74">&#39;dir&#39;</span>);
+        $searchValue <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">input</span>(<span style="color:#e6db74">&#39;search&#39;</span>);
+        $dataArray <span style="color:#f92672">=</span> [];
+        $visionData <span style="color:#f92672">=</span> $db<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">toArray</span>();
+        <span style="color:#66d9ef">foreach</span>($visionData <span style="color:#66d9ef">as</span> $data){
+            $array <span style="color:#f92672">=</span> [];
+            $array[<span style="color:#e6db74">&#39;image&#39;</span>] <span style="color:#f92672">=</span> $data<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">image</span>;
+            $array[<span style="color:#e6db74">&#39;englishKeyword&#39;</span>] <span style="color:#f92672">=</span> $data<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">english_keyword</span>;
+            $array[<span style="color:#e6db74">&#39;chineseKeyword&#39;</span>] <span style="color:#f92672">=</span> $data<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">chinese_keyword</span>;
+            $array[<span style="color:#e6db74">&#39;editId&#39;</span>] <span style="color:#f92672">=</span> $data<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">id</span>;
+            <span style="color:#a6e22e">array_push</span>($dataArray, (<span style="color:#a6e22e">object</span>)$array);
+        }
+
+        $collection <span style="color:#f92672">=</span> <span style="color:#a6e22e">collect</span>($dataArray);
+
+        <span style="color:#66d9ef">if</span>($searchValue <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+            $collection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">search</span>(<span style="color:#66d9ef">function</span> ($item, $key) {
+                <span style="color:#66d9ef">return</span> $item<span style="color:#f92672">-&gt;</span>$key <span style="color:#f92672">==</span> $searchValue;
+            });
+        }
+        
+        <span style="color:#66d9ef">if</span>($sortBy <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">&amp;&amp;</span> $orderBy <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+            <span style="color:#66d9ef">if</span>($orderBy <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;asc&#39;</span>){
+                $collection <span style="color:#f92672">=</span> $collection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">sortBy</span>($sortBy);
+            }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>($orderBy <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;desc&#39;</span>){
+                $collection <span style="color:#f92672">=</span> $collection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">sortByDesc</span>($sortBy);
+            }
+        }
+
+        <span style="color:#66d9ef">if</span>($length <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+            $collection <span style="color:#f92672">=</span> $collection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">forPage</span>(<span style="color:#ae81ff">1</span>, $length);
+        }
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">DataTableCollectionResource</span>($collection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">values</span>()<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">all</span>());
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">saveCloudVision</span>(<span style="color:#a6e22e">Request</span> $request){
+        <span style="color:#75715e">//先做圖片調整大小後暫存
+</span><span style="color:#75715e"></span>        $poImage <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">po_image</span>;
+        <span style="color:#75715e">// $a = $poImage-&gt;size;
+</span><span style="color:#75715e"></span>        $size <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>)(($poImage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getSize</span>()) <span style="color:#f92672">/</span> <span style="color:#ae81ff">1024</span>);
+        $imageName <span style="color:#f92672">=</span> $poImage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getClientOriginalName</span>();
+        <span style="color:#66d9ef">if</span>($size <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1024</span>){
+            $message <span style="color:#f92672">=</span> $imageName <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39; 檔案大小不可超過1M &#39;</span>;
+            <span style="color:#66d9ef">return</span> $message;
+        }
+        $file_name <span style="color:#f92672">=</span> <span style="color:#a6e22e">uniqid</span>()<span style="color:#f92672">.</span><span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">.</span>$poImage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getClientOriginalExtension</span>();
+        $file_path <span style="color:#f92672">=</span> <span style="color:#a6e22e">public_path</span>(<span style="color:#e6db74">&#39;images&#39;</span>);
+        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">is_dir</span>($file_path)){
+            <span style="color:#a6e22e">mkdir</span>($file_path);
+        }
+        $thumbnail_file_path <span style="color:#f92672">=</span> $file_path <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;\\&#39;</span> <span style="color:#f92672">.</span>$file_name;
+        $image <span style="color:#f92672">=</span> <span style="color:#a6e22e">Image</span><span style="color:#f92672">::</span><span style="color:#a6e22e">make</span>($poImage)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">resize</span>(<span style="color:#ae81ff">300</span>, <span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">function</span> ($constraint) {$constraint<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">aspectRatio</span>();})<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">save</span>($thumbnail_file_path, <span style="color:#ae81ff">60</span>);
+        <span style="color:#75715e">//再從本機的storage的圖片上傳
+</span><span style="color:#75715e"></span>        $storage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StorageClient</span>([
+            <span style="color:#e6db74">&#39;projectId&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;useVision&#39;</span>
+        ]);
+        $uploadFile <span style="color:#f92672">=</span> <span style="color:#a6e22e">fopen</span>($thumbnail_file_path , <span style="color:#e6db74">&#39;r&#39;</span>);
+        $bucketName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;vision-save-image&#39;</span>;
+        $bucket <span style="color:#f92672">=</span> $storage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bucket</span>($bucketName);
+        
+        $bucket<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">upload</span>($uploadFile, [
+            <span style="color:#e6db74">&#39;name&#39;</span> <span style="color:#f92672">=&gt;</span> $imageName
+        ]);
+
+        $imageAnnotator <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ImageAnnotatorClient</span>();
+        $imageContext <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ImageContext</span>();
+        $imageContext<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">setLanguageHints</span>([<span style="color:#e6db74">&#39;zh-Hant&#39;</span>]);
+        $dataArray <span style="color:#f92672">=</span> [];
+        $englishKeyword <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+        $chineseKeyword <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span>;
+        $googleStroageIamge <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://storage.googleapis.com/&#39;</span> <span style="color:#f92672">.</span> $bucket<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span>() <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#f92672">.</span>$imageName;
+        <span style="color:#66d9ef">try</span> {
+            $file <span style="color:#f92672">=</span> <span style="color:#f92672">@</span><span style="color:#a6e22e">file_get_contents</span>($googleStroageIamge);
+            $labelDetection <span style="color:#f92672">=</span> $imageAnnotator<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">labelDetection</span>($file, [
+                <span style="color:#e6db74">&#39;imageContext&#39;</span> <span style="color:#f92672">=&gt;</span> $imageContext
+            ]);
+            $labelData <span style="color:#f92672">=</span> $labelDetection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getLabelAnnotations</span>();
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($labelData) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+                <span style="color:#66d9ef">foreach</span>($labelData <span style="color:#66d9ef">as</span> $data){
+                    <span style="color:#75715e">//組標籤資料的關鍵字
+</span><span style="color:#75715e"></span>                }
+                <span style="color:#66d9ef">if</span>($englishKeyword <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+                    $translate <span style="color:#f92672">=</span>  $this<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getTranslateClient</span>($englishKeyword, <span style="color:#e6db74">&#39;zh-Hant&#39;</span>);
+                    $englishKeyword <span style="color:#f92672">=</span> <span style="color:#a6e22e">substr</span>($englishKeyword,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+                    $chineseKeyword <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#39;，&#39;</span>, <span style="color:#e6db74">&#39;,&#39;</span>, $translate[<span style="color:#e6db74">&#39;text&#39;</span>]);
+                }
+            }
+
+            $textDetection <span style="color:#f92672">=</span> $imageAnnotator<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">textDetection</span>($file, [
+                <span style="color:#e6db74">&#39;imageContext&#39;</span> <span style="color:#f92672">=&gt;</span> $imageContext
+            ]);
+            $textData <span style="color:#f92672">=</span> $textDetection<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">getTextAnnotations</span>();
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($textData) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+                <span style="color:#75715e">//組文字資料的關鍵字
+</span><span style="color:#75715e"></span>            }
+            
+            <span style="color:#66d9ef">if</span>($englishKeyword <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span> <span style="color:#f92672">||</span> $chineseKeyword <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;&#39;</span>){
+                $chineseKeyword <span style="color:#f92672">=</span> <span style="color:#a6e22e">substr</span>($chineseKeyword,<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>);
+                $dbData <span style="color:#f92672">=</span> [
+                    <span style="color:#e6db74">&#39;image&#39;</span> <span style="color:#f92672">=&gt;</span> (<span style="color:#a6e22e">String</span>)$googleStroageIamge,
+                    <span style="color:#e6db74">&#39;english_keyword&#39;</span> <span style="color:#f92672">=&gt;</span> (<span style="color:#a6e22e">String</span>)$englishKeyword,
+                    <span style="color:#e6db74">&#39;chinese_keyword&#39;</span> <span style="color:#f92672">=&gt;</span> (<span style="color:#a6e22e">String</span>)$chineseKeyword, 
+                ];
+                <span style="color:#a6e22e">array_push</span>($dataArray, $dbData);
+            } <span style="color:#66d9ef">else</span> {
+                $message <span style="color:#f92672">=</span> $imageName <span style="color:#f92672">.</span> <span style="color:#e6db74">&#39;此圖並無特徵&#39;</span>;
+                <span style="color:#66d9ef">return</span> $message;
+            }
+
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">count</span>($dataArray) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>){
+                $db <span style="color:#f92672">=</span> <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">table</span>(<span style="color:#e6db74">&#39;vision&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">insert</span>($dataArray);
+            }
+
+        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">Exception</span> $e) {
+            $message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;新增失敗!&#39;</span>;
+            <span style="color:#66d9ef">return</span> $message;
+        }
+
+        $imageAnnotator<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">close</span>();
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">file_exists</span>($thumbnail_file_path)){
+            <span style="color:#a6e22e">unlink</span>($thumbnail_file_path);
+        }
+
+        $key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;344&#39;</span>;
+		$time <span style="color:#f92672">=</span> <span style="color:#a6e22e">time</span>();
+       	$token <span style="color:#f92672">=</span> [
+        	<span style="color:#e6db74">&#39;iss&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;http://www.helloweba.net&#39;</span>,
+           	<span style="color:#e6db74">&#39;aud&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;http://www.helloweba.net&#39;</span>, 
+           	<span style="color:#e6db74">&#39;iat&#39;</span> <span style="color:#f92672">=&gt;</span> $time,
+           	<span style="color:#e6db74">&#39;nbf&#39;</span> <span style="color:#f92672">=&gt;</span> $time , 
+           	<span style="color:#e6db74">&#39;exp&#39;</span> <span style="color:#f92672">=&gt;</span> $time<span style="color:#f92672">+</span><span style="color:#ae81ff">7200</span>,
+            <span style="color:#e6db74">&#39;data&#39;</span> <span style="color:#f92672">=&gt;</span> [ 
+             	<span style="color:#e6db74">&#39;page&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;vision&#39;</span>,
+            ]
+        ];
+
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">view</span>(<span style="color:#e6db74">&#39;vision&#39;</span>, [
+            <span style="color:#e6db74">&#39;token&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;/?token=&#39;</span> <span style="color:#f92672">.</span> (<span style="color:#a6e22e">JWT</span><span style="color:#f92672">::</span><span style="color:#a6e22e">encode</span>($token, $key)),
+        ]);
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">saveKeyWordData</span>(<span style="color:#a6e22e">Request</span> $request){
+        $english_keyword <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">english_keyword</span>;
+        $chinese_keyword <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">chinese_keyword</span>;
+        $status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;success&#39;</span>;
+        $message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;更新成功!&#39;</span>;
+
+        $data <span style="color:#f92672">=</span> [ 
+            <span style="color:#e6db74">&#39;english_keyword&#39;</span> <span style="color:#f92672">=&gt;</span> $english_keyword,
+            <span style="color:#e6db74">&#39;chinese_keyword&#39;</span> <span style="color:#f92672">=&gt;</span> $chinese_keyword,
+        ];
+
+        <span style="color:#66d9ef">try</span> {
+            $user <span style="color:#f92672">=</span> <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">table</span>(<span style="color:#e6db74">&#39;vision&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">where</span>(<span style="color:#e6db74">&#39;id&#39;</span>, $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">id</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">update</span>($data);
+
+        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">Exception</span> $e) {
+            $status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;error&#39;</span>;
+            $message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;更新失敗!&#39;</span>;
+            <span style="color:#a6e22e">dd</span>($e);
+        }
+         <span style="color:#66d9ef">return</span> [ <span style="color:#e6db74">&#39;status&#39;</span> <span style="color:#f92672">=&gt;</span> $status, <span style="color:#e6db74">&#39;message&#39;</span> <span style="color:#f92672">=&gt;</span> $message, ];
+
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">deleteKeyWordData</span>(<span style="color:#a6e22e">Request</span> $request){
+        $id <span style="color:#f92672">=</span> $request<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">id</span>;
+        $status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;success&#39;</span>;
+        $message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;刪除成功!&#39;</span>;
+
+        <span style="color:#66d9ef">try</span> {
+            $db <span style="color:#f92672">=</span> <span style="color:#a6e22e">DB</span><span style="color:#f92672">::</span><span style="color:#a6e22e">table</span>(<span style="color:#e6db74">&#39;vision&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">where</span>(<span style="color:#e6db74">&#39;id&#39;</span>, $id);
+            $data <span style="color:#f92672">=</span> $db<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">get</span>();
+            $path <span style="color:#f92672">=</span> $data[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">image</span>;
+            $fileObj <span style="color:#f92672">=</span> <span style="color:#a6e22e">explode</span>(<span style="color:#e6db74">&#39;/&#39;</span>, $path);
+            $file <span style="color:#f92672">=</span> $fileObj[<span style="color:#ae81ff">4</span>];
+
+            $storage <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">StorageClient</span>([
+                <span style="color:#e6db74">&#39;projectId&#39;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#39;useVision&#39;</span>
+            ]);
+    
+            $bucketName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;vision-save-image&#39;</span>;
+            $bucket <span style="color:#f92672">=</span> $storage<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">bucket</span>($bucketName);
+            $object <span style="color:#f92672">=</span> $bucket<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">object</span>($file);
+            $object<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">delete</span>();
+
+            $db<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">delete</span>();
+
+        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">Exception</span> $e) {
+            $status <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;error&#39;</span>;
+            $message <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;刪除失敗!&#39;</span>;
+            <span style="color:#a6e22e">dd</span>($e);
+        }
+         <span style="color:#66d9ef">return</span> [ <span style="color:#e6db74">&#39;status&#39;</span> <span style="color:#f92672">=&gt;</span> $status, <span style="color:#e6db74">&#39;message&#39;</span> <span style="color:#f92672">=&gt;</span> $message, ];
+
+    }
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getTranslateClient</span>(<span style="color:#a6e22e">String</span> $text, <span style="color:#a6e22e">String</span> $targetLanguage){
+        $translate <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">TranslateClient</span>();
+        $result <span style="color:#f92672">=</span> $translate<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">translate</span>($text, [
+            <span style="color:#e6db74">&#39;target&#39;</span> <span style="color:#f92672">=&gt;</span> $targetLanguage,
+        ]);
+
+        <span style="color:#66d9ef">return</span> $result;
+    }
+
+</code></pre></div><p>程式碼中主要是做CURD，在網頁剛開啟時，透過axios做查詢，將資料顯示到網頁上</p>
+<p>新增是在上傳圖片的時候做，會先將用storage API將圖片做調整大小，在上傳上去google cloud storage，再用vision API取得解析圖片的物件，這裡我們使用標籤與文字，標籤是依照API識別圖片中人事物，文字則是取得圖片文字，如果圖片沒有文字就沒資料，當標籤或文字，如果是英文的話，會用translate API做英翻中，並且將資料新增到中文關鍵字裡。</p>
+<p>更新是在編輯視窗裡，改好關鍵字資料在做儲存，刪除則是直接移除一筆圖片資料與檔案，移除圖片檔案有使用translate API，將google cloud storage圖片檔案做移除。</p>
+<h3 id="route">Route</h3>
+<p>在web設定route執行Controller的function，執行<code>php artisan serve</code>,</p>
+<p>web.php</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/vision&#39;</span>, <span style="color:#e6db74">&#39;CloudVisionController@getVisionDefaultData&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#39;vision&#39;</span>);
+
+<span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/upload&#39;</span>, <span style="color:#e6db74">&#39;CloudVisionController@saveCloudVision&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#39;upload&#39;</span>);
+
+<span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/saveKeyWord&#39;</span>, <span style="color:#e6db74">&#39;CloudVisionController@saveKeyWordData&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#39;saveKeyWord&#39;</span>);
+
+<span style="color:#a6e22e">Route</span><span style="color:#f92672">::</span><span style="color:#a6e22e">post</span>(<span style="color:#e6db74">&#39;/deleteKeyWord&#39;</span>, <span style="color:#e6db74">&#39;CloudVisionController@deleteKeyWordData&#39;</span>)<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">name</span>(<span style="color:#e6db74">&#39;deleteKeyWord&#39;</span>);
+</code></pre></div><h3 id="編譯檔案">編譯檔案</h3>
+<p>上面步驟完成之後，我們要進行編譯，請在<code>webpack.mix.js</code>檔案，新增<code>vision.js</code>檔案</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#a6e22e">mix</span>.<span style="color:#a6e22e">js</span>(<span style="color:#e6db74">&#39;resources/js/app.js&#39;</span>, <span style="color:#e6db74">&#39;public/js&#39;</span>)
+   .<span style="color:#a6e22e">js</span>(<span style="color:#e6db74">&#39;resources/js/vision.js&#39;</span>, <span style="color:#e6db74">&#39;public/js&#39;</span>)
+    .<span style="color:#a6e22e">sass</span>(<span style="color:#e6db74">&#39;resources/sass/app.scss&#39;</span>, <span style="color:#e6db74">&#39;public/css&#39;</span>);
+</code></pre></div><p>做完之後，執行編譯指令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#a6e22e">npm</span> <span style="color:#a6e22e">run</span> <span style="color:#a6e22e">watch</span>
+</code></pre></div><h3 id="啟動本機站台">啟動本機站台</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-jsx" data-lang="jsx"><span style="color:#a6e22e">$</span> <span style="color:#a6e22e">php</span> <span style="color:#a6e22e">artisan</span> <span style="color:#a6e22e">serve</span>
+<span style="color:#a6e22e">Starting</span> <span style="color:#a6e22e">Laravel</span> <span style="color:#a6e22e">development</span> <span style="color:#a6e22e">server</span><span style="color:#f92672">:</span> &lt;<span style="color:#f92672">http</span><span style="color:#960050;background-color:#1e0010">://</span><span style="color:#a6e22e">127.0.0.1</span><span style="color:#960050;background-color:#1e0010">:</span><span style="color:#a6e22e">8000</span>&gt;
+</code></pre></div><p>啟動之後，輸入網址為http://127.0.0.1:8000/vision</p>
+<p>參考資料:</p>
+<p><a href="https://xenby.com/b/245-%E6%95%99%E5%AD%B8-google-oauth-2-0-%E7%94%B3%E8%AB%8B%E8%88%87%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97">https://xenby.com/b/245-%E6%95%99%E5%AD%B8-google-oauth-2-0-%E7%94%B3%E8%AB%8B%E8%88%87%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97</a>、</p>
+<p><a href="http://vito-note.blogspot.com/2015/04/google-oauth-20.html">http://vito-note.blogspot.com/2015/04/google-oauth-20.html</a>、</p>
+<p><a href="https://support.google.com/admanager/answer/6078734?hl=zh-Hant">https://support.google.com/admanager/answer/6078734?hl=zh-Hant</a>、</p>
+<p><a href="https://developers.google.com/identity/protocols/oauth2/web-server">https://developers.google.com/identity/protocols/oauth2/web-server</a>、</p>
+<p><a href="https://github.com/googleapis/google-cloud-php-vision">https://github.com/googleapis/google-cloud-php-vision</a>、</p>
+<p><a href="http://googleapis.github.io/google-cloud-php/#/docs/cloud-vision/v1.3.1/vision/visionclient">http://googleapis.github.io/google-cloud-php/#/docs/cloud-vision/v1.3.1/vision/visionclient</a>、</p>
+<p><a href="https://cloud.google.com/translate/docs/reference/libraries/v3/php">https://cloud.google.com/translate/docs/reference/libraries/v3/php</a>、</p>
+<p><a href="https://cloud.google.com/storage/docs/reference/libraries">https://cloud.google.com/storage/docs/reference/libraries</a>、</p>
+<p><a href="https://github.com/jamesdordoy/laravel-vue-datatable">https://github.com/jamesdordoy/laravel-vue-datatable</a>、</p>
+<p><a href="https://jamesdordoy.github.io/laravel-vue-datatable">https://jamesdordoy.github.io/laravel-vue-datatable</a></p>
+
+  </section>
+  <div class="clearfix">
+    
+      <div class="post-date pull-left">
+        <span class="small">
+          
+          
+        </span>
+      </div>
+    
+    <div class="pull-right">
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/%E5%9C%96%E7%89%87%E8%A7%A3%E6%9E%90/">
+            #圖片解析
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #Vision&#34;
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #Google Cloud Vision API
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/translate/">
+            #Translate
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #Google Cloud Translate API
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/storage/">
+            #Storage
+          </a>
+        </span>
+      
+        <span class="post-tag small">
+          <a href="">
+            #Google Cloud Storage API
+          </a>
+        </span>
+      
+    </div>
+  </div>
+  <footer>
+    
+	
+      
+        <div class="delimiter"></div>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          var disqus_shortname = 'Kai88142';
+          (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      
+    
+    <div class="delimiter"></div>
+    <div class="pager-container">
+      
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/line-notify/">
+          <div>
+            <span aria-hidden="true">&larr;</span> 
+          </div>
+        </a>
+      
+      
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/fugle/">
+          <div>
+             <span aria-hidden="true">&rarr;</span>
+          </div>
+        </a>
+      
+    </div>
+  </footer>
+</article>
+<div class="delimiter"></div>
+
+  </main>
+  <footer class="container global-footer">
+    <div class="copyright-note pull-left">
+      
+    </div>
+    <div class="sns-links hidden-print">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  
+  
+  
+
+  
+  
+
+  
+</body>
+</html>
+

@@ -80,9 +80,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/development%e8%88%87production%e5%b7%ae%e7%95%b0/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/development%e8%88%87production%e5%b7%ae%e7%95%b0/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/development%e8%88%87production%e5%b7%ae%e7%95%b0/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/development%e8%88%87production%e5%b7%ae%e7%95%b0/">中文</a>
           
         </div>
       
@@ -99,64 +99,40 @@
   <div class="delimiter"></div>
   <section>
     <p>webpack mode 模型分為兩種，development、production，</p>
-
 <p>兩種模型底下含有插件(plugin)</p>
-
 <p><strong>development(開發環境)</strong></p>
-
 <p>plugin:</p>
-
 <ul>
 <li>NamedChunksPlugin:使用暫存(runtime)chunk物件都有一個id會進行更新</li>
 <li>NamedModulesPlugin:使用HMR時顯示模組的相對路徑</li>
 </ul>
-
 <p><strong>為什麼development只有兩個?</strong></p>
-
 <p>因為development為開發環境可當站台使用，所以只會有模組相對路徑與暫存變數進行更新，也可以使用自動編譯。</p>
-
 <p>webpack-dev-server &ndash;mode development</p>
-
 <p>webpack &ndash;watch &ndash;mode development</p>
-
 <p>參考資料:<a href="https://webpack.docschina.org/guides/development/">https://webpack.docschina.org/guides/development/</a></p>
-
 <p><strong>production(生產環境)</strong></p>
-
 <p>plugin:</p>
-
 <ul>
 <li>FlagDependencyUsagePlugin:執行套件打包用到的内件檔案</li>
 <li>FlagIncludedChunksPlugin:檢測並標記模組之間的關係</li>
 <li>ModuleConcatenationPlugin:可將webpack所有模組轉換成一個模組</li>
 <li>NoEmitOnErrorsPlugin:可在編譯時發生錯誤回傳訊息</li>
 <li>OccurrenceOrderPlugin:預設為啟用，當webpack使用版本切換時，可確保刪除插件</li>
-<li>SideEffectsFlagPlugin:可執行webpack一個清除模組的指令，需要在package.json裡加&rdquo;sideEffects&rdquo;: false</li>
+<li>SideEffectsFlagPlugin:可執行webpack一個清除模組的指令，需要在package.json裡加&quot;sideEffects&quot;: false</li>
 <li>UglifyJsPlugin:可簡化大量的程式碼進行壓縮並優化</li>
 </ul>
-
 <p>參考資料:<a href="https://segmentfault.com/a/1190000017387465">https://segmentfault.com/a/1190000017387465</a></p>
-
 <p><strong>直接在package.json腳本指令輸入&ndash;mode development直接設定就不用在webpack.config.js一直變更。</strong></p>
-
 <p><strong>node_env在哪裡使用?</strong></p>
-
 <p>node_env為環境變數，當npm run webpack 執行時，webpack.config.js裡有設定mode為development或production會使用process.env.NODE_ENV變數決定用哪種</p>
-
 <p>process.env.NODE_ENV === &lsquo;development&rsquo;</p>
-
 <p>process.env.NODE_ENV === &lsquo;production&rsquo;</p>
-
 <p>使用這兩種mode，development可以當站台使用或自動編譯，production可以將想要的套件打包輸出一個檔案(.js)，webpack.config.js沒設定時預設都會是production</p>
-
 <p>development只做編譯速度比較快適用開發，production會將所有套件壓縮程式優化，速度會比較慢適用上線，因為檔案越小越好。</p>
-
 <p>參考資料：</p>
-
 <p><a href="https://stackoverflow.com/questions/49242756/how-to-set-mode-to-development-or-production-in-the-config-file">https://stackoverflow.com/questions/49242756/how-to-set-mode-to-development-or-production-in-the-config-file</a></p>
-
 <p><a href="https://juejin.im/post/5a4ed5306fb9a01cbc6e2ee2">https://juejin.im/post/5a4ed5306fb9a01cbc6e2ee2</a></p>
-
 <p><a href="https://www.cnblogs.com/tugenhua0707/p/9780621.html">https://www.cnblogs.com/tugenhua0707/p/9780621.html</a></p>
 
   </section>
@@ -171,9 +147,11 @@
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/zh-tw/tags/webpack/">#Webpack</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/zh-tw/tags/webpack/">
+            #Webpack
+          </a>
+        </span>
       
     </div>
   </div>
@@ -197,14 +175,14 @@
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/webpack/">
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/zh-tw/posts/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/">
           <div>
             <span aria-hidden="true">&larr;</span> 
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/%E6%AD%A3%E8%A6%8F%E5%8C%96%E8%A1%A8%E7%A4%BA%E6%B3%95/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/zh-tw/posts/webpack/">
           <div>
              <span aria-hidden="true">&rarr;</span>
           </div>

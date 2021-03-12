@@ -80,9 +80,9 @@
       
         <div class="language-container">
           
-            <a class="btn btn-default language-button" href="/en/posts/webpack/">English</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/en/posts/webpack/">English</a>
           
-            <a class="btn btn-default language-button" href="/zh-tw/posts/webpack/">中文</a>
+            <a class="btn btn-default language-button" href="https://coolgood88142.github.io/zh-tw/posts/webpack/">中文</a>
           
         </div>
       
@@ -99,7 +99,6 @@
   <div class="delimiter"></div>
   <section>
     <p>webpack是來自於npm底下其中一個套件，主要是3個步驟：輸入、編譯、輸出</p>
-
 <ol>
 <li>entry(入口點)：指定路徑的檔案做打包</li>
 <li>output(出口)：將入口點所有檔案打包成一個檔案並輸出指定路徑</li>
@@ -107,34 +106,32 @@
 <li>plugins(插件)：使用require可以自行定義使用多個插件同一個檔案。</li>
 <li>mode(模型)：只有development或production來設定mode參數</li>
 </ol>
-
 <p>webpack.config.js內容</p>
-
 <pre><code>//宣告常數 path為webpack設定檔路徑
 const path = require('path');
 
 //宣告常數 webpack為webpack設定檔路徑
-const webpack = require('webpack');         
+const webpack = require('webpack');			
 
 //設定檔匯出函數
 module.exports = {
-    //輸入指定entry.js檔案
-    entry: './entry.js',
-    
-    //輸出bundle.js檔案
+	//輸入指定entry.js檔案
+	entry: './entry.js',
+	
+	//輸出bundle.js檔案
     output: {
-        //輸出檔案名稱為bundle.js
+    	//輸出檔案名稱為bundle.js
         filename: 'bundle.js',
         
         //定義檔案根目錄，將相對路徑換成絕對路徑
         path: path.resolve(__dirname, './'),
     },
     //自訂模組
-    module: {
-        //陣列存放物件
+	module: {
+		//陣列存放物件
         rules: [
             {
-                //指定msg.vue檔(路徑)
+            	//指定msg.vue檔(路徑)
                 test: '/.msg.vue',
                 //要轉換哪個loader(插件)
                 use: 'vue-loader'
@@ -142,25 +139,20 @@ module.exports = {
         ]
     },
     //解析模組
-    resolve: {
-        //原本模組上的vue替換成新的路徑指定檔案
+	resolve: {
+		//原本模組上的vue替換成新的路徑指定檔案
         alias: {
-            'vue': &quot;vue/dist/vue.js&quot;
+			'vue': &quot;vue/dist/vue.js&quot;
         },
         //可以省略js、vue
-        extensions: ['.js', '.vue']
+		extensions: ['.js', '.vue']
     }
 };
 
 //
-</code></pre>
-
-<p>參考資料：<a href="https://www.webpackjs.com/concepts/">https://www.webpackjs.com/concepts/</a></p>
-
+</code></pre><p>參考資料：https://www.webpackjs.com/concepts/</p>
 <p><a href="https://ithelp.ithome.com.tw/articles/10193788">https://ithelp.ithome.com.tw/articles/10193788</a></p>
-
 <p><a href="https://segmentfault.com/a/1190000013176083">https://segmentfault.com/a/1190000013176083</a></p>
-
 <p><a href="https://rhadow.github.io/2015/03/23/webpackIntro/">https://rhadow.github.io/2015/03/23/webpackIntro/</a></p>
 
   </section>
@@ -175,9 +167,11 @@ module.exports = {
     
     <div class="pull-right">
       
-        
-          <span class="post-tag small"><a href="https://coolgood88142.github.io/en/tags/webpack/">#Webpack</a></span>
-        
+        <span class="post-tag small">
+          <a href="https://coolgood88142.github.io/en/tags/webpack/">
+            #Webpack
+          </a>
+        </span>
       
     </div>
   </div>
@@ -201,14 +195,14 @@ module.exports = {
     <div class="delimiter"></div>
     <div class="pager-container">
       
-        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/">
+        <a class="btn btn-primary btn-older-posts" href="https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/">
           <div>
             <span aria-hidden="true">&larr;</span> Older Posts
           </div>
         </a>
       
       
-        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/en/posts/development%E8%88%87production%E5%B7%AE%E7%95%B0/">
+        <a class="btn btn-primary btn-newer-posts" href="https://coolgood88142.github.io/en/posts/npm%E8%88%87yarn%E5%B7%AE%E7%95%B0/">
           <div>
             Newer Posts <span aria-hidden="true">&rarr;</span>
           </div>
